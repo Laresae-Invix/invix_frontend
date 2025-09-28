@@ -1,44 +1,30 @@
-import ProductCard from "../../../../components/ProductkCard";
+import SectionNavigator from "../../../../components/sectionNavigator";
+import ProductEventSectionItemsEvent from "../items/event-section-items-event";
+import ProductEventSectionItemsKomunitas from "../items/event-section-items-komunitas";
+import ProductEventSectionItemsKorporat from "../items/event-section-items-koporat";
 
-export default function ProductEventSection() {
-	const products = [
+export default function ProductCoupleSection() {
+	const items = [
 		{
-			id: 1,
-			title: "Event 1",
-			description: "Deskripsi singkat produk event 1.",
+			key: "komunitas",
+			label: "Komunitas",
+			element: <ProductEventSectionItemsKomunitas />,
 		},
 		{
-			id: 2,
-			title: "Event 2",
-			description: "Deskripsi singkat produk event 2.",
+			key: "koporat",
+			label: "Koporat",
+			element: <ProductEventSectionItemsKorporat />,
 		},
 		{
-			id: 3,
-			title: "Event 3",
-			description: "Deskripsi singkat produk event 3.",
-		},
-		{
-			id: 4,
-			title: "Event 3",
-			description: "Deskripsi singkat produk event 3.",
-		},
-		{
-			id: 5,
-			title: "Event 3",
-			description: "Deskripsi singkat produk event 3.",
-		},
-		{
-			id: 6,
-			title: "Event 3",
-			description: "Deskripsi singkat produk event 3.",
+			key: "event",
+			label: "Event",
+			element: <ProductEventSectionItemsEvent />,
 		},
 	];
 
 	return (
 		<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-			{products.map((p) => (
-				<ProductCard key={p.id} title={p.title} description={p.description} />
-			))}
+			<SectionNavigator items={items} defaultKey="" />
 		</div>
 	);
 }
