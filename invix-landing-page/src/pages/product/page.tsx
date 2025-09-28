@@ -1,17 +1,16 @@
-import ProductCard from "../../components/ProdakCard";
+import SectionNavigator from "../../components/sectionNavigator";
+import ProductCoupleSection from "./sections/menu/couple-section-menu";
+import ProductEventSection from "./sections/menu/event-section-menu";
 
 export default function ProductPage() {
-	const products = [
-		{ id: 1, title: "Product 1", description: "Deskripsi singkat produk 1." },
-		{ id: 2, title: "Product 2", description: "Deskripsi singkat produk 2." },
-		{ id: 3, title: "Product 3", description: "Deskripsi singkat produk 3." },
+	const items = [
+		{ key: "couple", label: "Couple", element: <ProductCoupleSection /> },
+		{ key: "event", label: "Event", element: <ProductEventSection /> },
 	];
 
 	return (
-		<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-			{products.map((p) => (
-				<ProductCard key={p.id} title={p.title} description={p.description} />
-			))}
+		<div className="space-y-4">
+			<SectionNavigator items={items} defaultKey="product" />
 		</div>
 	);
 }

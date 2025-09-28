@@ -2,12 +2,14 @@ type ProductCardProps = {
 	title: string;
 	description: string;
 	imageUrl?: string;
+	onDetailClick?: () => void;
 };
 
 export default function ProductCard({
 	title,
 	description,
 	imageUrl,
+	onDetailClick,
 }: ProductCardProps) {
 	return (
 		<div className="rounded-2xl border bg-white p-4 shadow-sm">
@@ -24,6 +26,15 @@ export default function ProductCard({
 			</div>
 			<h3 className="mt-3 font-semibold">{title}</h3>
 			<p className="text-sm text-gray-600">{description}</p>
+			{onDetailClick && (
+				<button
+					type="button"
+					onClick={onDetailClick}
+					className="mt-3 inline-flex items-center rounded-lg bg-gray-900 px-3 py-1.5 text-xs font-medium text-white hover:bg-black"
+				>
+					Detail
+				</button>
+			)}
 		</div>
 	);
 }
