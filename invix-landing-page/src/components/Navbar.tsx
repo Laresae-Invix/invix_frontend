@@ -109,14 +109,14 @@ export default function Navbar() {
             )}
             <button
               type="button"
-              onClick={() => { pindahPage("pricing"); setOpen(false); }}
+              onClick={() => { pindahPage(""); setOpen(false); }}
               className="py-2 rounded-lg font-medium text-slate-700 hover:bg-slate-50 text-left"
             >
               About
             </button>
             <button
               type="button"
-              onClick={() => { pindahPage("faq"); setOpen(false); }}
+              onClick={() => { pindahPage(""); setOpen(false); }}
               className="py-2 rounded-lg font-medium text-slate-700 hover:bg-slate-50 text-left"
             >
               Product
@@ -125,8 +125,8 @@ export default function Navbar() {
             <div className="pt-2 flex items-center gap-2">
               <button
                 type="button"
-                onClick={() => { pindahPage("cta"); setOpen(false); }}
-                className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700"
+                onClick={() => { pindahPage(""); setOpen(false); }}
+                className="inline-flex items-center gap-2 rounded-2xl bg-[#4351BC] px-4 py-2 text-sm font-semibold text-white shadow hover:bg-[#4351BC]"
               >
                 Mulai Gratis <ArrowIcon />
               </button>
