@@ -12,8 +12,8 @@ export default function ProductCard({
 	onDetailClick,
 }: ProductCardProps) {
 	return (
-		<div className="rounded-2xl border bg-white p-4 shadow-sm">
-			<div className="aspect-video rounded-xl bg-gray-100 flex items-center justify-center">
+		<div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm hover:shadow transition">
+			<div className="h-44 rounded-xl bg-slate-100 flex items-center justify-center overflow-hidden">
 				{imageUrl ? (
 					<img
 						src={imageUrl}
@@ -21,20 +21,26 @@ export default function ProductCard({
 						className="h-full w-full rounded-xl object-cover"
 					/>
 				) : (
-					<span className="text-gray-400 text-sm">No Image</span>
+					<span className="text-slate-400 text-sm">No Image</span>
 				)}
 			</div>
-			<h3 className="mt-3 font-semibold">{title}</h3>
-			<p className="text-sm text-gray-600">{description}</p>
-			{onDetailClick && (
-				<button
-					type="button"
-					onClick={onDetailClick}
-					className="mt-3 inline-flex items-center rounded-lg bg-gray-900 px-3 py-1.5 text-xs font-medium text-white hover:bg-black"
-				>
-					Detail
-				</button>
-			)}
+
+			<div className="mt-3 flex items-center justify-between">
+				<div>
+					<p className="font-semibold">{title}</p>
+					<p className="text-xs text-slate-500">{description}</p>
+				</div>
+
+				{onDetailClick && (
+					<button
+						type="button"
+						onClick={onDetailClick}
+						className="rounded-xl bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-700"
+					>
+						Detail
+					</button>
+				)}
+			</div>
 		</div>
 	);
 }
