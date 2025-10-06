@@ -1,3 +1,4 @@
+// file : invix-landing-page/src/routes.tsx
 import type React from "react";
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";

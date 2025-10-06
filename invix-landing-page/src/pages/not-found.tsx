@@ -1,16 +1,24 @@
 import { Link } from "react-router-dom";
+import  TrueFocus  from "@/components/TrueFocus"; // pastikan named import
 
 export default function NotFoundPage() {
   return (
-    <div className="grid place-items-center min-h-[60vh]">
-      <div className="text-center">
-        <h1 className="text-5xl font-extrabold">404</h1>
-        <p className="mt-2 text-gray-600">Halaman yang lu cari nggak ketemu.</p>
+    <div className="relative grid place-items-center min-h-[60vh] overflow-hidden">
+      <div className="relative text-center space-y-6">
+        <TrueFocus
+          sentence="404 Not Found"
+          manualMode={false}
+          blurAmount={5}
+          borderColor="blue"
+          animationDuration={2}
+          pauseBetweenAnimations={1}
+          
+        />
         <Link
           to="/"
-          className="mt-4 inline-block rounded-lg bg-gray-900 px-4 py-2 text-white hover:bg-black"
+          className="inline-block rounded-lg bg-gray-900 px-4 py-2 text-white hover:bg-black transition"
         >
-          Balik ke Home
+          Back To Home
         </Link>
       </div>
     </div>
