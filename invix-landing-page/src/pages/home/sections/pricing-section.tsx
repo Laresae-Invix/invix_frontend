@@ -8,21 +8,21 @@ export default function PricingSection() {
         </p>
       </div>
 
-      {/* ⬇️ Ubah GRID → FLEX agar kartu selalu center */}
+      {/* Flexbox untuk memastikan kartu tetap center dan sejajar */}
       <div className="mt-8 flex flex-wrap justify-center gap-6">
         <PriceCard
           tier="Basic"
           price="Rp 150.000"
-          features={["10 undangan aktif", "Semua template", "Domain invix.link", "Analitik"]}
-          cta="Pilih Pro"
+          features={["Template Standar", "RSVP Otomatis"]}
+          cta="Pilih Paket Basic"
           highlight=""
           ribbon=""
         />
         <PriceCard
           tier="Costum"
           price="Rp 300.000"
-          features={["Tak terbatas", "Team access", "Custom domain", "Support prioritas"]}
-          cta="Hubungi Sales"
+          features={["Design Khusus Sesuai Tema", "Fitur Reminder", "Custom domain", "Analitik Tamu"]}
+          cta="Pilih Paket Costum"
           highlight="pop"
           ribbon="Terlaris"
         />
@@ -39,7 +39,7 @@ function PriceCard(
 ) {
   const ring = highlight === "pop" ? "ring-2 ring-yellow-300" : "ring-1 ring-slate-200";
   return (
-    <div className={`relative max-w-sm w-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm ${ring}`}>
+    <div className={`relative max-w-sm w-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm ${ring} transition-transform transform hover:scale-105 duration-200 ease-in-out`}>
       {ribbon && (
         <div className="absolute -top-3 right-4 rounded-full bg-yellow-400 px-3 py-1 text-xs font-bold text-slate-900 shadow">
           {ribbon}
@@ -55,9 +55,11 @@ function PriceCard(
           <li key={f} className="flex items-start gap-2"><CheckIcon /> {f}</li>
         ))}
       </ul>
-      <button className="mt-5 w-full rounded-2xl bg-[#4351BC] px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">
-        {cta}
-      </button>
+      <div className="mt-5 flex justify-center">
+        <button className="w-full rounded-2xl bg-[#4351BC] px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 ease-in-out">
+          {cta}
+        </button>
+      </div>
     </div>
   );
 }
