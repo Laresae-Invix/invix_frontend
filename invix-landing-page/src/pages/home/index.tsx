@@ -9,7 +9,6 @@ import {
 	QrIcon,
 	ShieldIcon,
 	SparkIcon,
-	Stat,
 	UsersMiniIcon,
 } from "../../components/icon";
 import { SECTION_IDS, type Target } from "../../constant/section_ids";
@@ -21,6 +20,7 @@ import HowSection from "./sections/how-section";
 import PricingSection from "./sections/pricing-section";
 import TemplateSection from "./sections/template-section";
 import TestiSection from "./sections/testi-section";
+
 
 export default function LandingPage() {
 	const location = useLocation();
@@ -45,7 +45,7 @@ export default function LandingPage() {
 		<div className="min-h-screen bg-slate-50 text-slate-900">
 			<section
   className={[
-    "relative min-h-[100svh] flex items-center justify-center overflow-hidden",
+    "relative min-h-[85svh] flex items-center justify-center overflow-hidden",
     // background gradien lembut
     "bg-[radial-gradient(ellipse_at_top_left,theme(colors.yellow.200)/.35,transparent_55%),radial-gradient(ellipse_at_bottom_right,rgb(67_81_188_/_0.28),transparent_55%)]",
   ].join(" ")}
@@ -189,3 +189,4 @@ export default function LandingPage() {
 		</div>
 	);
 }
+
