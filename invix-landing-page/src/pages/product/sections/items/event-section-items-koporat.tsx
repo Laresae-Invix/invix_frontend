@@ -30,7 +30,7 @@ export default function ProductEventSectionItemsKorporat() {
 	];
 
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
+		<div className="grid gap-20 sm:grid-cols-2 lg:grid-cols-3">
 			{products.map((p) => (
 				<ProductCard key={p.id} title={p.title} description={p.description} />
 			))}
