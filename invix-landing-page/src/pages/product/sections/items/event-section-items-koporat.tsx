@@ -22,17 +22,17 @@ export default function ProductEventSectionItemsKorporat() {
 			title: "Korporat 4",
 			description: "Deskripsi singkat produk Korporat 4.",
 		},
+		{
+			id: 5,
+			title: "Korporat 5",
+			description: "Deskripsi singkat produk Korporat 5.",
+		},
 	];
 
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
 			{products.map((p) => (
-				<ProductCard
-					key={p.id}
-					title={p.title}
-					description={p.description}
-					// imageUrl={p.imageUrl}
-				/>
+				<ProductCard key={p.id} title={p.title} description={p.description} />
 			))}
 		</div>
 	);

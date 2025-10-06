@@ -12,30 +12,30 @@ export default function ProductCard({
 	onDetailClick,
 }: ProductCardProps) {
 	return (
-		<div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm hover:shadow transition">
-			<div className="h-44 rounded-xl bg-slate-100 flex items-center justify-center overflow-hidden">
+		<div className="mx-auto rounded-2xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow-lg transition w-full max-w-xl">
+			<div className="h-96 rounded-2xl bg-slate-100 flex items-center justify-center overflow-hidden">
 				{imageUrl ? (
 					<img
 						src={imageUrl}
 						alt={title}
-						className="h-full w-full rounded-xl object-cover"
+						className="h-full w-full rounded-2xl object-cover"
 					/>
 				) : (
-					<span className="text-slate-400 text-sm">No Image</span>
+					<span className="text-slate-400 text-lg">No Image</span>
 				)}
 			</div>
 
-			<div className="mt-3 flex items-center justify-between">
+			<div className="mt-5 flex items-center justify-between">
 				<div>
-					<p className="font-semibold">{title}</p>
-					<p className="text-xs text-slate-500">{description}</p>
+					<p className="font-semibold text-xl">{title}</p>
+					<p className="text-base text-slate-500 mt-1">{description}</p>
 				</div>
 
 				{onDetailClick && (
 					<button
 						type="button"
 						onClick={onDetailClick}
-						className="rounded-xl bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-700"
+						className="rounded-xl bg-blue-600 px-5 py-2 text-sm font-semibold text-white hover:bg-blue-700"
 					>
 						Detail
 					</button>
