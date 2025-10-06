@@ -45,15 +45,11 @@ export default function ProductEventSection() {
 						<span className="text-[#4351BC]">Profesional</span>
 					</h2>
 					<p className="mt-2 text-sm text-slate-600">
-						Dari komunitas sampai korporat—pilih template yang pas buat
-						kebutuhan lu.
+						Dari komunitas sampai korporat—pilih template yang pas buat acara
+						pentingmu.
 					</p>
 				</div>
-				<SectionNavigator
-					items={items}
-					defaultKey=""
-					// className="mx-auto max-w-4xl w-full"
-				/>
+				<SectionNavigator items={items} defaultKey="" />
 			</div>
 		</section>
 	);
