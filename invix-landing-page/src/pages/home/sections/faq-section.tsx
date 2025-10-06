@@ -7,10 +7,10 @@ export default function FaqSection() {
           <p className="text-slate-600">Kalau masih bingung, tinggal tanya aja 😉</p>
         </div>
         <div className="mt-8 grid gap-4">
-          <Faq q="Apakah bisa custom domain?" a="Bisa. Paket Business mendukung custom domain & branding kamu." />
-          <Faq q="Bisa ganti musik?" a="Bisa. Kamu bisa unggah musik sendiri atau pilih dari pustaka kami." />
-          <Faq q="Apakah ada undangan fisik?" a="Invix fokus di undangan digital. Tapi kamu bisa cetak QR untuk tamu." />
-          <Faq q="Bisa tambah admin?" a="Bisa di paket Business (team access)." />
+          <Faq q="Berapa lama pengerjaan undangan?" a=" 1–3 hari kerja, tergantung paket yang kamu pilih." />
+          <Faq q="Apakah undangan bisa dibagikan lewat WhatsApp & Instagram?" a="Bisa, cukup share link atau QR code." />
+          <Faq q="Apakah bisa request desain khusus?" a=" Bisa! Untuk paket Custom kami sediakan desain sesuai tema acara Anda." />
+          <Faq q="Bagaimana cara pemesanan?" a=" Klik tombol “Pesan Sekarang” → Isi form → Tim kami akan menghubungi Anda." />
         </div>
       </section>
     );

@@ -9,11 +9,11 @@ export default function CtaSection() {
             <div className="rounded-3xl bg-white px-6 py-10 sm:px-10">
               <div className="grid items-center gap-6 md:grid-cols-3">
                 <div className="md:col-span-2">
-                  <h4 className="text-2xl font-bold tracking-tight">Mulai gratis, upgrade kapan pun</h4>
+                  <h4 className="text-2xl font-bold tracking-tight">Siap Bikin Acara Lebih Modern?</h4>
                   <p className="mt-2 text-slate-600">Ciptakan undangan digital profesional tanpa ribet. Gampang, cepat, langsung jadi.</p>
                 </div>
                 <div className="md:text-right">
-                  <a href="#" className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-blue-700">
+                  <a href="#" className="inline-flex items-center gap-2 rounded-2xl bg-[#4351BC] px-5 py-3 text-sm font-semibold text-white shadow hover:bg-blue-700">
                     Buat Undangan Sekarang <ArrowIcon />
                   </a>
                 </div>
