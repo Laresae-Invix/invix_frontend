@@ -406,7 +406,7 @@ class Media {
 			this.plane.scale.x,
 			this.plane.scale.y,
 		];
-		this.padding = 3.5;
+		this.padding = 4;
 		this.width = this.plane.scale.x + this.padding;
 		this.widthTotal = this.width * this.length;
 		this.x = this.width * this.index;

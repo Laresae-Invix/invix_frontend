@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import CircularGallery from "@/components/CircularGallery";
 import {
-	ArrowIcon,
+	
 	CameraMiniIcon,
 	ClockIcon,
 	GiftIcon,
