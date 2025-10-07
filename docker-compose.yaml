@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  web:
+    image: jorlojor/invix-frontend:latest
+    container_name: laresae-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      
