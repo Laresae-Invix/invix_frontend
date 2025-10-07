@@ -29,26 +29,28 @@ jobs:
       # ⭐ Tambah step untuk debug
       - name: Check files
         run: |
-          ls -la ${{ env.APP_DIR }}
-          cat ${{ env.APP_DIR }}/package.json
+          cd ./invix-landing-page
+          ls -la
+          docker build -t  jorlojor/invix-frontend:latest.
+          docker push jorlojor/invix-frontend:latest
       
-      - name: Build & Push
-        uses: docker/build-push-action@v6
-        with:
-          context: ${{ env.APP_DIR }}
-          file: ${{ env.APP_DIR }}/Dockerfile
-          # ⭐ Tambah platform
-          platforms: linux/amd64
-          push: true
-          tags: ${{ env.IMAGE_NAME }}
-          cache-from: type=registry,ref=${{ env.IMAGE_NAME }}
-          cache-to: type=inline
-          # ⭐ Tambah build args & progress output
-          build-args: |
-            NODE_OPTIONS=--max-old-space-size=6144
-          # ⭐ Show full output
-          outputs: type=docker
-          provenance: false
+      # - name: Build & Push
+      #   uses: docker/build-push-action@v6
+      #   with:
+      #     context: ${{ env.APP_DIR }}
+      #     file: ${{ env.APP_DIR }}/Dockerfile
+      #     # ⭐ Tambah platform
+      #     platforms: linux/amd64
+      #     push: true
+      #     tags: ${{ env.IMAGE_NAME }}
+      #     cache-from: type=registry,ref=${{ env.IMAGE_NAME }}
+      #     cache-to: type=inline
+      #     # ⭐ Tambah build args & progress output
+      #     build-args: |
+      #       NODE_OPTIONS=--max-old-space-size=6144
+      #     # ⭐ Show full output
+      #     outputs: type=docker
+      #     provenance: false
 
   deploy:
     needs: build-and-push
