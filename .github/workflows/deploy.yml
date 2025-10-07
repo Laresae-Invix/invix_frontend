@@ -26,12 +26,12 @@ jobs:
           username: jorlojor
           password: dckr_pat_H7PWMTTR5xKFv2ngAh7X_Zwa_kA
       
-      # ⭐ Tambah step untuk debug
+      
       - name: Check files
         run: |
           cd ./invix-landing-page
           ls -la
-          docker build -t  jorlojor/invix-frontend:latest.
+          docker build -t  jorlojor/invix-frontend:latest .
           docker push jorlojor/invix-frontend:latest
       
       # - name: Build & Push
