@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 env:
-  IMAGE_NAME: ghcr.io/Laresae-Invix/invix-frontend:latest
+  IMAGE_NAME: ghcr.io/laresae-invix/invix-frontend:latest
   APP_DIR: invix-landing-page
 
 jobs:
