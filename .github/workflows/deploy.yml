@@ -1,3 +1,5 @@
+name: deploy-frontend
+
 on:
   push:
     branches: [ "main" ]
@@ -9,12 +11,32 @@ env:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-    permissions: 
+    permissions:
       contents: read
       packages: write
     
     steps:
       - uses: actions/checkout@v4
+      
+      # ⭐ Install pnpm
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 9
+      
+      # ⭐ Setup Node.js
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+          cache-dependency-path: ${{ env.APP_DIR }}/pnpm-lock.yaml
+      
+      # ⭐ Build di GitHub Actions (BUKAN di Docker!)
+      - name: Build project
+        working-directory: ${{ env.APP_DIR }}
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm build
+          ls -la dist/
       
       - uses: docker/setup-qemu-action@v3
       
@@ -24,33 +46,17 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: jorlojor
-          password: dckr_pat_H7PWMTTR5xKFv2ngAh7X_Zwa_kA
+          password: dckr_pat_H7PWMTTR5xKFv2ngAh7X_Zwa_kA 
       
-      
-      - name: Check files
-        run: |
-          cd ./invix-landing-page
-          ls -la
-          docker build -t  jorlojor/invix-frontend:latest .
-          docker push jorlojor/invix-frontend:latest
-      
-      # - name: Build & Push
-      #   uses: docker/build-push-action@v6
-      #   with:
-      #     context: ${{ env.APP_DIR }}
-      #     file: ${{ env.APP_DIR }}/Dockerfile
-      #     # ⭐ Tambah platform
-      #     platforms: linux/amd64
-      #     push: true
-      #     tags: ${{ env.IMAGE_NAME }}
-      #     cache-from: type=registry,ref=${{ env.IMAGE_NAME }}
-      #     cache-to: type=inline
-      #     # ⭐ Tambah build args & progress output
-      #     build-args: |
-      #       NODE_OPTIONS=--max-old-space-size=6144
-      #     # ⭐ Show full output
-      #     outputs: type=docker
-      #     provenance: false
+      # ⭐ Build Docker (hanya copy dist)
+      - name: Build & Push
+        uses: docker/build-push-action@v6
+        with:
+          context: ${{ env.APP_DIR }}
+          file: ${{ env.APP_DIR }}/Dockerfile.prod
+          platforms: linux/amd64
+          push: true
+          tags: ${{ env.IMAGE_NAME }}
 
   deploy:
     needs: build-and-push
