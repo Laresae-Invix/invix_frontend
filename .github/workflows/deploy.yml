@@ -34,6 +34,7 @@ jobs:
       - name: Build project
         working-directory: ${{ env.APP_DIR }}
         run: |
+          cd invix-landing-page
           pnpm install --frozen-lockfile
           pnpm build
           ls -la dist/
