@@ -21,7 +21,7 @@ jobs:
         with:
           registry: docker.io
           username: jorlojor
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: dckr_pat_H7PWMTTR5xKFv2ngAh7X_Zwa_kA
       - name: Build & Push
         uses: docker/build-push-action@v6
         with:
@@ -54,7 +54,6 @@ jobs:
                 ports:
                   - "80:80"
             YAML
-            echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} --password-stdin
             docker compose -f /srv/laresae/web/docker-compose.yml pull
             docker compose -f /srv/laresae/web/docker-compose.yml up -d
             docker image prune -f
