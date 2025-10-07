@@ -21,13 +21,14 @@ jobs:
         with:
           username: jorlojor
           password: dckr_pat_H7PWMTTR5xKFv2ngAh7X_Zwa_kA
+
       - name: Build & Push
         uses: docker/build-push-action@v6
         with:
           context: ${{ env.APP_DIR }}
           file: ${{ env.APP_DIR }}/Dockerfile
           push: true
-          tags: ${{ env.IMAGE_NAME }}
+          tags: jorlojor/invix-frontend:latest
           cache-to: type=inline
 
   deploy:
@@ -47,12 +48,11 @@ jobs:
             version: "3.8"
             services:
               web:
-                image: ghcr.io/Laresae-Invix/invix-frontend:latest
-                container_name: laresae-web
+                image: jorlojor/invix-frontend:latest
+                container_name: laresae-frontend
                 restart: unless-stopped
                 ports:
                   - "80:80"
             YAML
-            docker compose -f /srv/laresae/web/docker-compose.yml pull
             docker compose -f /srv/laresae/web/docker-compose.yml up -d
             docker image prune -f
