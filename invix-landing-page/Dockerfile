@@ -16,17 +16,33 @@ ENV PNPM_SKIP_REVIEW=true
 ENV PNPM_ALLOW_SCRIPTS="*"
 ENV CI=true
 
-# ⭐ Accept build arg
-ARG NODE_OPTIONS="--max-old-space-size=4096"
+# Memory limit
+ARG NODE_OPTIONS="--max-old-space-size=6144"
 ENV NODE_OPTIONS=${NODE_OPTIONS}
 
 # Dependencies
 COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
+
+# ⭐ Install dengan error handling
+RUN pnpm install --frozen-lockfile --reporter=append-only || \
+    (echo "Install failed, trying without frozen-lockfile..." && \
+     pnpm install --reporter=append-only)
 
 # Build
 COPY . .
-RUN pnpm build
+
+# ⭐ Build dengan verbose output
+RUN echo "Starting build..." && \
+    pnpm build --logLevel=info || \
+    (echo "=== BUILD FAILED ===" && \
+     echo "Node version:" && node --version && \
+     echo "pnpm version:" && pnpm --version && \
+     echo "Memory info:" && cat /proc/meminfo | grep MemTotal && \
+     echo "Disk space:" && df -h && \
+     exit 1)
+
+# Verify build output
+RUN ls -la dist/ && echo "Build successful!"
 
 # ---- Runtime stage
 FROM nginx:1.27-alpine

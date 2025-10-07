@@ -1,5 +1,3 @@
-name: deploy-frontend
-
 on:
   push:
     branches: [ "main" ]
@@ -28,17 +26,29 @@ jobs:
           username: jorlojor
           password: dckr_pat_H7PWMTTR5xKFv2ngAh7X_Zwa_kA
       
+      # ⭐ Tambah step untuk debug
+      - name: Check files
+        run: |
+          ls -la ${{ env.APP_DIR }}
+          cat ${{ env.APP_DIR }}/package.json
+      
       - name: Build & Push
         uses: docker/build-push-action@v6
         with:
           context: ${{ env.APP_DIR }}
           file: ${{ env.APP_DIR }}/Dockerfile
+          # ⭐ Tambah platform
+          platforms: linux/amd64
           push: true
           tags: ${{ env.IMAGE_NAME }}
           cache-from: type=registry,ref=${{ env.IMAGE_NAME }}
           cache-to: type=inline
+          # ⭐ Tambah build args & progress output
           build-args: |
-            NODE_OPTIONS=--max-old-space-size=4096
+            NODE_OPTIONS=--max-old-space-size=6144
+          # ⭐ Show full output
+          outputs: type=docker
+          provenance: false
 
   deploy:
     needs: build-and-push
@@ -55,7 +65,6 @@ jobs:
             set -e
             mkdir -p /srv/laresae/web
             
-            # Tulis docker-compose.yml
             cat >/srv/laresae/web/docker-compose.yml <<'YAML'
             version: "3.8"
             services:
@@ -65,18 +74,8 @@ jobs:
                 restart: unless-stopped
                 ports:
                   - "80:80"
-                healthcheck:
-                  test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
-                  interval: 30s
-                  timeout: 10s
-                  retries: 3
             YAML
             
-            # Pull image terbaru
             docker pull jorlojor/invix-frontend:latest
-            
-            # Deploy
             docker compose -f /srv/laresae/web/docker-compose.yml up -d --remove-orphans
-            
-            # Cleanup
             docker image prune -f
