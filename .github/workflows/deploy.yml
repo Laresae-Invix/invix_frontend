@@ -32,10 +32,9 @@ jobs:
       
       # ⭐ Build di GitHub Actions (BUKAN di Docker!)
       - name: Build project
-        working-directory: ${{ env.APP_DIR }}
+        # working-directory: ${{ env.APP_DIR }}
         run: |
-          pwd
-          cd ./invix-landing-page
+          cd ${{ env.APP_DIR }}
           pnpm install --frozen-lockfile
           pnpm build
           ls -la dist/
