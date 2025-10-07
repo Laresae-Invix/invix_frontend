@@ -20,7 +20,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: docker.io
-          username: ${{ github.repository_owner }}
+          username: jorlojor
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build & Push
         uses: docker/build-push-action@v6
