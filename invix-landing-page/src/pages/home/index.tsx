@@ -141,16 +141,19 @@ export default function LandingPage() {
 				</div>
 			</section>
 
-			<section id={SECTION_IDS.about} className="scroll-mt-16">
+			<section id={SECTION_IDS.about} className="scroll-mt-16 mb-12 py-12">
 				<FeatureSection />
 			</section>
 
 			<section id={SECTION_IDS.product} className="scroll-mt-16">
 				<TemplateSection />
+			</section>
+			
+			<section id={SECTION_IDS.product} className="scroll-mt-16 py-12">
 				<HowSection />
 			</section>
 
-			<section id={SECTION_IDS.pricing} className="scroll-mt-16">
+			<section id={SECTION_IDS.pricing} className="scroll-mt-16 py-12">
 				<PricingSection />
 			</section>
 
@@ -175,4 +178,7 @@ export default function LandingPage() {
 			</section>
 		</div>
 	);
+	
 }
+
+
