@@ -13,7 +13,7 @@ export default function PricingSection() {
         <PriceCard
           tier="Basic"
           price="Rp 150.000"
-          features={["Template Standar", "RSVP Otomatis"]}
+          features={["Semua templat standar", "RSVP Otomatis", "Diatas 500 Undangan"]}
           cta="Pilih Paket Basic"
           highlight=""
           ribbon=""

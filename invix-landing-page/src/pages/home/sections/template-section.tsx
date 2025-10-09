@@ -64,7 +64,7 @@ export default function TemplateSection() {
       {/* Header */}
       <div className="text-center">
         <h3 className="text-2xl font-bold tracking-tight">Template Unggulan</h3>
-        <p className="text-slate-600">Pilih gaya kamu. Semua responsif dan siap pakai.</p>
+        <p className="text-slate-600 mt-4">Pilih gaya kamu. Semua responsif dan siap pakai.</p>
 
         {/* Button group (sejajar) */}
         <div className="mt-5 flex items-center justify-center gap-3 flex-wrap">
@@ -91,16 +91,6 @@ export default function TemplateSection() {
         </div>
       </div>
 
-      {/* Button "Lihat Semua Template" di samping */}
-      <div className="mt-4 flex justify-end">
-        <a
-          href="/product"
-          className="inline-block px-5 py-3 text-sm font-semibold text-white bg-[#4351BC] rounded-lg hover:bg-[#3b45a1] transition duration-300"
-        >
-          Lihat Semua Template
-        </a>
-      </div>
-
       {/* Grid Product */}
       <div className="mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3 place-items-center">
         {products.map((product) => (
@@ -114,9 +104,18 @@ export default function TemplateSection() {
         ))}
       </div>
 
-      {products.length === 0 && (
+         <div className="mt-8 flex justify-center">
+        <a
+          href="/product"
+          className="inline-block px-5 py-3 text-sm font-semibold text-white bg-[#4351BC] rounded-lg hover:bg-[#3b45a1] transition duration-300"
+        >
+          Lihat Semua Template
+        </a>
+      </div>
+
+      {/* {products.length === 0 && (
         <p className="mt-8 text-center text-slate-500">Belum ada template di kategori ini.</p>
-      )}
+      )} */}
     </section>
   );
 }
