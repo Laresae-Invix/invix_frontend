@@ -1,0 +1,19 @@
+services:
+  web:
+    build:
+      context: .                               
+      dockerfile: Dockerfile
+    container_name: invix_frontend     
+    restart: unless-stopped
+    networks:
+      - traefik_proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.<routername>.rule=Host(`${APP_DOMAIN}`)"        
+      - "traefik.http.routers.<routername>.entrypoints=websecure"
+      - "traefik.http.routers.<routername>.tls.certresolver=le"
+      - "traefik.http.services.<servicename>.loadbalancer.server.port=90"    
+
+networks:
+  traefik_proxy:
+    external: true
