@@ -9,10 +9,10 @@ services:
       - traefik_proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.<routername>.rule=Host(`${APP_DOMAIN}`)"        
-      - "traefik.http.routers.<routername>.entrypoints=websecure"
-      - "traefik.http.routers.<routername>.tls.certresolver=le"
-      - "traefik.http.services.<servicename>.loadbalancer.server.port=80"    
+      - "traefik.http.routers.invix-frontend.rule=Host(`${APP_DOMAIN}`)"
+      - "traefik.http.routers.invix-frontend.entrypoints=websecure"
+      - "traefik.http.routers.invix-frontend.tls.certresolver=le"
+      - "traefik.http.services.invix-frontend.loadbalancer.server.port=80"
 
 networks:
   traefik_proxy:
