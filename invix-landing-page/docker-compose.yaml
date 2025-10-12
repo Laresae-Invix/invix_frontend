@@ -12,7 +12,7 @@ services:
       - "traefik.http.routers.<routername>.rule=Host(`${APP_DOMAIN}`)"        
       - "traefik.http.routers.<routername>.entrypoints=websecure"
       - "traefik.http.routers.<routername>.tls.certresolver=le"
-      - "traefik.http.services.<servicename>.loadbalancer.server.port=90"    
+      - "traefik.http.services.<servicename>.loadbalancer.server.port=80"    
 
 networks:
   traefik_proxy:
