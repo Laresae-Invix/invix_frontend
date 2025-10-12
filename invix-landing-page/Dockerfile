@@ -1,5 +1,5 @@
-# --- build stage (DEBIAN / GLIBC, anti segfault)
-FROM node:20-bullseye-slim AS builder
+# --- build stage
+FROM node:20-alpine AS builder
 WORKDIR /app
 
 # pnpm via corepack
@@ -11,20 +11,17 @@ RUN pnpm install --frozen-lockfile
 
 # source
 COPY . .
-
-# (optional) debug
-RUN node -v && pnpm -v && pnpm ls vite || true
-
-# build
 RUN pnpm build
 
 # --- runtime (nginx) untuk serve Vite static
 FROM nginx:1.27-alpine AS runner
 WORKDIR /usr/share/nginx/html
 
+# hapus default conf dan pasang SPA conf
 RUN rm -f /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
+# copy hasil build
 COPY --from=builder /app/dist ./
 
 EXPOSE 80
