@@ -6,14 +6,16 @@ services:
     container_name: invix_frontend     
     restart: unless-stopped
     networks:
-      - traefik_proxy
+      - proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.invix-frontend.rule=Host(`${APP_DOMAIN}`)"
+      - "traefik.http.routers.invix-frontend.rule=Host(`invixinvitation.com`)"
       - "traefik.http.routers.invix-frontend.entrypoints=websecure"
-      - "traefik.http.routers.invix-frontend.tls.certresolver=le"
-      - "traefik.http.services.invix-frontend.loadbalancer.server.port=80"
+      - "traefik.http.routers.invix-frontend.tls=true"
+        # ini gue nga tau dia bisa di pasang bisa nga
+        #- "traefik.http.routers.invix-frontend.tls.certresolver=le"
+        #- "traefik.http.services.invix-frontend.loadbalancer.server.port=80"
 
 networks:
-  traefik_proxy:
+  proxy:
     external: true
