@@ -3,6 +3,9 @@ import type React from "react";
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import TermsLayout from "./pages/terms/layout";
+import TermsPage from "./pages/terms/page";
+import PrivacyPolicy from "./pages/terms/sections/privacypolicy";
 
 
 const HomePage = lazy(() => import("./pages/home/index"));
@@ -89,6 +92,35 @@ export const router = createBrowserRouter([
 					},
 				],
 			},
+
+			{
+				path: "terms",
+				element: (
+					<Loader>
+						<TermsLayout />
+					</Loader>
+				),
+				children: [
+					{
+						index: true,
+						element: (
+							<Loader>
+								<TermsPage />
+							</Loader>
+						),
+					},
+				],
+			},
+
+			{
+        		path: "privacypolicy",
+       			element: (
+          			<Loader>
+            		<PrivacyPolicy />
+          			</Loader>
+        		),
+      		},
+			
 			{
 				path: "*",
 				element: (
