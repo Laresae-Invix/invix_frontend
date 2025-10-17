@@ -266,7 +266,7 @@ export default function HowSection() {
 												viewBox="0 0 4 48"
 												className="h-full w-full text-slate-300"
 												fill="none"
-											>
+											/>
 												<path
 													d="M2 0 L2 48"
 													stroke="currentColor"
@@ -274,7 +274,7 @@ export default function HowSection() {
 													strokeDasharray="6 8"
 													strokeLinecap="round"
 												/>
-											</svg>
+
 										</div>
 									)}
 								</li>
