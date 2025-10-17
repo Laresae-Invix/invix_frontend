@@ -38,7 +38,7 @@ jobs:
             cd "$APP_DIR"
             git fetch origin
             git checkout main
-            git pull --rebase origin main
+            git reset --hard origin/main
             cd invix-landing-page                     
 
             if [ ! -f .env ]; then
