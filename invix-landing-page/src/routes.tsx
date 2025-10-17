@@ -3,7 +3,8 @@ import type React from "react";
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
-
+import TermsLayout from "./pages/terms/layout";
+import TermsPage from "./pages/terms/page";
 
 const HomePage = lazy(() => import("./pages/home/index"));
 const AboutLayout = lazy(() => import("./pages/about/layout"));
@@ -16,7 +17,7 @@ function RootLayout() {
 	return (
 		<div className="min-h-screen bg-gray-50 text-gray-900">
 			<Navbar />
-			<main className="container mx-auto px-4 py-6">
+			<main className="">
 				<Outlet />
 			</main>
 		</div>
@@ -89,6 +90,35 @@ export const router = createBrowserRouter([
 					},
 				],
 			},
+
+			{
+				path: "terms",
+				element: (
+					<Loader>
+						<TermsLayout />
+					</Loader>
+				),
+				children: [
+					{
+						index: true,
+						element: (
+							<Loader>
+								<TermsPage />
+							</Loader>
+						),
+					},
+				],
+			},
+
+			{
+				path: "privacypolicy",
+				element: (
+					<Loader>
+						<TermsPage />
+					</Loader>
+				),
+			},
+
 			{
 				path: "*",
 				element: (

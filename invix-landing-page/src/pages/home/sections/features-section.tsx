@@ -16,7 +16,7 @@ export default function FeatureSection() {
     >
       {/* Header Section */}
       <div className="text-center mb-10">
-        <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-blue-400 text-white px-6 py-3 text-sm font-semibold ring-2 ring-blue-300 mb-6 transition-all duration-500 ease-out transform hover:scale-105 hover:shadow-xl hover:ring-2 hover:ring-indigo-500 animate-fadeInMove">
+        <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#3B5D99] to-[#4C7A99] text-white px-5 py-2 text-sm font-semibold ring-2 ring-[#4C7A99] mb-6 transition-all duration-500 ease-out transform hover:scale-105 hover:shadow-md hover:ring-2 hover:ring-indigo-500 animate-fadeInMove">
   Kenapa Invix
 </span>
 
