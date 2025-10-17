@@ -9,7 +9,7 @@ export default function ProductPage() {
 	];
 
 	return (
-		<div className="space-y-4">
+		<div className="space-y-4 max-w-full mx-auto px-4">
 			<SectionNavigator items={items} defaultKey="product" />
 		</div>
 	);
