@@ -23,8 +23,8 @@ export default function FooterSection() {
           <p className="font-semibold">Bantuan</p>
           <ul className="mt-3 space-y-2 text-sm text-slate-600">
             <li><a href="#faq" className="hover:text-blue-700">FAQ</a></li>
-            <li><a href="#" className="hover:text-blue-700">Pusat Bantuan</a></li>
-            <li><a href="#" className="hover:text-blue-700">Hubungi Kami</a></li>
+            <li><a href="/privacypolicy" className="hover:text-blue-700">Pusat Bantuan</a></li>
+            <li><a href="/privacypolicy" className="hover:text-blue-700">Hubungi Kami</a></li>
           </ul>
         </div>
         <div>

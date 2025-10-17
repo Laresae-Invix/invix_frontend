@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import logo from "../assets/Logo.webp";
 import { SECTION_IDS, type Target } from "../constant/section_ids";
 import { useScrollDirection } from "../hooks/useScrollDirection";
-import logo from "../assets/Logo.webp";
 
 export default function Navbar() {
 	const { pathname } = useLocation();
@@ -20,16 +20,15 @@ export default function Navbar() {
 	}
 
 	function pindahPage(target: Target) {
-		if (target === 'product') {
-        navigate("/product"); // Direct navigation to the Product Page
-    } else if (isHome) {
-        const id = SECTION_IDS[target];
-        smoothScrollById(id);
-    } else {
-        navigate("/", { state: { scrollTo: target } });
-    }
+		if (target === "product") {
+			navigate("/product"); // Direct navigation to the Product Page
+		} else if (isHome) {
+			const id = SECTION_IDS[target];
+			smoothScrollById(id);
+		} else {
+			navigate("/", { state: { scrollTo: target } });
+		}
 	}
-	
 
 	return (
 		<header
@@ -48,10 +47,10 @@ export default function Navbar() {
 					onClick={() => setOpen(false)}
 				>
 					<img
-                src={logo} //engarahkan ke file logo.webp
-                alt="Logo"
-                 className="h-8 w-8 rounded-2xl object-contain"
-            />
+						src={logo} //engarahkan ke file logo.webp
+						alt="Logo"
+						className="h-8 w-8 rounded-2xl object-contain"
+					/>
 					<div className="leading-tight">
 						<p className="font-semibold tracking-tight">Invix</p>
 						<p className="text-[11px] text-slate-500">Digital Invitation</p>
