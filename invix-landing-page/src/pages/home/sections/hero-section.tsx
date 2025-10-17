@@ -1,20 +1,16 @@
-import CircularGallery from "@/components/CircularGallery";
+// import CircularGallery from "@/components/CircularGallery";
 
-import {
-	CameraMiniIcon,
-	ClockIcon,
-	GiftIcon,
-	MapPinIcon,
-	QrIcon,
-	UsersMiniIcon,
-} from "@/components/icon";
-import TextType from "@/components/TextType";
+import SplitText from "@/components/SplitText";
+
+const handleAnimationComplete = () => {
+	console.log("All letters have animated!");
+};
 
 export default function HeroSection() {
 	return (
 		<section
 			className={[
-				"relative min-h-[85svh] flex items-center justify-center overflow-hidden mb-12",
+				"relative min-h-[85svh] flex items-center justify-center mb-12",
 				// background gradien lembut
 				"bg-[radial-gradient(ellipse_at_top_left,theme(colors.yellow.200)/.35,transparent_55%),radial-gradient(ellipse_at_bottom_right,rgb(67_81_188_/_0.28),transparent_55%)]",
 			].join(" ")}
@@ -34,117 +30,36 @@ export default function HeroSection() {
 `}</style>
 
 			{/* Konten pusat */}
-
 			<div className="mx-auto w-full max-w-8xl px-4 sm:px-6 lg:px-8 text-center mt-8">
 				<div className="flex flex-col items-center">
-					<h1 className="inline-block mx-auto md:whitespace-nowrap text-[clamp(28px,6vw,64px)] font-extrabold tracking-tight leading-tight">
-						<TextType
-							text={["Undangan Digital Cerdas", " & ", "Ramah Lingkungan"]}
-							typingSpeed={80}
-							pauseDuration={1500}
-							showCursor={true}
-							cursorCharacter="_"
-							cursorBlinkDuration={0.5}
-							textColors={["#4351BC", "#D8E63C", "#4351BC", "#D8E63C"]}
-							className="align-baseline"
-						/>
-					</h1>
-					<p className="mt-4 text-slate-600 text-lg mx-auto max-w">
-						Pilih template, atur detail,{" "}
-						<span className="font-semibold text-[#4351BC]">tinggal klik</span> —
-						lengkap dengan RSVP otomatis & desain menarik.
-					</p>
+					<div className="max-w-4xl text-center mx-auto">
+						<h1 className="text-center max-w-full mx-auto">
+							<SplitText
+								text="Buat Undangan Digital Menakjubkan dengan INVIX"
+								className="text-[clamp(28px,6vw,64px)] font-extrabold tracking-tight leading-tight"
+								delay={100}
+								duration={0.8}
+								ease="power3.out"
+								splitType="chars"
+								from={{ opacity: 0, y: 40 }}
+								to={{ opacity: 1, y: 0 }}
+								threshold={0.1}
+								rootMargin="-100px"
+								textAlign="center"
+								onLetterAnimationComplete={handleAnimationComplete}
+							/>
+						</h1>
+
+						<p className="mt-4 text-slate-600 text-lg mx-auto">
+							Desain dan kirim undangan yang indah dan ramah lingkungan dengan
+							pelacakan RSVP yang lancar dan manajemen tamu. Sempurna untuk
+							segala acara.
+						</p>
+					</div>
 				</div>
+
 				{/* Chips */}
-				<ul className="flex flex-wrap justify-center gap-3 text-[11px] sm:text-xs text-[#4351BC] mt-8">
-					{/* 1 */}
-					<li
-						className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#3B5D99] to-[#4C7A99] text-white px-3 py-1.5 font-semibold ring-1 ring-[#4C7A99]/80 shadow-sm
-               transition-all duration-300 hover:scale-105 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80"
-						style={{
-							animation:
-								"chipFloat 6s ease-in-out infinite, chipDrift 7s ease-in-out infinite",
-							animationDelay: "0s",
-						}}
-					>
-						<QrIcon /> <span>QR Share</span>
-					</li>
 
-					{/* 2 */}
-					<li
-						className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#3B5D99] to-[#4C7A99] text-white px-3 py-1.5 font-semibold ring-1 ring-[#4C7A99]/80 shadow-sm
-               transition-all duration-300 hover:scale-105 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80"
-						style={{
-							animation:
-								"chipFloat 6.5s ease-in-out infinite, chipDrift 7.5s ease-in-out infinite",
-							animationDelay: "0.15s",
-						}}
-					>
-						<UsersMiniIcon /> <span>RSVP Live</span>
-					</li>
-
-					{/* 3 */}
-					<li
-						className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#3B5D99] to-[#4C7A99] text-white px-3 py-1.5 font-semibold ring-1 ring-[#4C7A99]/80 shadow-sm
-               transition-all duration-300 hover:scale-105 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80"
-						style={{
-							animation:
-								"chipFloat 7s ease-in-out infinite, chipDrift 8s ease-in-out infinite",
-							animationDelay: "0.3s",
-						}}
-					>
-						<CameraMiniIcon /> <span>Galeri</span>
-					</li>
-
-					{/* 4 */}
-					<li
-						className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#3B5D99] to-[#4C7A99] text-white px-3 py-1.5 font-semibold ring-1 ring-[#4C7A99]/80 shadow-sm
-               transition-all duration-300 hover:scale-105 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80"
-						style={{
-							animation:
-								"chipFloat 7.5s ease-in-out infinite, chipDrift 8.5s ease-in-out infinite",
-							animationDelay: "0.45s",
-						}}
-					>
-						<MapPinIcon /> <span>Maps</span>
-					</li>
-
-					{/* 5 */}
-					<li
-						className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#3B5D99] to-[#4C7A99] text-white px-3 py-1.5 font-semibold ring-1 ring-[#4C7A99]/80 shadow-sm
-               transition-all duration-300 hover:scale-105 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80"
-						style={{
-							animation:
-								"chipFloat 6.25s ease-in-out infinite, chipDrift 7.25s ease-in-out infinite",
-							animationDelay: "0.6s",
-						}}
-					>
-						<ClockIcon /> <span>Countdown</span>
-					</li>
-
-					{/* 6 */}
-					<li
-						className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#3B5D99] to-[#4C7A99] text-white px-3 py-1.5 font-semibold ring-1 ring-[#4C7A99]/80 shadow-sm
-               transition-all duration-300 hover:scale-105 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80"
-						style={{
-							animation:
-								"chipFloat 6.75s ease-in-out infinite, chipDrift 7.75s ease-in-out infinite",
-							animationDelay: "0.75s",
-						}}
-					>
-						<GiftIcon /> <span>Gift</span>
-					</li>
-				</ul>
-
-				{/* Preview mock (tetap center) */}
-				<div style={{ height: "600px", position: "relative" }}>
-					<CircularGallery
-						bend={3}
-						textColor="#ffffff"
-						borderRadius={0.05}
-						scrollEase={0.02}
-					/>
-				</div>
 				{/* === CTA Buttons: WhatsApp & Buat Undangan === */}
 				<div className="mt-6 flex flex-wrap justify-center gap-6">
 					{/* 1) WhatsApp Ikon */}

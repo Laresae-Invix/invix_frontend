@@ -273,8 +273,8 @@ export default function TermsAndConditions() {
 						</h2>
 						<p>
 							Setiap sengketa yang timbul akibat penggunaan platform kami akan
-							diselesaikan melalui jalur hukum yang berlaku di [Negara/Daerah],
-							sesuai dengan hukum yang berlaku.
+							diselesaikan melalui jalur hukum yang berlaku di Indonesia, sesuai
+							dengan hukum yang berlaku.
 						</p>
 					</section>
 
