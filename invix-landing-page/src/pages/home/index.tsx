@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Reveal from "@/components/reveal";
 import { SECTION_IDS, type Target } from "../../constant/section_ids";
+import HowSection, { AboutSection } from "./sections/about-section";
 import CtaSection from "./sections/cta-section";
 import FaqSection from "./sections/faq-section";
 import FeatureSection from "./sections/features-section";
 import FooterSection from "./sections/footer-section";
 import HeroSection from "./sections/hero-section";
-import HowSection from "./sections/how-section";
 import PricingSection from "./sections/pricing-section";
 import TemplateSection from "./sections/template-section";
 import TestiSection from "./sections/testi-section";
@@ -44,8 +44,8 @@ export default function LandingPage() {
 				</section>
 
 				<section id={SECTION_IDS.product} className="scroll-mt-16 py-6">
-					<Reveal direction="up" once rootMargin="0px 0px -15% 0px">
-						<HowSection />
+					<Reveal direction="left" once>
+						<AboutSection />
 					</Reveal>
 				</section>
 
