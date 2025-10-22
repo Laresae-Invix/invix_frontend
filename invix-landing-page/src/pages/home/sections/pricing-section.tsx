@@ -1,125 +1,147 @@
-export default function PricingSection() {
+import { Check, Sparkles } from "lucide-react";
+import { Button } from "@/components/button"; // Pastikan Button sudah diimpor dari komponen Button
+
+export const PricingSection = () => {
 	return (
-		<section
-			id="pricing"
-			className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14"
-		>
-			<div className="text-center">
-				<h3 className="text-2xl font-bold tracking-tight">Harga Terjangkau</h3>
-				<p className="text-slate-600 mt-2">
-					Pilih paket terbaik untuk acara Anda. Semua paket lengkap dengan
-					template elegan, RSVP online, dan tautan/QR yang siap dibagikan.
-				</p>
-			</div>
+		<section id="pricing" className="py-16">
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				{/* Title and Badge */}
+				<div className="text-center mb-16">
+					<div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200 mb-6">
+						<Sparkles className="h-4 w-4" style={{ color: "#4351BC" }} />
+						<span className="text-sm font-medium" style={{ color: "#4351BC" }}>
+							Berapa Harga Layanan Invix?
+						</span>
+					</div>
 
-			{/* Flexbox untuk memastikan kartu tetap center dan sejajar */}
-			<div className="mt-8 flex flex-wrap justify-center gap-6">
-				{/* Free Package Card */}
-				<PriceCard
-					tier="Free"
-					price="Gratis"
-					features={["Template Standar", "RSVP Otomatis", "Diatas 50 Undangan"]}
-					cta="Pilih Paket Free"
-					highlight=""
-					ribbon="Free"
-				/>
+					<div>
+						<h2 className="mt-3 mb-4 text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+							Simple, Transparent Pricing
+						</h2>
+						<p className="text-slate-600 text-lg  max-w-2xl mx-auto">
+							Choose the perfect plan for your needs. Start free, upgrade as you
+							grow.
+						</p>
+					</div>
+				</div>
 
-				{/* Basic Package Card */}
-				<PriceCard
-					tier="Basic"
-					price="Rp 150.000"
-					features={[
-						"Semua templat standar",
-						"RSVP Otomatis",
-						"Diatas 500 Undangan",
-					]}
-					cta="Pilih Paket Basic"
-					highlight=""
-					ribbon=""
-				/>
+				{/* Grid Layout */}
+				<div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+					{mockPricingPlans.map((plan) => (
+						<div
+							key={plan.id}
+							className={`relative p-8 rounded-2xl transition-all transform ${
+								plan.popular
+									? "border-2 border-[#4351BC] z-10 scale-105 bg-white" // Kartu tengah dengan border lebih besar
+									: "bg-white scale-100 " // Kartu lainnya tetap dengan border
+							} hover:scale-105 cursor-pointer hover:shadow-xl`} // Efek hover dengan shadow dan scale
+						>
+							{/* Badge Most Popular */}
+							{plan.popular && (
+								<div className="absolute top-[-15px] left-1/2 transform -translate-x-1/2 bg-[#4351BC] text-white text-xs px-4 py-2 rounded-full">
+									<Sparkles className="h-4 w-4 mr-1 inline" />
+									Most Popular
+								</div>
+							)}
 
-				{/* Custom Package Card */}
-				<PriceCard
-					tier="Costum"
-					price="Rp 300.000"
-					features={[
-						"Design Khusus Sesuai Tema",
-						"Fitur Reminder",
-						"Custom domain",
-						"Analitik Tamu",
-					]}
-					cta="Pilih Paket Costum"
-					highlight="pop"
-					ribbon="Terlaris"
-				/>
+							<div className="flex flex-col items-center">
+								<h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+								<p className="text-gray-600 mb-6 text-center">
+									{plan.description}
+								</p>
+
+								{/* Price */}
+								<div className="flex items-baseline mb-6 justify-center">
+									<span className="text-4xl font-bold text-[#273287]">
+										${plan.price}
+									</span>
+									<span className="text-gray-600 ml-2">/{plan.period}</span>
+								</div>
+
+								{/* CTA Button */}
+								<Button
+									className={`w-full mb-6 border-2 border-[#4351BC] text-[#273287] hover:bg-[#273287] hover:text-white`}
+									size="lg"
+								>
+									{plan.price === 0 ? "Start Free" : "Get Started"}
+								</Button>
+
+								{/* Features */}
+								<div className="space-y-3">
+									{plan.features.map((feature) => (
+										<div key={feature} className="flex items-start space-x-3">
+											<Check className="h-5 w-5 text-[#273287]" />
+											<span className="text-sm text-gray-700">{feature}</span>
+										</div>
+									))}
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+
+				{/* Additional Info */}
+				{/* <div className="text-center mt-12">
+					<p className="text-gray-600">
+						All plans include 14-day free trial. No credit card required.
+					</p>
+				</div> */}
 			</div>
 		</section>
 	);
-}
+};
 
-/* ================== Reusable Components ================== */
+export default PricingSection;
 
-function PriceCard({
-	tier,
-	price,
-	features,
-	cta,
-	highlight,
-	ribbon,
-}: {
-	tier: string;
-	price: string;
-	features: string[];
-	cta: string;
-	highlight?: "pop" | "";
-	ribbon?: string;
-}) {
-	const ring =
-		highlight === "pop" ? "ring-2 ring-yellow-300" : "ring-1 ring-slate-200";
-	return (
-		<div
-			className={`relative max-w-sm w-full min-h-[350px] rounded-2xl border border-slate-200 bg-white p-6 shadow-sm ${ring} transition-transform transform hover:scale-105 duration-200 ease-in-out`}
-		>
-			{ribbon && (
-				<div className="absolute -top-3 right-4 rounded-full bg-yellow-400 px-3 py-1 text-xs font-bold text-slate-900 shadow">
-					{ribbon}
-				</div>
-			)}
-			<p className="text-sm font-semibold">{tier}</p>
-			<p className="mt-1 text-3xl font-extrabold tracking-tight text-[#4351BC]">
-				{price}
-				<span className="text-sm text-slate-500 font-medium"> /Package</span>
-			</p>
-			<ul className="mt-4 space-y-2 text-sm text-slate-600">
-				{features.map((f) => (
-					<li key={f} className="flex items-start gap-2">
-						<CheckIcon /> {f}
-					</li>
-				))}
-			</ul>
-			<div className="mt-5 flex justify-center">
-				<button
-					type="button"
-					className="w-full rounded-2xl bg-[#4351BC] px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 ease-in-out"
-				>
-					{cta}
-				</button>
-			</div>
-		</div>
-	);
-}
-
-function CheckIcon() {
-	return (
-		<svg
-			viewBox="0 0 24 24"
-			className="h-4 w-4 text-blue-600"
-			aria-hidden="true"
-		>
-			<path
-				fill="currentColor"
-				d="m9 16.2l-3.5-3.5L4 14.2L9 19l11-11l-1.5-1.5z"
-			/>
-		</svg>
-	);
-}
+// Pricing Plans Mock Data
+export const mockPricingPlans = [
+	{
+		id: 1,
+		name: "Free",
+		price: 0,
+		period: "forever",
+		description: "Perfect for getting started",
+		features: [
+			"5 invitations per month",
+			"Basic templates",
+			"Email delivery",
+			"Basic RSVP tracking",
+			"Community support",
+		],
+		popular: false,
+	},
+	{
+		id: 2,
+		name: "Pro",
+		price: 19,
+		period: "month",
+		description: "For frequent event hosts",
+		features: [
+			"Unlimited invitations",
+			"Premium templates",
+			"Multi-channel delivery",
+			"Advanced RSVP tracking",
+			"Custom branding",
+			"Priority support",
+			"Analytics dashboard",
+		],
+		popular: true,
+	},
+	{
+		id: 3,
+		name: "Business",
+		price: 49,
+		period: "month",
+		description: "For professional event planners",
+		features: [
+			"Everything in Pro",
+			"Team collaboration",
+			"White-label solution",
+			"API access",
+			"Dedicated account manager",
+			"Custom integrations",
+			"24/7 phone support",
+		],
+		popular: false,
+	},
+];

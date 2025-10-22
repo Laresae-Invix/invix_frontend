@@ -75,8 +75,10 @@ export default function TemplateSection() {
 						Template Invix Nih!
 					</span>
 				</div>
-				<h3 className="text-2xl font-bold tracking-tight">Template Unggulan</h3>
-				<p className="text-slate-600 mt-4">
+				<h2 className="mt-3 mb-4 text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+					Template Unggulan
+				</h2>
+				<p className="text-slate-600 text-lg  max-w-2xl mx-auto">
 					Pilih gaya kamu. Semua responsif dan siap pakai.
 				</p>
 

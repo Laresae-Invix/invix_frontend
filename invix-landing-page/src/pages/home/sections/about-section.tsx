@@ -29,12 +29,15 @@ export const AboutSection = () => {
 	];
 
 	return (
-		<section id="about" className="py-16 bg-white">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<section
+			id="about"
+			className=" min-h-[50vh] py-12 px-4 sm:px-6 lg:px-8 flex justify-center items-center bg-gray-50"
+		>
+			<div className="max-w-7xl mx-auto">
 				<div className="grid md:grid-cols-2 gap-12 items-center">
 					{/* Left Content */}
-					<div className="space-y-6">
-						<div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full mb-8 shadow-sm border border-gray-200">
+					<div className="space-y-8">
+						<div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200">
 							<Sparkles className="h-4 w-4" style={{ color: "#4351BC" }} />
 							<span
 								className="text-sm font-medium"
@@ -43,12 +46,12 @@ export const AboutSection = () => {
 								Ada Apa Aja Sih di Invix?
 							</span>
 						</div>
-						<h2 className="text-3xl sm:text-5xl font-extrabold text-gray-800 mb-6">
+						<h2 className="mt-4 mb-8 text-3xl sm:text-5xl font-bold tracking-tight text-gray-900">
 							Masa Depan Undangan Acara Ada di Tangan Anda
 						</h2>
 
 						{/* Key Benefits */}
-						<div className="space-y-4">
+						<div className="space-y-6">
 							<div className="flex items-start space-x-3">
 								<div className="text-green-500 text-xl">✓</div>
 								<div>
@@ -60,7 +63,7 @@ export const AboutSection = () => {
 								</div>
 							</div>
 							<div className="flex items-start space-x-3">
-								<div className="text-green-500 text-xl">✓</div>
+								<div className="text-[#4351BC] text-xl">✓</div>
 								<div>
 									<h4 className="font-semibold mb-1">
 										Pilihan Ramah Lingkungan
@@ -72,7 +75,7 @@ export const AboutSection = () => {
 								</div>
 							</div>
 							<div className="flex items-start space-x-3">
-								<div className="text-green-500 text-xl">✓</div>
+								<div className="text-[#4351BC] text-xl">✓</div>
 								<div>
 									<h4 className="font-semibold mb-1">
 										Pengelolaan RSVP Cerdas
@@ -87,17 +90,17 @@ export const AboutSection = () => {
 					</div>
 
 					{/* Right Content - Stats */}
-					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6 md:ml-12">
-						{stats.map((stat, index) => {
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
+						{stats.map((stat) => {
 							const IconComponent = stat.icon;
 							return (
 								<div
 									key={stat.label}
-									className="flex flex-col items-center justify-center space-y-4 p-6 transform transition-all duration-500 hover:scale-105"
+									className="flex flex-col items-center justify-center space-y-4 p-6 "
 									style={{
 										color: stat.color,
 										textAlign: "center",
-										marginRight: "40px", // Menambahkan jarak lebih ke kanan
+										animation: "floating 2s ease-in-out infinite",
 									}}
 								>
 									<div className="mb-4">

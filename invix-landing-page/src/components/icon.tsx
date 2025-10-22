@@ -118,10 +118,19 @@ export function Feature({
 	desc: string;
 }) {
 	return (
-		<div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow transition">
-			<div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-yellow-100 text-yellow-800 mb-3">
-				{icon}
+		<div className="p-5 transition">
+			<div className="group inline-flex h-12 w-12 mb-2">
+				{/* Icon yang lebih besar dengan animasi floating */}
+				<div
+					className="text-blue-600 transition-all duration-300"
+					style={{
+						animation: "floating 2s ease-in-out infinite",
+					}}
+				>
+					{icon}
+				</div>
 			</div>
+
 			<p className="font-semibold">{title}</p>
 			<p className="mt-1 text-sm text-slate-600">{desc}</p>
 		</div>
@@ -132,7 +141,7 @@ export function BrushIcon() {
 	return (
 		<svg
 			viewBox="0 0 24 24"
-			className="h-5 w-5"
+			className="h-6 w-6"
 			role="img"
 			aria-labelledby="brushIconTitle"
 		>
@@ -148,7 +157,7 @@ export function QrIcon() {
 	return (
 		<svg
 			viewBox="0 0 24 24"
-			className="h-5 w-5"
+			className="h-6 w-6"
 			role="img"
 			aria-labelledby="qrIconTitle"
 		>
@@ -164,7 +173,7 @@ export function CameraIcon() {
 	return (
 		<svg
 			viewBox="0 0 24 24"
-			className="h-5 w-5"
+			className="h-6 w-6"
 			role="img"
 			aria-labelledby="cameraIconTitle"
 		>
@@ -180,7 +189,7 @@ export function CalendarIcon() {
 	return (
 		<svg
 			viewBox="0 0 24 24"
-			className="h-5 w-5"
+			className="h-6 w-6"
 			role="img"
 			aria-labelledby="calendarIconTitle"
 		>
@@ -196,7 +205,7 @@ export function UsersIcon() {
 	return (
 		<svg
 			viewBox="0 0 24 24"
-			className="h-5 w-5"
+			className="h-6 w-6"
 			role="img"
 			aria-labelledby="usersIconTitle"
 		>
@@ -213,7 +222,7 @@ export function ChartIcon() {
 	return (
 		<svg
 			viewBox="0 0 24 24"
-			className="h-5 w-5"
+			className="h-6 w-6"
 			role="img"
 			aria-labelledby="chartIconTitle"
 		>

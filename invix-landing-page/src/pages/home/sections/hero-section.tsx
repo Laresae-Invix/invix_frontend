@@ -14,7 +14,7 @@ export default function HeroSection() {
 				style={{
 					background:
 						"radial-gradient(125% 125% at 50% 90%, #fff 30%, #6366f1 100%)",
-					filter: "blur(5px)", // Radial gradient as per your request
+					filter: "blur(5px)",
 				}}
 			/>
 			{/* Konten pusat */}
@@ -45,14 +45,14 @@ export default function HeroSection() {
 					</h1>
 
 					{/* Subheading */}
-					<p className="mt-4 text-lg md:text-xl text-slate-600 mx-auto max-w-4xl leading-relaxed">
+					<p className="mt-6 text-lg md:text-xl text-slate-600 mx-auto max-w-7xl leading-relaxed">
 						Desain dan kirim undangan yang indah dan ramah lingkungan dengan
 						pelacakan RSVP yang lancar & manajemen tamu.
 					</p>
 				</div>
 
 				{/* CTA Buttons */}
-				<div className="mt-6 flex flex-wrap justify-center gap-6">
+				<div className="mt-12 flex flex-wrap justify-center gap-6">
 					{/* 1) WhatsApp Icon */}
 					<a
 						href="https://wa.me/6281234567890?text=Halo%20Invix%2C%20saya%20ingin%20konsultasi%20undangan"

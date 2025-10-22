@@ -1,41 +1,83 @@
-import { ArrowRight } from "lucide-react"; // Menggunakan ikon dari lucide-react
+import { ArrowRight, Sparkles } from "lucide-react";
+import { Button } from "@/components/button"; // Pastikan Button sudah diimpor dari komponen Button
 
-export default function CtaSection() {
+export const CTASection = () => {
 	return (
-		<section id="cta" className="relative">
-			<div className="absolute inset-0 -z-10">
-				<div className="absolute -top-10 left-1/2 -translate-x-1/2 h-60 w-[80%] rounded-full bg-blue-600 blur-3xl opacity-20" />
-			</div>
-			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16">
-				<div className="rounded-3xl bg-gradient-to-br from-blue-600 via-blue-500 to-yellow-400 p-1 shadow-lg">
-					<div className="rounded-3xl bg-white px-6 py-10 sm:px-10">
-						<div className="grid items-center gap-6 md:grid-cols-3">
-							<div className="md:col-span-2">
-								<h4 className="text-2xl font-bold tracking-tight">
-									Siap Bikin Acara Lebih Modern?
-								</h4>
-								<p className="mt-2 text-slate-600">
-									Ciptakan undangan digital profesional tanpa ribet. Gampang,
-									cepat, langsung jadi.
-								</p>
-							</div>
-							<div className="md:text-right">
-								<a
-									href="product"
-									className="inline-flex items-center gap-2 rounded-2xl bg-[#4351BC] px-5 py-3 text-sm font-semibold text-white shadow hover:bg-blue-700"
-								>
-									Buat Undangan Sekarang <ArrowRight className="h-4 w-4 ml-2" />
-								</a>
-							</div>
+		<section
+			className="section-padding min-h-[60vh] flex items-center justify-center relative overflow-hidden"
+			style={{
+				background: "linear-gradient(135deg, #273287 0%, #5b6bd2 100%)",
+				position: "relative",
+				overflow: "hidden",
+			}}
+		>
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div
+					className="cta-container"
+					style={{
+						position: "relative",
+						zIndex: 10,
+					}}
+				>
+					<div className="text-center max-w-3xl mx-auto">
+						{/* Icon */}
+						<div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm mb-6">
+							<Sparkles className="h-8 w-8 text-white" />
 						</div>
+
+						{/* Heading */}
+						<h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+							Ready to Create Your Perfect Invitation?
+						</h2>
+
+						{/* Description */}
+						<p className="text-xl text-white/90 mb-8">
+							Join thousands of happy users who have transformed their events
+							with Invix. Start creating stunning digital invitations today -
+							it's free!
+						</p>
+
+						{/* CTA Buttons */}
+						<div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+							<Button
+								size="lg"
+								className="cta-button-white text-lg px-8 py-6 group border-2 border-white text-white hover:bg-[#5b6bd2] hover:border-[#5b6bd2] hover:text-white transition-all"
+							>
+								Get Started Free
+								<ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+							</Button>
+							<Button
+								size="lg"
+								variant="outline"
+								className="cta-button-outline-white text-lg px-8 py-6 border-2 border-white text-white hover:bg-[#5b6bd2] hover:border-[#5b6bd2] hover:text-white transition-all"
+							>
+								Schedule Demo
+							</Button>
+						</div>
+
+						{/* Trust Indicator */}
+						<p className="text-white/80 text-sm mt-6">
+							No credit card required • Cancel anytime • 14-day free trial
+						</p>
 					</div>
 				</div>
 			</div>
+
+			{/* Background pattern using ::before */}
+			<div
+				style={{
+					content: "''",
+					position: "absolute",
+					top: 0,
+					left: 0,
+					right: 0,
+					bottom: 0,
+					background: `url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1.5" fill="white" opacity="0.1"/></svg>')`,
+					pointerEvents: "none",
+				}}
+			></div>
 		</section>
 	);
-}
+};
 
-// Reusable Component for Arrow Icon
-function ArrowRightIcon() {
-	return <ArrowRight className="h-4 w-4" />;
-}
+export default CTASection;

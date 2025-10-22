@@ -13,18 +13,18 @@ export default function FeatureSection() {
 	return (
 		<section
 			id="features"
-			className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 scroll-mt-24"
+			className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 scroll-mt-24"
 		>
 			{/* Header Section */}
 			<div className="text-center mb-10">
-				<div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full mb-8 shadow-sm border border-gray-200">
+				<div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full mb-4 shadow-sm border border-gray-200">
 					<Sparkles className="h-4 w-4" style={{ color: "#4351BC" }} />
 					<span className="text-sm font-medium" style={{ color: "#4351BC" }}>
 						Kenapa Pilih Invix?
 					</span>
 				</div>
 
-				<h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+				<h2 className="mt-4 mb-2 text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
 					Semua yang kamu butuhkan untuk undangan digital
 				</h2>
 				<p className="mt-4 text-slate-600 text-lg sm:text-xl">
@@ -33,7 +33,7 @@ export default function FeatureSection() {
 			</div>
 
 			{/* Feature Cards Section */}
-			<div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+			<div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 ">
 				<Feature
 					icon={<BrushIcon />}
 					title="Kustomisasi Penuh"
