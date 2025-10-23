@@ -263,6 +263,7 @@ export default function HowSection() {
 									{i < STEPS.length - 1 && (
 										<div aria-hidden className="mt-4 h-12 w-px">
 											<svg
+												aria-hidden="true"
 												viewBox="0 0 4 48"
 												className="h-full w-full text-slate-300"
 												fill="none"
