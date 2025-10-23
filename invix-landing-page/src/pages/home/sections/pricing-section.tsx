@@ -15,7 +15,7 @@ export const PricingSection = () => {
 					</div>
 
 					<div>
-						<h2 className="mt-3 mb-4 text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+						<h2 className="mt-2 mb-4 text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
 							Simple, Transparent Pricing
 						</h2>
 						<p className="text-slate-600 text-lg  max-w-2xl mx-auto">

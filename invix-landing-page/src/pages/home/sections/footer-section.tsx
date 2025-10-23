@@ -1,47 +1,167 @@
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import {
+	FaFacebook,
+	FaInstagram,
+	FaLinkedin,
+	FaMailBulk,
+	FaTwitter,
+} from "react-icons/fa"; // Mengimpor ikon FontAwesome
+import { Link } from "react-router-dom"; // Tetap menyertakan import Link
 
-export default function FooterSection() {
-  return (
-    <footer className="border-t border-slate-200 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 grid gap-8 md:grid-cols-4">
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-600 text-white font-bold">Ix</span>
-            <p className="font-semibold">Invix</p>
-          </div>
-          <p className="mt-3 text-sm text-slate-600">Undangan digital modern untuk semua acara.</p>
-        </div>
-        <div>
-          <p className="font-semibold">Produk</p>
-          <ul className="mt-3 space-y-2 text-sm text-slate-600">
-            <li><a href="#templates" className="hover:text-blue-700">Template</a></li>
-            <li><a href="#pricing" className="hover:text-blue-700">Harga</a></li>
-            <li><a href="#features" className="hover:text-blue-700">Fitur</a></li>
-          </ul>
-        </div>
-        <div>
-          <p className="font-semibold">Bantuan</p>
-          <ul className="mt-3 space-y-2 text-sm text-slate-600">
-            <li><a href="#faq" className="hover:text-blue-700">FAQ</a></li>
-            <li><a href="/privacypolicy" className="hover:text-blue-700">Pusat Bantuan</a></li>
-            <li><a href="/privacypolicy" className="hover:text-blue-700">Hubungi Kami</a></li>
-          </ul>
-        </div>
-        <div>
-          <p className="font-semibold">Legal</p>
-          <ul className="mt-3 space-y-2 text-sm text-slate-600">
-            <li>
-              <Link to="/terms" className="hover:text-blue-700">Ketentuan</Link>
-            </li>
-            <li>
-              <Link to="/privacypolicy" className="hover:text-blue-700">Privasi</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="border-t border-slate-200 py-4 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} Invix. All rights reserved.
-      </div>
-    </footer>
-  );
+function FooterSection() {
+	const currentYear = new Date().getFullYear();
+
+	const footerLinks = {
+		product: [
+			{ label: "Features", href: "#features" },
+			{ label: "Pricing", href: "#pricing" },
+			{ label: "Templates", href: "#samples" },
+			{ label: "How it Works", href: "#how-it-works" },
+		],
+		company: [
+			{ label: "About Us", href: "#about" },
+			{ label: "Careers", href: "#" },
+			{ label: "Blog", href: "#" },
+			{ label: "Press Kit", href: "#" },
+		],
+		support: [
+			{ label: "Help Center", href: "#" },
+			{ label: "Contact Us", href: "#" },
+			{ label: "FAQ", href: "#faq" },
+			{ label: "Community", href: "#" },
+		],
+		legal: [
+			{ label: "Privacy Policy", href: "#" },
+			{ label: "Terms of Service", href: "#" },
+			{ label: "Cookie Policy", href: "#" },
+			{ label: "GDPR", href: "#" },
+		],
+	};
+
+	return (
+		<footer className="bg-[#111827] text-[#d1d5db]">
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+				{/* Main Footer Content */}
+				<div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+					{/* Brand Column */}
+					<div className="col-span-2 md:col-span-1">
+						<div className="footer-logo mb-4 text-2xl font-semibold text-white">
+							Invix
+						</div>
+						<p className="footer-description mb-6 text-sm text-slate-400">
+							Create beautiful digital invitations for every occasion.
+						</p>
+						<div className="flex space-x-4">
+							<Link to="/" className="footer-social-icon hover:text-blue-500">
+								<FaFacebook className="h-5 w-5" />
+							</Link>
+							<Link to="/" className="footer-social-icon hover:text-blue-500">
+								<FaTwitter className="h-5 w-5" />
+							</Link>
+							<Link to="/" className="footer-social-icon hover:text-blue-500">
+								<FaInstagram className="h-5 w-5" />
+							</Link>
+							<Link to="/" className="footer-social-icon hover:text-blue-500">
+								<FaLinkedin className="h-5 w-5" />
+							</Link>
+						</div>
+					</div>
+
+					{/* Product Links */}
+					<div>
+						<h4 className="footer-heading text-lg font-semibold">Product</h4>
+						<ul className="footer-links space-y-2 mt-3 text-sm text-slate-400">
+							{footerLinks.product.map((link) => (
+								<li key={link.label}>
+									<a href={link.href} className="hover:text-white">
+										{link.label}
+									</a>
+								</li>
+							))}
+						</ul>
+					</div>
+
+					{/* Company Links */}
+					<div>
+						<h4 className="footer-heading text-lg font-semibold">Company</h4>
+						<ul className="footer-links space-y-2 mt-3 text-sm text-slate-400">
+							{footerLinks.company.map((link) => (
+								<li key={link.label}>
+									<a href={link.href} className="hover:text-white">
+										{link.label}
+									</a>
+								</li>
+							))}
+						</ul>
+					</div>
+
+					{/* Support Links */}
+					<div>
+						<h4 className="footer-heading text-lg font-semibold">Support</h4>
+						<ul className="footer-links space-y-2 mt-3 text-sm text-slate-400">
+							{footerLinks.support.map((link) => (
+								<li key={link.label}>
+									<a href={link.href} className="hover:text-white">
+										{link.label}
+									</a>
+								</li>
+							))}
+						</ul>
+					</div>
+
+					{/* Legal Links */}
+					<div>
+						<h4 className="footer-heading text-lg font-semibold">Legal</h4>
+						<ul className="footer-links space-y-2 mt-3 text-sm text-slate-400">
+							{/* Hanya menampilkan Ketentuan dan Privasi menggunakan Link */}
+							<li>
+								<Link to="/terms" className="hover:text-white">
+									Ketentuan
+								</Link>
+							</li>
+							<li>
+								<Link to="/privacypolicy" className="hover:text-white">
+									Privasi
+								</Link>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				{/* Newsletter */}
+				<div className="footer-newsletter mt-10 border-t border-b py-8 border-slate-600">
+					<div className="max-w-md">
+						<h4 className="footer-heading mb-3 text-lg font-semibold">
+							Stay Updated
+						</h4>
+						<p className="footer-description mb-4 text-sm text-slate-400">
+							Subscribe to our newsletter for tips, updates, and exclusive
+							offers.
+						</p>
+						<div className="flex space-x-2">
+							<input
+								type="email"
+								placeholder="Enter your email"
+								className="footer-input px-4 py-2 border border-slate-500 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4351BC]"
+							/>
+							<button
+								type="button"
+								className="footer-subscribe-btn px-4 py-2 bg-[#4351BC] text-white rounded-md hover:bg-blue-600"
+							>
+								<FaMailBulk className="h-5 w-5" />
+							</button>
+						</div>
+					</div>
+				</div>
+
+				{/* Bottom Bar */}
+				<div className="footer-bottom mt-12 pt-4 text-center text-xs text-slate-500 border-t border-slate-600">
+					<p className="footer-copyright">
+						© {currentYear} Invix. All rights reserved.
+					</p>
+				</div>
+			</div>
+		</footer>
+	);
 }
+
+export default FooterSection;

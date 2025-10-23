@@ -13,7 +13,7 @@ export default function HeroSection() {
 				className="absolute inset-0 z-0"
 				style={{
 					background:
-						"radial-gradient(125% 125% at 50% 90%, #fff 30%, #6366f1 100%)",
+						"radial-gradient(125% 125% at 50% 90%, #fff 5%, #6366f1 100%)",
 					filter: "blur(5px)",
 				}}
 			/>

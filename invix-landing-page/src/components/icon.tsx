@@ -120,7 +120,6 @@ export function Feature({
 	return (
 		<div className="p-5 transition">
 			<div className="group inline-flex h-12 w-12 mb-2">
-				{/* Icon yang lebih besar dengan animasi floating */}
 				<div
 					className="text-blue-600 transition-all duration-300"
 					style={{

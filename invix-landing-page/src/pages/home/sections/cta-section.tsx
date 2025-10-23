@@ -19,7 +19,7 @@ export const CTASection = () => {
 						zIndex: 10,
 					}}
 				>
-					<div className="text-center max-w-3xl mx-auto">
+					<div className="text-center max-w-4xl mx-auto">
 						{/* Icon */}
 						<div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm mb-6">
 							<Sparkles className="h-8 w-8 text-white" />
@@ -27,14 +27,14 @@ export const CTASection = () => {
 
 						{/* Heading */}
 						<h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-							Ready to Create Your Perfect Invitation?
+							Sudah Siap Untuk Membuat Undangan Yang Sempurna?
 						</h2>
 
 						{/* Description */}
 						<p className="text-xl text-white/90 mb-8">
-							Join thousands of happy users who have transformed their events
-							with Invix. Start creating stunning digital invitations today -
-							it's free!
+							Bergabunglah dengan ribuan pengguna yang puas yang telah mengubah
+							acara mereka dengan Invix. Mulailah membuat undangan digital yang
+							menakjubkan hari ini - Gratis!
 						</p>
 
 						{/* CTA Buttons */}

@@ -71,7 +71,7 @@ export default function LandingPage() {
 
 				<section
 					id={SECTION_IDS.pricing}
-					className="scroll-mt-16 mb-16 py-12" // Menambahkan margin bawah dan padding vertikal
+					className="scroll-mt-16 mb-16 " // Menambahkan margin bawah dan padding vertikal
 				>
 					<Reveal direction="up" once>
 						<PricingSection />
@@ -80,7 +80,7 @@ export default function LandingPage() {
 
 				<section
 					id={SECTION_IDS.cta}
-					className="scroll-mt-32 py-12 mb-32" // Margin bawah untuk jarak antar section
+					className="scroll-mt-32 py-12 mb-16" // Margin bawah untuk jarak antar section
 				>
 					<Reveal direction="up" once>
 						<CtaSection />
@@ -97,7 +97,7 @@ export default function LandingPage() {
 				</section>
 
 				<section
-					className="scroll-mt-16 mb-16" // Margin bawah pada section terakhir
+					className="scroll-mt-16" // Margin bawah pada section terakhir
 				>
 					<Reveal direction="up" once>
 						<FooterSection />
