@@ -1,168 +1,70 @@
-import CircularGallery from "@/components/CircularGallery";
+import { Sparkles } from "lucide-react";
+import SplitText from "@/components/SplitText";
 
-import {
-	CameraMiniIcon,
-	ClockIcon,
-	GiftIcon,
-	MapPinIcon,
-	QrIcon,
-	UsersMiniIcon,
-} from "@/components/icon";
-import TextType from "@/components/TextType";
+const handleAnimationComplete = () => {
+	console.log("All letters have animated!");
+};
 
 export default function HeroSection() {
 	return (
-		<section
-			className={[
-				"relative min-h-[85svh] flex items-center justify-center overflow-hidden mb-12",
-				// background gradien lembut
-				"bg-[radial-gradient(ellipse_at_top_left,theme(colors.yellow.200)/.35,transparent_55%),radial-gradient(ellipse_at_bottom_right,rgb(67_81_188_/_0.28),transparent_55%)]",
-			].join(" ")}
-		>
-			{/* Keyframes */}
-			<style>{`
-  @keyframes chipFloat { 
-    0% { transform: translateY(0) } 
-    50% { transform: translateY(-6px) } 
-    100% { transform: translateY(0) } 
-  }
-  @keyframes chipDrift { 
-    0% { transform: translateX(0) } 
-    50% { transform: translateX(6px) } 
-    100% { transform: translateX(0) } 
-  }
-`}</style>
-
+		<section className="relative min-h-screen flex items-center justify-center mb-12">
+			{/* Radial Gradient Background from Bottom */}
+			<div
+				className="absolute inset-0 z-0"
+				style={{
+					background:
+						"radial-gradient(125% 125% at 50% 90%, #fff 30%, #6366f1 100%)",
+					filter: "blur(5px)",
+				}}
+			/>
 			{/* Konten pusat */}
-
-			<div className="mx-auto w-full max-w-8xl px-4 sm:px-6 lg:px-8 text-center mt-8">
-				<div className="flex flex-col items-center">
-					<h1 className="inline-block mx-auto md:whitespace-nowrap text-[clamp(28px,6vw,64px)] font-extrabold tracking-tight leading-tight">
-						<TextType
-							text={["Undangan Digital Cerdas", " & ", "Ramah Lingkungan"]}
-							typingSpeed={80}
-							pauseDuration={1500}
-							showCursor={true}
-							cursorCharacter="_"
-							cursorBlinkDuration={0.5}
-							textColors={["#4351BC", "#D8E63C", "#4351BC", "#D8E63C"]}
-							className="align-baseline"
+			<div className="relative z-10 text-center px-6 sm:px-12">
+				<div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full mb-8 shadow-sm border border-gray-200">
+					<Sparkles className="h-4 w-4" style={{ color: "#4351BC" }} />
+					<span className="text-sm font-medium" style={{ color: "#4351BC" }}>
+						Create Beautiful Digital Invitations
+					</span>
+				</div>
+				<div className="max-w-6xl text-center mx-auto">
+					{/* Main Heading */}
+					<h1 className="text-[clamp(48px,8vw,80px)] font-extrabold text-[#4351BC] leading-tight">
+						<SplitText
+							text="Buat Undangan Digital Menakjubkan dengan INVIX"
+							className="text-[clamp(48px,8vw,80px)] text-[#4351BC]" // Menambahkan ukuran font lebih besar dan responsif
+							delay={100}
+							duration={0.8}
+							ease="power3.out"
+							splitType="chars"
+							from={{ opacity: 0, y: 40 }}
+							to={{ opacity: 1, y: 0 }}
+							threshold={0.1}
+							rootMargin="-100px"
+							textAlign="center"
+							onLetterAnimationComplete={handleAnimationComplete}
 						/>
 					</h1>
-					<p className="mt-4 text-slate-600 text-lg mx-auto max-w">
-						Pilih template, atur detail,{" "}
-						<span className="font-semibold text-[#4351BC]">tinggal klik</span> —
-						lengkap dengan RSVP otomatis & desain menarik.
+
+					{/* Subheading */}
+					<p className="mt-6 text-lg md:text-xl text-slate-600 mx-auto max-w-7xl leading-relaxed">
+						Desain dan kirim undangan yang indah dan ramah lingkungan dengan
+						pelacakan RSVP yang lancar & manajemen tamu.
 					</p>
 				</div>
-				{/* Chips */}
-				<ul className="flex flex-wrap justify-center gap-3 text-[11px] sm:text-xs text-[#4351BC] mt-8">
-					{/* 1 */}
-					<li
-						className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#3B5D99] to-[#4C7A99] text-white px-3 py-1.5 font-semibold ring-1 ring-[#4C7A99]/80 shadow-sm
-               transition-all duration-300 hover:scale-105 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80"
-						style={{
-							animation:
-								"chipFloat 6s ease-in-out infinite, chipDrift 7s ease-in-out infinite",
-							animationDelay: "0s",
-						}}
-					>
-						<QrIcon /> <span>QR Share</span>
-					</li>
 
-					{/* 2 */}
-					<li
-						className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#3B5D99] to-[#4C7A99] text-white px-3 py-1.5 font-semibold ring-1 ring-[#4C7A99]/80 shadow-sm
-               transition-all duration-300 hover:scale-105 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80"
-						style={{
-							animation:
-								"chipFloat 6.5s ease-in-out infinite, chipDrift 7.5s ease-in-out infinite",
-							animationDelay: "0.15s",
-						}}
-					>
-						<UsersMiniIcon /> <span>RSVP Live</span>
-					</li>
-
-					{/* 3 */}
-					<li
-						className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#3B5D99] to-[#4C7A99] text-white px-3 py-1.5 font-semibold ring-1 ring-[#4C7A99]/80 shadow-sm
-               transition-all duration-300 hover:scale-105 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80"
-						style={{
-							animation:
-								"chipFloat 7s ease-in-out infinite, chipDrift 8s ease-in-out infinite",
-							animationDelay: "0.3s",
-						}}
-					>
-						<CameraMiniIcon /> <span>Galeri</span>
-					</li>
-
-					{/* 4 */}
-					<li
-						className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#3B5D99] to-[#4C7A99] text-white px-3 py-1.5 font-semibold ring-1 ring-[#4C7A99]/80 shadow-sm
-               transition-all duration-300 hover:scale-105 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80"
-						style={{
-							animation:
-								"chipFloat 7.5s ease-in-out infinite, chipDrift 8.5s ease-in-out infinite",
-							animationDelay: "0.45s",
-						}}
-					>
-						<MapPinIcon /> <span>Maps</span>
-					</li>
-
-					{/* 5 */}
-					<li
-						className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#3B5D99] to-[#4C7A99] text-white px-3 py-1.5 font-semibold ring-1 ring-[#4C7A99]/80 shadow-sm
-               transition-all duration-300 hover:scale-105 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80"
-						style={{
-							animation:
-								"chipFloat 6.25s ease-in-out infinite, chipDrift 7.25s ease-in-out infinite",
-							animationDelay: "0.6s",
-						}}
-					>
-						<ClockIcon /> <span>Countdown</span>
-					</li>
-
-					{/* 6 */}
-					<li
-						className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#3B5D99] to-[#4C7A99] text-white px-3 py-1.5 font-semibold ring-1 ring-[#4C7A99]/80 shadow-sm
-               transition-all duration-300 hover:scale-105 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/80"
-						style={{
-							animation:
-								"chipFloat 6.75s ease-in-out infinite, chipDrift 7.75s ease-in-out infinite",
-							animationDelay: "0.75s",
-						}}
-					>
-						<GiftIcon /> <span>Gift</span>
-					</li>
-				</ul>
-
-				{/* Preview mock (tetap center) */}
-				<div style={{ height: "600px", position: "relative" }}>
-					<CircularGallery
-						bend={3}
-						textColor="#ffffff"
-						borderRadius={0.05}
-						scrollEase={0.02}
-					/>
-				</div>
-				{/* === CTA Buttons: WhatsApp & Buat Undangan === */}
-				<div className="mt-6 flex flex-wrap justify-center gap-6">
-					{/* 1) WhatsApp Ikon */}
+				{/* CTA Buttons */}
+				<div className="mt-12 flex flex-wrap justify-center gap-6">
+					{/* 1) WhatsApp Icon */}
 					<a
 						href="https://wa.me/6281234567890?text=Halo%20Invix%2C%20saya%20ingin%20konsultasi%20undangan"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="group inline-flex items-center gap-2 rounded-full border-2 border-[#4351BC] 
-               bg-white px-5 py-2.5 text-sm font-semibold text-[#4351BC]
-               transition-colors duration-200
-               hover:bg-[#4351BC] hover:text-white
-               focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4351BC]/60"
+						className="group inline-flex items-center gap-2 rounded-full border-2 border-[#4351BC] bg-white px-5 py-2.5 text-sm font-semibold text-[#4351BC] transition-colors duration-200 hover:bg-[#4351BC] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4351BC]/60"
 						aria-label="Chat via WhatsApp"
 					>
-						{/* Ikon WhatsApp hijau */}
+						{/* WhatsApp Icon */}
 						<svg
 							viewBox="0 0 24 24"
-							className="h-4 w-4 text-[#25D366] mr-1.5 group-hover:text-white" /* hijau + jarak kecil */
+							className="h-4 w-4 text-[#25D366] mr-1.5 group-hover:text-white"
 							fill="currentColor"
 							aria-hidden="true"
 						>
@@ -171,14 +73,10 @@ export default function HeroSection() {
 						Hubungi Kami
 					</a>
 
-					{/* 2) Button Buat Undangan*/}
+					{/* 2) Button Buat Undangan */}
 					<a
 						href="/buat-undangan"
-						className="group inline-flex items-center gap-2 rounded-full border-2 border-[#4351BC]
-               bg-white px-5 py-2.5 text-sm font-semibold text-[#4351BC]
-               transition-colors duration-200
-               hover:bg-[#4351BC] hover:text-white
-               focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4351BC]/60"
+						className="group inline-flex items-center gap-2 rounded-full border-2 border-[#4351BC] bg-white px-5 py-2.5 text-sm font-semibold text-[#4351BC] transition-colors duration-200 hover:bg-[#4351BC] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4351BC]/60"
 					>
 						Buat Undangan Sekarang
 					</a>
