@@ -12,6 +12,10 @@ const AboutPage = lazy(() => import("./pages/about/page"));
 const ProductLayout = lazy(() => import("./pages/product/layout"));
 const ProductPage = lazy(() => import("./pages/product/page"));
 const NotFoundPage = lazy(() => import("./pages/not-found"));
+const LoginLayout = lazy(() => import("./pages/login/layout"));
+const LoginPage = lazy(() => import("./pages/login/page"));
+const DashboardLayout = lazy(() => import("./pages/dashboard/layout"));
+const DashboardPage = lazy(() => import("./pages/dashboard/page"));
 
 function RootLayout() {
 	return (
@@ -117,6 +121,43 @@ export const router = createBrowserRouter([
 						<TermsPage />
 					</Loader>
 				),
+			},
+			{
+				path: "/login",
+				element: (
+					<Loader>
+						<LoginLayout />
+					</Loader>
+				),
+				children: [
+					{
+						index: true,
+						element: (
+							<Loader>
+								<LoginPage />
+							</Loader>
+						),
+					},
+				],
+			},
+
+			{
+				path: "/dashboard",
+				element: (
+					<Loader>
+						<DashboardLayout />
+					</Loader>
+				),
+				children: [
+					{
+						index: true,
+						element: (
+							<Loader>
+								<DashboardPage />
+							</Loader>
+						),
+					},
+				],
 			},
 
 			{
