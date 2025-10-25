@@ -1,5 +1,6 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { Button } from "@/components/button"; // Pastikan Button sudah diimpor dari komponen Button
+import { ArrowIcon } from "@/components/icon";
 
 export const CTASection = () => {
 	return (
@@ -40,25 +41,26 @@ export const CTASection = () => {
 						{/* CTA Buttons */}
 						<div className="flex flex-col sm:flex-row items-center justify-center gap-4">
 							<Button
+								asChild
 								size="lg"
 								className="cta-button-white text-lg px-8 py-6 group border-2 border-white text-white hover:bg-[#5b6bd2] hover:border-[#5b6bd2] hover:text-white transition-all"
 							>
-								Get Started Free
-								<ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-							</Button>
-							<Button
-								size="lg"
-								variant="outline"
-								className="cta-button-outline-white text-lg px-8 py-6 border-2 border-white text-white hover:bg-[#5b6bd2] hover:border-[#5b6bd2] hover:text-white transition-all"
-							>
-								Schedule Demo
+								<a
+									href="https://wa.me/6285157609919?text=Halo%20Invix%2C%20saya%20ingin%20konsultasi%20undangan"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex items-center"
+								>
+									Contact Us
+									<ArrowIcon />
+								</a>
 							</Button>
 						</div>
 
 						{/* Trust Indicator */}
-						<p className="text-white/80 text-sm mt-6">
+						{/* <p className="text-white/80 text-sm mt-6">
 							No credit card required • Cancel anytime • 14-day free trial
-						</p>
+						</p> */}
 					</div>
 				</div>
 			</div>

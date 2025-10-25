@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import logo from "../../../assets/Logo.webp";
 
 export default function FooterSection() {
   return (
@@ -6,8 +7,11 @@ export default function FooterSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 grid gap-8 md:grid-cols-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-600 text-white font-bold">Ix</span>
-            <p className="font-semibold">Invix</p>
+            <img
+						src={logo} //engarahkan ke file logo.webp
+						alt="Logo"
+						className="h-8 w-8 rounded-2xl object-contain"
+					/>
           </div>
           <p className="mt-3 text-sm text-slate-600">Undangan digital modern untuk semua acara.</p>
         </div>

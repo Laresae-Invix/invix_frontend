@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/Logo.webp";
 import { SECTION_IDS, type Target } from "../constant/section_ids";
 import { useScrollDirection } from "../hooks/useScrollDirection";
+import { Button } from "./button";
 
 export default function Navbar() {
 	const { pathname } = useLocation();
@@ -84,13 +85,22 @@ export default function Navbar() {
 				</nav>
 
 				<div className="hidden md:flex items-center gap-2">
-					<button
-						type="button"
-						onClick={() => pindahPage("cta")}
+					<Button
+
+						asChild
 						className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700"
 					>
-						Mulai Gratis <ArrowIcon />
-					</button>
+						<a
+							href="https://wa.me/6285157609919?text=Halo%20Invix%2C%20saya%20ingin%20konsultasi%20undangan"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="flex items-center"
+						>
+							Contact Us
+						</a>
+						
+						 <ArrowIcon />
+					</Button>
 				</div>
 
 				<button

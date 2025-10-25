@@ -52,8 +52,8 @@ export const PricingSection = () => {
 
 								{/* Price */}
 								<div className="flex items-baseline mb-6 justify-center">
-									<span className="text-4xl font-bold text-[#273287]">
-										${plan.price}
+									<span className="text-3xl font-bold text-[#273287]">
+										IDR {plan.price}
 									</span>
 									<span className="text-gray-600 ml-2">/{plan.period}</span>
 								</div>
@@ -63,7 +63,15 @@ export const PricingSection = () => {
 									className={`w-full mb-6 border-2 border-[#4351BC] text-[#273287] hover:bg-[#273287] hover:text-white`}
 									size="lg"
 								>
+									<a
+										href="https://wa.me/6285157609919?text=Halo%20Invix%2C%20saya%20ingin%20konsultasi%20undangan"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="flex items-center"
+									>
 									{plan.price === 0 ? "Start Free" : "Get Started"}
+									</a>
+									
 								</Button>
 
 								{/* Features */}
@@ -97,50 +105,51 @@ export default PricingSection;
 export const mockPricingPlans = [
 	{
 		id: 1,
-		name: "Free",
+		name: "Limited Free",
 		price: 0,
-		period: "forever",
-		description: "Perfect for getting started",
+		period: "undangan",
+		description: "coba invix untuk pertama kali",
 		features: [
-			"5 invitations per month",
+			"1 invitations",
 			"Basic templates",
 			"Email delivery",
 			"Basic RSVP tracking",
-			"Community support",
+			"Admin support",
 		],
 		popular: false,
 	},
 	{
 		id: 2,
-		name: "Pro",
-		price: 19,
-		period: "month",
+		name: "Basic",
+		price: "150.000",
+		period: "undangan",
 		description: "For frequent event hosts",
 		features: [
-			"Unlimited invitations",
+			// "Unlimited invitations",
 			"Premium templates",
 			"Multi-channel delivery",
 			"Advanced RSVP tracking",
-			"Custom branding",
+			"Custom Domain",
 			"Priority support",
-			"Analytics dashboard",
+			"QR code RSVP",
 		],
 		popular: true,
 	},
 	{
 		id: 3,
-		name: "Business",
-		price: 49,
-		period: "month",
+		name: "Custom",
+		price: "???",
+		period: "undangan",
 		description: "For professional event planners",
 		features: [
-			"Everything in Pro",
-			"Team collaboration",
-			"White-label solution",
-			"API access",
-			"Dedicated account manager",
-			"Custom integrations",
-			"24/7 phone support",
+			// "Everything in Pro",
+			// "Team collaboration",
+			// "White-label solution",
+			// "API access",
+			// "Dedicated account manager",
+			// "Custom integrations",
+			// "24/7 phone support",
+			"Contact us for your special invitation"
 		],
 		popular: false,
 	},

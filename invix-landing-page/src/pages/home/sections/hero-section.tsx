@@ -55,7 +55,7 @@ export default function HeroSection() {
 				<div className="mt-12 flex flex-wrap justify-center gap-6">
 					{/* 1) WhatsApp Icon */}
 					<a
-						href="https://wa.me/6281234567890?text=Halo%20Invix%2C%20saya%20ingin%20konsultasi%20undangan"
+						href="https://wa.me/6285157609919?text=Halo%20Invix%2C%20saya%20ingin%20konsultasi%20undangan"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="group inline-flex items-center gap-2 rounded-full border-2 border-[#4351BC] bg-white px-5 py-2.5 text-sm font-semibold text-[#4351BC] transition-colors duration-200 hover:bg-[#4351BC] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4351BC]/60"
