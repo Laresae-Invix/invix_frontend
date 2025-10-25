@@ -1,8 +1,8 @@
 import {
 	FaFacebook,
 	FaInstagram,
-	FaLinkedin,
 	FaMailBulk,
+	FaTiktok,
 	FaTwitter,
 } from "react-icons/fa"; // Mengimpor ikon FontAwesome
 import { Link } from "react-router-dom"; // Tetap menyertakan import Link
@@ -48,20 +48,29 @@ function FooterSection() {
 							Invix
 						</div>
 						<p className="footer-description mb-6 text-sm text-slate-400">
-							Create beautiful digital invitations for every occasion.
+							Buat undangan digital yang indah untuk setiap kesempatan.
 						</p>
 						<div className="flex space-x-4">
-							<Link to="/" className="footer-social-icon hover:text-blue-500">
+							<Link
+								to="https://web.facebook.com/profile.php?id=61578005167745"
+								className="footer-social-icon hover:text-blue-500"
+							>
 								<FaFacebook className="h-5 w-5" />
 							</Link>
 							<Link to="/" className="footer-social-icon hover:text-blue-500">
 								<FaTwitter className="h-5 w-5" />
 							</Link>
-							<Link to="/" className="footer-social-icon hover:text-blue-500">
+							<Link
+								to="https://www.instagram.com/invix.invitation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+								className="footer-social-icon hover:text-blue-500"
+							>
 								<FaInstagram className="h-5 w-5" />
 							</Link>
-							<Link to="/" className="footer-social-icon hover:text-blue-500">
-								<FaLinkedin className="h-5 w-5" />
+							<Link
+								to="https://www.tiktok.com/@invixinvitation"
+								className="footer-social-icon hover:text-blue-500"
+							>
+								<FaTiktok className="h-5 w-5" />
 							</Link>
 						</div>
 					</div>

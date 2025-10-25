@@ -8,39 +8,28 @@ import { cn } from "@/lib/utils"; // pastikan cn sudah terdefinisi di file utils
 const mockFAQs = [
 	{
 		id: 1,
-		question: "How do digital invitations work?",
+		question: "Bagaimana Cara Membuat Undangan Dengan Invix?",
 		answer:
-			"Digital invitations are electronic versions of traditional paper invites. You create your design on Invix, customize it, and send it via email, SMS, or social media. Recipients can view and respond instantly from any device.",
+			"Anda dapat membuat desain undangan di Invix, menyesuaikannya, dan mengirimkannya melalui email, SMS, atau media sosial. Penerima dapat melihat dan merespons undangan tersebut secara instan dari perangkat apa pun.",
 	},
+
 	{
 		id: 2,
-		question: "Can I customize the templates?",
+		question: "Bagaimana Cara Kerja Fitur RSVP?",
 		answer:
-			"Absolutely! All our templates are fully customizable. You can change colors, fonts, images, text, and layout to match your event's theme and personal style.",
+			"Fitur RSVP kami memungkinkan Anda melacak tanggapan tamu secara real-time. Anda dapat melihat siapa yang telah merespons, mengelola daftar tamu, dan mengirim pengingat otomatis kepada mereka yang belum merespons.",
 	},
 	{
 		id: 3,
-		question: "How does RSVP tracking work?",
+		question: "Apakah Ada Batasan Jumlah Tamu pada Rencana Gratis?",
 		answer:
-			"When you send an invitation through Invix, guests can RSVP with a single click. You'll see real-time updates in your dashboard showing who's attending, who declined, and who hasn't responded yet.",
+			"Pada rencana gratis, Anda dapat mengundang hingga 50 tamu per acara. Untuk jumlah tamu yang lebih besar, pertimbangkan untuk meningkatkan ke rencana Premium atau Bisnis kami yang menawarkan kapasitas tamu yang lebih tinggi dan fitur tambahan.",
 	},
 	{
 		id: 4,
-		question: "Is there a limit on the number of guests?",
+		question: "Apakah saya bisa menggunakan Invix untuk acara korporat?",
 		answer:
-			"The Free plan allows up to 50 guests per invitation. Pro and Business plans offer unlimited guests for all your events.",
-	},
-	{
-		id: 5,
-		question: "Can I use Invix for corporate events?",
-		answer:
-			"Yes! Invix is perfect for corporate events, conferences, webinars, and team gatherings. Our Business plan includes features specifically designed for professional event management.",
-	},
-	{
-		id: 6,
-		question: "What happens after my trial ends?",
-		answer:
-			"After your trial, you'll automatically move to the Free plan unless you choose to upgrade. Your existing invitations will remain accessible, and you can continue creating new ones within the free tier limits.",
+			"Tentu saja! Invix dirancang untuk memenuhi kebutuhan berbagai jenis acara, termasuk acara korporat. Dengan fitur kustomisasi penuh, pelacakan RSVP, dan manajemen tamu, Invix adalah solusi ideal untuk undangan digital profesional.",
 	},
 ];
 
@@ -171,15 +160,21 @@ const FAQSection = () => {
 
 				{/* Contact CTA */}
 				<div className="text-center mt-8 p-8 rounded-2xl">
-					{" "}
-					{/* Reduced margin-top here */}
 					<h3 className="text-xl font-semibold mb-2">
 						Masih Punya Pertanyaan?
 					</h3>
 					<p className="text-gray-600 mb-4">
 						Tim kami siap membantu Anda dalam segala pertanyaan.
 					</p>
-					<Button className="cta-button-primary">Contact Support</Button>
+					{/* Menggunakan tag <a> langsung untuk WhatsApp */}
+					<a
+						href="https://wa.me/6285157609919?text=Halo%20Invix%2C%20saya%20ingin%20konsultasi%20undangan"
+						className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium bg-[#4351BC] text-white px-6 py-3 transition-colors hover:bg-[#3b47a5]"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Contact Support
+					</a>
 				</div>
 			</div>
 		</section>

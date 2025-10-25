@@ -41,23 +41,26 @@ export const CTASection = () => {
 						<div className="flex flex-col sm:flex-row items-center justify-center gap-4">
 							<Button
 								size="lg"
+								href="/product"
 								className="cta-button-white text-lg px-8 py-6 group border-2 border-white text-white hover:bg-[#5b6bd2] hover:border-[#5b6bd2] hover:text-white transition-all"
 							>
-								Get Started Free
+								Yuk Coba Sekarang
 								<ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
 							</Button>
 							<Button
 								size="lg"
 								variant="outline"
+								href="/product"
 								className="cta-button-outline-white text-lg px-8 py-6 border-2 border-white text-white hover:bg-[#5b6bd2] hover:border-[#5b6bd2] hover:text-white transition-all"
 							>
-								Schedule Demo
+								Lihat Template
 							</Button>
 						</div>
 
 						{/* Trust Indicator */}
 						<p className="text-white/80 text-sm mt-6">
-							No credit card required • Cancel anytime • 14-day free trial
+							Bikin Undangan Gampang • Acara Jadi Praktis • Tunggu Apalagi Yuk
+							Pake Invix!
 						</p>
 					</div>
 				</div>
