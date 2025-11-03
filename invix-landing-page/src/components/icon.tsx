@@ -118,7 +118,7 @@ export function Feature({
 	desc: string;
 }) {
 	return (
-		<div className="p-5 transition">
+		<div className="p-5 transition bg-white border-1 border-blue-200 rounded-xl shadow-lg hover:shadow-m transition-shadow duration-300">
 			<div className="group inline-flex h-12 w-12 mb-2">
 				<div
 					className="text-blue-600 transition-all duration-300"

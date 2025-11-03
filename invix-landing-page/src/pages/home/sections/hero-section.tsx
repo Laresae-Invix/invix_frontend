@@ -33,7 +33,7 @@ export default function HeroSection() {
 				<div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full mb-8 shadow-sm border border-gray-200">
 					<Sparkles className="h-4 w-4" style={{ color: "#4351BC" }} />
 					<span className="text-sm font-medium" style={{ color: "#4351BC" }}>
-						Create Beautiful Digital Invitations
+						Buat Undangan Digital yang Indah dengan INVIX!
 					</span>
 				</div>
 				<div className="max-w-6xl text-center mx-auto">

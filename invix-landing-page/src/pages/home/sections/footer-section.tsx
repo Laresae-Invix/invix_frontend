@@ -12,22 +12,17 @@ function FooterSection() {
 
 	const footerLinks = {
 		product: [
-			{ label: "Features", href: "#features" },
 			{ label: "Pricing", href: "#pricing" },
-			{ label: "Templates", href: "#samples" },
-			{ label: "How it Works", href: "#how-it-works" },
+			{ label: "Templates", href: "/product" },
 		],
-		company: [
-			{ label: "About Us", href: "#about" },
-			{ label: "Careers", href: "#" },
-			{ label: "Blog", href: "#" },
-			{ label: "Press Kit", href: "#" },
-		],
+		company: [{ label: "About Us", href: "#about" }],
 		support: [
 			{ label: "Help Center", href: "#" },
-			{ label: "Contact Us", href: "#" },
+			{
+				label: "Contact Us",
+				href: "https://wa.me/6285157609919?text=Halo%20Invix%2C%20saya%20ingin%20konsultasi%20undangan",
+			},
 			{ label: "FAQ", href: "#faq" },
-			{ label: "Community", href: "#" },
 		],
 		legal: [
 			{ label: "Privacy Policy", href: "#" },

@@ -16,11 +16,11 @@ export const PricingSection = () => {
 
 					<div>
 						<h2 className="mt-2 mb-4 text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
-							Simple, Transparent Pricing
+							Pilih Paket yang Tepat untuk Anda
 						</h2>
 						<p className="text-slate-600 text-lg  max-w-2xl mx-auto">
-							Choose the perfect plan for your needs. Start free, upgrade as you
-							grow.
+							Tentukan rencana yang sesuai untuk Anda. Mulai dari gratis,
+							tingkatkan seiring berkembangnya kebutuhan.
 						</p>
 					</div>
 				</div>
@@ -52,8 +52,10 @@ export const PricingSection = () => {
 
 								{/* Price */}
 								<div className="flex items-baseline mb-6 justify-center">
-									<span className="text-4xl font-bold text-[#273287]">
-										${plan.price}
+									<span className="text-3xl font-bold text-[#273287]">
+										{typeof plan.price === "number"
+											? `IDR ${new Intl.NumberFormat("id-ID").format(plan.price)}`
+											: `IDR ${plan.price}`}
 									</span>
 									<span className="text-gray-600 ml-2">/{plan.period}</span>
 								</div>
@@ -80,10 +82,11 @@ export const PricingSection = () => {
 					))}
 				</div>
 
-				{/* Additional Info */}
-				{/* <div className="text-center mt-12">
-					<p className="text-gray-600">
-						All plans include 14-day free trial. No credit card required.
+				{/* Note */}
+				{/* <div className="text-center mt-18">
+					<p className="text-[#4351BC] font-medium text-sm mx-auto">
+						"Temukan paket yang tepat di Invix! Mulai gratis atau pilih premium
+						untuk fitur lengkap."
 					</p>
 				</div> */}
 			</div>
@@ -97,51 +100,43 @@ export default PricingSection;
 export const mockPricingPlans = [
 	{
 		id: 1,
-		name: "Free",
+		name: "Gratis",
 		price: 0,
-		period: "forever",
-		description: "Perfect for getting started",
+		period: "Undangan",
+		description: "Mulai tanpa biaya — sempurna untuk mencoba fitur dasar.",
 		features: [
-			"5 invitations per month",
-			"Basic templates",
-			"Email delivery",
-			"Basic RSVP tracking",
-			"Community support",
+			"Template dasar yang mudah digunakan",
+			"Pengiriman email otomatis",
+			"Pelacakan RSVP sederhana",
+			"Dukungan admin standar",
 		],
 		popular: false,
 	},
 	{
 		id: 2,
 		name: "Pro",
-		price: 19,
-		period: "month",
-		description: "For frequent event hosts",
+		price: 150000,
+		period: "Undangan",
+		description:
+			"Tingkatkan acara Anda dengan fitur premium untuk penyelenggara.",
 		features: [
-			"Unlimited invitations",
-			"Premium templates",
-			"Multi-channel delivery",
-			"Advanced RSVP tracking",
-			"Custom branding",
-			"Priority support",
-			"Analytics dashboard",
+			"Template premium",
+			"Pengiriman multi-saluran",
+			"Pelacakan RSVP canggih",
+			"Domain kustom",
+			"Dukungan prioritas",
+			"QR code RSVP",
 		],
 		popular: true,
 	},
 	{
 		id: 3,
-		name: "Business",
-		price: 49,
-		period: "month",
-		description: "For professional event planners",
-		features: [
-			"Everything in Pro",
-			"Team collaboration",
-			"White-label solution",
-			"API access",
-			"Dedicated account manager",
-			"Custom integrations",
-			"24/7 phone support",
-		],
+		name: "Costum",
+		price: "???",
+		period: "Undangan",
+		description:
+			"Solusi lengkap untuk perencana profesional dan tim dengan dukungan khusus.",
+		features: ["Hubungi kami untuk undangan khusus Anda"],
 		popular: false,
 	},
 ];
