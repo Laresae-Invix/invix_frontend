@@ -12,10 +12,8 @@ const AboutPage = lazy(() => import("./pages/about/page"));
 const ProductLayout = lazy(() => import("./pages/product/layout"));
 const ProductPage = lazy(() => import("./pages/product/page"));
 const NotFoundPage = lazy(() => import("./pages/not-found"));
-const Komunitas1 = lazy(
-	() => import("./pages/product/sections/koleksi-event/layout"),
-);
-// Event pages use a local layout component declared below; remove invalid/empty lazy import.
+const Komunitas1 = lazy(() => import("./pages/product/sections/koleksi-event/index"));
+
 
 function RootLayout() {
 	return (
@@ -52,7 +50,6 @@ export const router = createBrowserRouter([
 				<RootLayout />
 			</Loader>
 		),
-
 		errorElement: (
 			<Loader>
 				<NotFoundPage />
@@ -101,6 +98,25 @@ export const router = createBrowserRouter([
 							</Loader>
 						),
 					},
+					{
+						// nested collection routes under /product/koleksi-event
+						path: "koleksi-event",
+						element: (
+							<Loader>
+								<EventLayout />
+							</Loader>
+						),
+						children: [
+							{
+								path: "komunitas1",
+								element: (
+									<Loader>
+										<Komunitas1 />
+									</Loader>
+								),
+							},
+						],
+					},
 				],
 			},
 
@@ -142,29 +158,5 @@ export const router = createBrowserRouter([
 			},
 		],
 	},
-	{
-		path: "/product/",
-		element: (
-			<Loader>
-				<EventLayout />
-			</Loader>
-		),
-
-		errorElement: (
-			<Loader>
-				<NotFoundPage />
-			</Loader>
-		),
-
-		children: [
-			{
-				index: true,
-				element: (
-					<Loader>
-						<Komunitas1 />
-					</Loader>
-				),
-			},
-		],
-	},
+    
 ]);

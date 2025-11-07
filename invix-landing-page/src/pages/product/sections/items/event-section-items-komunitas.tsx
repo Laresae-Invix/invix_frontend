@@ -9,7 +9,8 @@ export default function ProductEventSectionItemsKomunitas() {
 			title: "Komunitas 1",
 			description: "Deskripsi singkat produk Komunitas 1.",
 			imageUrl: komunitas_satu,
-			link: "/koleksi-event/komunitas1",
+			// use absolute path to avoid relative routing issues
+			link: "/product/koleksi-event/Komunitas1",
 		},
 		{
 			id: 2,
@@ -46,7 +47,7 @@ export default function ProductEventSectionItemsKomunitas() {
 	return (
 		<div className="grid gap-20 sm:grid-cols-2 lg:grid-cols-3">
 			{products.map((p) => (
-				<Link to={p.link ?? "/"} key={p.id}>
+				<Link to={p.link ?? "/product"} key={p.id}>
 					<ProductCard
 						title={p.title}
 						description={p.description}
