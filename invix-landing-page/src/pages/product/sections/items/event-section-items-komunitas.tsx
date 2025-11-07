@@ -1,3 +1,4 @@
+import komunitas_satu from "@/assets/undangan_komunitas_satu.webp";
 import ProductCard from "../../../../components/ProductkCard";
 
 export default function ProductEventSectionItemsKomunitas() {
@@ -6,7 +7,7 @@ export default function ProductEventSectionItemsKomunitas() {
 			id: 1,
 			title: "Komunitas 1",
 			description: "Deskripsi singkat produk Komunitas 1.",
-			// imageUrl
+			imageUrl: komunitas_satu,
 		},
 		{
 			id: 2,
@@ -21,9 +22,15 @@ export default function ProductEventSectionItemsKomunitas() {
 			// imageUrl
 		},
 		{
-			id: 5,
+			id: 4,
 			title: "Komunitas 5",
 			description: "Deskripsi singkat produk Komunitas 5.",
+			// imageUrl
+		},
+		{
+			id: 5,
+			title: "Komunitas 6",
+			description: "Deskripsi singkat produk Komunitas 6.",
 			// imageUrl
 		},
 		{
@@ -41,7 +48,7 @@ export default function ProductEventSectionItemsKomunitas() {
 					key={p.id}
 					title={p.title}
 					description={p.description}
-					// imageUrl={p.imageUrl}
+					imageUrl={p.imageUrl}
 				/>
 			))}
 		</div>
