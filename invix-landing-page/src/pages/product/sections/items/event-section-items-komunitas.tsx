@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import komunitas_satu from "@/assets/undangan_komunitas_satu.webp";
 import ProductCard from "../../../../components/ProductkCard";
 
@@ -8,6 +9,7 @@ export default function ProductEventSectionItemsKomunitas() {
 			title: "Komunitas 1",
 			description: "Deskripsi singkat produk Komunitas 1.",
 			imageUrl: komunitas_satu,
+			link: "/koleksi-event/komunitas1",
 		},
 		{
 			id: 2,
@@ -44,12 +46,13 @@ export default function ProductEventSectionItemsKomunitas() {
 	return (
 		<div className="grid gap-20 sm:grid-cols-2 lg:grid-cols-3">
 			{products.map((p) => (
-				<ProductCard
-					key={p.id}
-					title={p.title}
-					description={p.description}
-					imageUrl={p.imageUrl}
-				/>
+				<Link to={p.link ?? "/"} key={p.id}>
+					<ProductCard
+						title={p.title}
+						description={p.description}
+						imageUrl={p.imageUrl}
+					/>
+				</Link>
 			))}
 		</div>
 	);
