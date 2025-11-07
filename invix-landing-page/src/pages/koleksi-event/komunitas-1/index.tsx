@@ -13,7 +13,7 @@ function Komunitas1() {
 	return (
 		<div className="min-h-screen">
 			<Header />
-			<main className="pt-20">
+			<main className="">
 				<Hero />
 				<About />
 				<Speakers />

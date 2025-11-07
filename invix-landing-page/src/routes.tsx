@@ -12,8 +12,9 @@ const AboutPage = lazy(() => import("./pages/about/page"));
 const ProductLayout = lazy(() => import("./pages/product/layout"));
 const ProductPage = lazy(() => import("./pages/product/page"));
 const NotFoundPage = lazy(() => import("./pages/not-found"));
-const Komunitas1 = lazy(() => import("./pages/product/sections/koleksi-event/index"));
-
+const Komunitas1 = lazy(
+	() => import("./pages/koleksi-event/komunitas-1/index"),
+);
 
 function RootLayout() {
 	return (
@@ -50,6 +51,7 @@ export const router = createBrowserRouter([
 				<RootLayout />
 			</Loader>
 		),
+
 		errorElement: (
 			<Loader>
 				<NotFoundPage />
@@ -98,25 +100,6 @@ export const router = createBrowserRouter([
 							</Loader>
 						),
 					},
-					{
-						// nested collection routes under /product/koleksi-event
-						path: "koleksi-event",
-						element: (
-							<Loader>
-								<EventLayout />
-							</Loader>
-						),
-						children: [
-							{
-								path: "komunitas1",
-								element: (
-									<Loader>
-										<Komunitas1 />
-									</Loader>
-								),
-							},
-						],
-					},
 				],
 			},
 
@@ -158,5 +141,23 @@ export const router = createBrowserRouter([
 			},
 		],
 	},
-    
+	{
+		// nested collection routes under /product/koleksi-event
+		path: "koleksi-event",
+		element: (
+			<Loader>
+				<EventLayout />
+			</Loader>
+		),
+		children: [
+			{
+				path: "komunitas1",
+				element: (
+					<Loader>
+						<Komunitas1 />
+					</Loader>
+				),
+			},
+		],
+	},
 ]);
