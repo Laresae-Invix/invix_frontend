@@ -3,6 +3,7 @@ import type React from "react";
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Event1 from "./pages/koleksi-event/event-1";
 import TermsLayout from "./pages/terms/layout";
 import TermsPage from "./pages/terms/page";
 
@@ -16,7 +17,7 @@ const Komunitas1 = lazy(
 	() => import("./pages/koleksi-event/komunitas-1/index"),
 );
 const Birthday1 = lazy(() => import("./pages/koleksi-event/Birthday/index"));
-const Conferrence1 = lazy(() => import("./pages/koleksi-event/Korporat/index"))
+const Conferrence1 = lazy(() => import("./pages/koleksi-event/Korporat/index"));
 function RootLayout() {
 	return (
 		<div className="min-h-screen bg-gray-50 text-gray-900">
@@ -159,22 +160,32 @@ export const router = createBrowserRouter([
 					</Loader>
 				),
 			},
+
+			{
+				path: "event1",
+				element: (
+					<Loader>
+						<Event1 />
+					</Loader>
+				),
+			},
+
 			{
 				path: "Birthday1",
-				element:(
+				element: (
 					<Loader>
 						<Birthday1 />
 					</Loader>
-				)
+				),
 			},
 			{
 				path: "Conferrence1",
-				element:(
+				element: (
 					<Loader>
 						<Conferrence1 />
 					</Loader>
-				)
-			}
+				),
+			},
 		],
 	},
 ]);
