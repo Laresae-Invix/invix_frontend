@@ -15,7 +15,8 @@ const NotFoundPage = lazy(() => import("./pages/not-found"));
 const Komunitas1 = lazy(
 	() => import("./pages/koleksi-event/komunitas-1/index"),
 );
-
+const Birthday1 = lazy(() => import("./pages/koleksi-event/Birthday/index"));
+const Conferrence1 = lazy(() => import("./pages/koleksi-event/Korporat/index"))
 function RootLayout() {
 	return (
 		<div className="min-h-screen bg-gray-50 text-gray-900">
@@ -158,6 +159,22 @@ export const router = createBrowserRouter([
 					</Loader>
 				),
 			},
+			{
+				path: "Birthday1",
+				element:(
+					<Loader>
+						<Birthday1 />
+					</Loader>
+				)
+			},
+			{
+				path: "Conferrence1",
+				element:(
+					<Loader>
+						<Conferrence1 />
+					</Loader>
+				)
+			}
 		],
 	},
 ]);
