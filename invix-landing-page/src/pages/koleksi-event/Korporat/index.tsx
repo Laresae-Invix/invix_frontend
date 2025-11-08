@@ -1,4 +1,7 @@
 import React from "react";
+import logoInvix from "../../../assets/Logo.webp"
+import ConferrenceImage from "../../../assets/invitationAssets/Conferrence.png";
+
 
 type Speaker = {
   name: string;
@@ -139,36 +142,16 @@ const OnlineConferencePage: React.FC = () => {
       <header className="sticky top-0 z-30 border-b border-slate-800/60 bg-slate-950/70 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
           <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-500 to-pink-500 text-sm font-semibold">
-              GO
-            </div>
+            <img src={logoInvix} alt="" className="max-h-8 md:max-h-10 w-auto object-contain" />
             <div>
               <div className="text-sm font-semibold tracking-tight">
-                Global Online
+                Invix Invitation
               </div>
               <div className="text-xs text-slate-400">
-                Summit for Digital Creators
+                Your Digital Partner Invitation
               </div>
             </div>
           </div>
-
-          <nav className="hidden items-center gap-6 text-sm text-slate-300 md:flex">
-            <a href="#about" className="hover:text-white">
-              About
-            </a>
-            <a href="#speakers" className="hover:text-white">
-              Speakers
-            </a>
-            <a href="#schedule" className="hover:text-white">
-              Schedule
-            </a>
-            <a href="#tickets" className="hover:text-white">
-              Tickets
-            </a>
-            <a href="#faq" className="hover:text-white">
-              FAQ
-            </a>
-          </nav>
 
           <a
             href="#tickets"
@@ -179,150 +162,183 @@ const OnlineConferencePage: React.FC = () => {
         </div>
       </header>
 
-      {/* Hero */}
-      <section className="border-b border-slate-800/60">
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-12 md:flex-row md:items-center md:py-16 lg:py-20">
-          <div className="flex-1 space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-xs text-slate-300">
-              <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-              Live • Online Conference • Streaming Worldwide
+
+      {/* HERO SECTION: Background image + title + subtitle */}
+<section className="relative border-b border-slate-800/60 overflow-hidden">
+  {/* Background image */}
+  <div className="absolute inset-0 z-0">
+    <img
+      src={ConferrenceImage}
+      alt="People joining an online conference"
+      className="h-full w-full object-cover"
+    />
+  </div>
+
+  {/* Overlay gelap di atas gambar */}
+  <div className="absolute inset-0 z-10 bg-slate-950/75" />
+
+  {/* Konten di atas overlay */}
+  <div className="relative z-20 mx-auto flex max-w-6xl flex-col gap-6 px-4 py-16 text-white md:px-6 lg:py-24">
+    <div className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-xs text-slate-300">
+      <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+      Live • Online Conference • Streaming Worldwide
+    </div>
+
+    <div className="space-y-4 max-w-3xl">
+      <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+        Global Online Experience 2025
+      </h1>
+      <p className="max-w-xl text-sm text-slate-200 sm:text-base">
+        Two days of focused sessions on design, development, and product
+        thinking — fully online, fully interactive, and designed for
+        remote teams and digital creators.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+{/* DETAILS + RESERVATION CARD */}
+<section className="border-b border-slate-800/60">
+  <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-12 md:flex-row md:items-start md:py-16 lg:py-20">
+    {/* Left: details, info, CTA, stats */}
+    <div className="flex-1 space-y-6">
+      <div className="flex flex-wrap items-center gap-4 text-sm text-slate-300">
+        <div className="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2">
+          <span className="text-lg">📅</span>
+          <div>
+            <div className="font-medium text-white">
+              17–18 September 2025
             </div>
-
-            <div className="space-y-4">
-              <h1 className="text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                Global Online Experience 2025
-              </h1>
-              <p className="max-w-xl text-sm text-slate-300 sm:text-base">
-                Two days of focused sessions on design, development, and product
-                thinking — fully online, fully interactive, and designed for
-                remote teams and digital creators.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-4 text-sm text-slate-300">
-              <div className="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2">
-                <span className="text-lg">📅</span>
-                <div>
-                  <div className="font-medium text-white">
-                    17–18 September 2025
-                  </div>
-                  <div className="text-xs text-slate-400">
-                    09:00–17:00 GMT • Streaming globally
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2">
-                <span className="text-lg">🧑‍💻</span>
-                <div>
-                  <div className="font-medium text-white">Online Platform</div>
-                  <div className="text-xs text-slate-400">
-                    Browser-based access • No installation
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="#tickets"
-                className="rounded-full bg-indigo-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/40 hover:bg-indigo-400"
-              >
-                Reserve your seat
-              </a>
-              <a
-                href="#schedule"
-                className="text-sm font-medium text-slate-200 hover:text-white"
-              >
-                View full schedule →
-              </a>
-            </div>
-
-            <div className="flex flex-wrap gap-6 text-xs text-slate-300 sm:text-sm">
-              <div>
-                <div className="text-2xl font-semibold text-white">30+</div>
-                <div className="text-slate-400">Sessions & workshops</div>
-              </div>
-              <div>
-                <div className="text-2xl font-semibold text-white">18</div>
-                <div className="text-slate-400">International speakers</div>
-              </div>
-              <div>
-                <div className="text-2xl font-semibold text-white">900+</div>
-                <div className="text-slate-400">Expected attendees</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Hero side card */}
-          <div className="flex-1">
-            <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-5 shadow-2xl shadow-black/60 sm:p-6 lg:p-7">
-              <div className="mb-4 flex items-center justify-between gap-3">
-                <div>
-                  <div className="text-xs font-semibold uppercase tracking-wide text-indigo-300">
-                    Early Access Registration
-                  </div>
-                  <div className="text-sm text-slate-300">
-                    Limited discounted seats remaining
-                  </div>
-                </div>
-                <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-300">
-                  -30%
-                </span>
-              </div>
-
-              <form className="space-y-3 text-sm">
-                <div className="space-y-1.5">
-                  <label htmlFor="full-name" className="block text-xs font-medium text-slate-300">
-                    Full name
-                  </label>
-                  <input
-                    id="full-name"
-                    type="text"
-                    placeholder="Enter your name"
-                    className="w-full rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-white outline-none ring-indigo-500/40 placeholder:text-slate-500 focus:border-indigo-500 focus:ring-2"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <label htmlFor="work-email" className="block text-xs font-medium text-slate-300">
-                    Work email
-                  </label>
-                  <input
-                    id="work-email"
-                    type="email"
-                    placeholder="you@company.com"
-                    className="w-full rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-white outline-none ring-indigo-500/40 placeholder:text-slate-500 focus:border-indigo-500 focus:ring-2"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <label htmlFor="role-position" className="block text-xs font-medium text-slate-300">
-                    Role / Position
-                  </label>
-                  <select id="role-position" className="w-full rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-white outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/40">
-                    <option value="">Select your role</option>
-                    <option>Developer / Engineer</option>
-                    <option>Designer / Researcher</option>
-                    <option>Product / Strategy</option>
-                    <option>Founder / Leadership</option>
-                    <option>Student / Learner</option>
-                  </select>
-                </div>
-
-                <button
-                  type="submit"
-                  className="mt-2 w-full rounded-xl bg-indigo-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/40 hover:bg-indigo-400"
-                >
-                  Join the early access list
-                </button>
-
-                <p className="text-xs text-slate-500">
-                  No spam. We’ll send one reminder when the full agenda is
-                  published and another before the event goes live.
-                </p>
-              </form>
+            <div className="text-xs text-slate-400">
+              09:00–17:00 GMT • Streaming globally
             </div>
           </div>
         </div>
-      </section>
+        <div className="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2">
+          <span className="text-lg">🧑‍💻</span>
+          <div>
+            <div className="font-medium text-white">Online Platform</div>
+            <div className="text-xs text-slate-400">
+              Browser-based access • No installation
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-wrap items-center gap-4">
+        <a
+          href="#tickets"
+          className="rounded-full bg-indigo-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/40 hover:bg-indigo-400"
+        >
+          Reserve your seat
+        </a>
+        <a
+          href="#schedule"
+          className="text-sm font-medium text-slate-200 hover:text-white"
+        >
+          View full schedule →
+        </a>
+      </div>
+
+      <div className="flex flex-wrap gap-6 text-xs text-slate-300 sm:text-sm">
+        <div>
+          <div className="text-2xl font-semibold text-white">30+</div>
+          <div className="text-slate-400">Sessions & workshops</div>
+        </div>
+        <div>
+          <div className="text-2xl font-semibold text-white">18</div>
+          <div className="text-slate-400">International speakers</div>
+        </div>
+        <div>
+          <div className="text-2xl font-semibold text-white">900+</div>
+          <div className="text-slate-400">Expected attendees</div>
+        </div>
+      </div>
+    </div>
+
+    {/* Right: reservation card */}
+    <div className="flex-1">
+      <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-5 shadow-2xl shadow-black/60 sm:p-6 lg:p-7">
+        <div className="mb-4 flex items-center justify-between gap-3">
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-wide text-indigo-300">
+              Early Access Registration
+            </div>
+            <div className="text-sm text-slate-300">
+              Limited discounted seats remaining
+            </div>
+          </div>
+          <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-300">
+            -30%
+          </span>
+        </div>
+
+        <form className="space-y-3 text-sm">
+          <div className="space-y-1.5">
+            <label
+              htmlFor="full-name"
+              className="block text-xs font-medium text-slate-300"
+            >
+              Full name
+            </label>
+            <input
+              id="full-name"
+              type="text"
+              placeholder="Enter your name"
+              className="w-full rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-white outline-none ring-indigo-500/40 placeholder:text-slate-500 focus:border-indigo-500 focus:ring-2"
+            />
+          </div>
+          <div className="space-y-1.5">
+            <label
+              htmlFor="work-email"
+              className="block text-xs font-medium text-slate-300"
+            >
+              Work email
+            </label>
+            <input
+              id="work-email"
+              type="email"
+              placeholder="you@company.com"
+              className="w-full rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-white outline-none ring-indigo-500/40 placeholder:text-slate-500 focus:border-indigo-500 focus:ring-2"
+            />
+          </div>
+          <div className="space-y-1.5">
+            <label
+              htmlFor="role-position"
+              className="block text-xs font-medium text-slate-300"
+            >
+              Role / Position
+            </label>
+            <select
+              id="role-position"
+              className="w-full rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-white outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/40"
+            >
+              <option value="">Select your role</option>
+              <option>Developer / Engineer</option>
+              <option>Designer / Researcher</option>
+              <option>Product / Strategy</option>
+              <option>Founder / Leadership</option>
+              <option>Student / Learner</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            className="mt-2 w-full rounded-xl bg-indigo-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/40 hover:bg-indigo-400"
+          >
+            Join the early access list
+          </button>
+
+          <p className="text-xs text-slate-500">
+            No spam. We’ll send one reminder when the full agenda is
+            published and another before the event goes live.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* About */}
       <section id="about" className="border-b border-slate-800/60">
