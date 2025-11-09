@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Event1 from "./pages/koleksi-event/event-1";
 import TermsLayout from "./pages/terms/layout";
 import TermsPage from "./pages/terms/page";
+import Event2 from "./pages/koleksi-event/event-2";
 
 const HomePage = lazy(() => import("./pages/home/index"));
 const AboutLayout = lazy(() => import("./pages/about/layout"));
@@ -166,6 +167,15 @@ export const router = createBrowserRouter([
 				element: (
 					<Loader>
 						<Event1 />
+					</Loader>
+				),
+			},
+
+			{
+				path: "event2",
+				element: (
+					<Loader>
+						<Event2 />
 					</Loader>
 				),
 			},

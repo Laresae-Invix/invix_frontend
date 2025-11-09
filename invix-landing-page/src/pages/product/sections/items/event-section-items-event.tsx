@@ -11,9 +11,10 @@ export default function ProductEventSectionItemsEvent() {
 			// imageUrl: komunitas_satu,
 		},
 		{
-			id: 3,
-			title: "Event 3",
-			description: "Deskripsi singkat produk Event 3.",
+			id: 2,
+			title: "Event 2",
+			description: "Deskripsi singkat produk Event 2.",
+			link: "/koleksi-event/Event2",
 		},
 	];
 

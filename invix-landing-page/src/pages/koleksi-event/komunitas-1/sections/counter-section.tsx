@@ -15,7 +15,7 @@ export default function Counter() {
 				<div className="grid lg:grid-cols-2 gap-12 items-center">
 					<div className="text-white">
 						<span className="text-blue-300 text-lg font-semibold mb-2 block">
-							Why Join Ovent
+							Why Join Event
 						</span>
 						<h2 className="text-4xl md:text-5xl font-bold mb-4">
 							Join us at 110th oVent Expo.
@@ -48,17 +48,17 @@ export default function Counter() {
 					</div>
 
 					<div className="grid grid-cols-2 gap-6">
-						<div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-8 text-center text-white shadow-2xl transform hover:scale-105 transition">
+						<div className="bg-gradient-to-br from-white-500 to-white-600 rounded-2xl p-8 text-center text-white shadow-2xl transform hover:scale-105 transition">
 							<div className="text-5xl font-bold mb-2">20+</div>
 							<p className="text-lg">Sponsors</p>
 						</div>
 
-						<div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-8 text-center text-white shadow-2xl transform hover:scale-105 transition">
+						<div className="bg-gradient-to-br from-white-500 to-white-600 rounded-2xl p-8 text-center text-white shadow-2xl transform hover:scale-105 transition">
 							<div className="text-5xl font-bold mb-2">100+</div>
 							<p className="text-lg">Cool Speakers</p>
 						</div>
 
-						<div className="col-span-2 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-center text-white shadow-2xl transform hover:scale-105 transition">
+						<div className="col-span-2 bg-gradient-to-br from-white-500 to-white-600 rounded-2xl p-8 text-center text-white shadow-2xl transform hover:scale-105 transition">
 							<div className="text-5xl font-bold mb-2">5+</div>
 							<p className="text-lg">Happy People</p>
 						</div>

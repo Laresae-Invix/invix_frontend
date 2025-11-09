@@ -10,7 +10,7 @@ export default function AboutSection() {
 							<div>
 								<span className="text-6xl font-bold text-gray-100">Event</span>
 								<span className="block text-blue-600 text-lg font-semibold mb-2 mt-4">
-									Why Join Ovent
+									Why Join Event
 								</span>
 								<h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
 									Why You Should Join Event

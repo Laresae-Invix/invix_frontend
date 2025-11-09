@@ -1,4 +1,5 @@
 import SectionNavigator from "../../../../components/sectionNavigator";
+import ProductEventSectionItemsBirthday from "../items/event-section-items-birthday";
 import ProductEventSectionItemsEvent from "../items/event-section-items-event";
 import ProductEventSectionItemsFamily from "../items/event-section-items-family";
 import ProductEventSectionItemsKomunitas from "../items/event-section-items-komunitas";
@@ -25,6 +26,11 @@ export default function ProductEventSection() {
 			key: "family",
 			label: "Family",
 			element: <ProductEventSectionItemsFamily />,
+		},
+		{
+			key: "birthday",
+			label: "Birthday",
+			element: <ProductEventSectionItemsBirthday />,
 		},
 	];
 

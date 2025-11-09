@@ -16,30 +16,6 @@ export default function HeroSection() {
 
 	return (
 		<section className="relative w-full min-h-screen bg-gradient-to-br from-indigo-900 via-indigo-800 to-black text-white overflow-hidden">
-			{/* Navbar */}
-			<nav className="absolute top-0 w-full z-20 flex items-center justify-center px-6 py-4">
-				{/* Logo */}
-				<div className="text-3xl font-bold text-white">Portm</div>
-
-				{/* Mobile Menu Toggle */}
-				<div className="md:hidden ml-auto">
-					<button onClick={toggleMobileMenu} className="text-white">
-						{isMobileMenuOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
-					</button>
-				</div>
-
-				{/* Desktop Menu */}
-				<ul className="hidden md:flex space-x-6 ml-auto">
-					<li>
-						<a
-							href="#contact"
-							className="px-5 py-2 bg-orange-500 hover:bg-orange-400 rounded-lg text-white"
-						>
-							Contact Me
-						</a>
-					</li>
-				</ul>
-			</nav>
 
 			{/* Mobile Menu */}
 			<div

@@ -115,17 +115,9 @@ const SiteHeader: React.FC = () => {
         <div className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-xl bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-amber-300" />
           <span className="text-lg font-semibold tracking-tight">
-            BirthdayJoy
+            Invix
           </span>
         </div>
-
-        <nav className="hidden items-center gap-6 text-sm text-slate-200 md:flex">
-          <button type="button" className="hover:text-white">Home</button>
-          <button type="button" className="hover:text-white">Story</button>
-          <button type="button" className="hover:text-white">Schedule</button>
-          <button type="button" className="hover:text-white">Gallery</button>
-          <button type="button" className="hover:text-white">RSVP</button>
-        </nav>
 
         <div className="flex items-center gap-3">
           <button type="button" className="hidden rounded-full border border-slate-700 px-4 py-2 text-xs font-medium hover:border-slate-500 md:inline-flex">

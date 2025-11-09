@@ -67,7 +67,7 @@ export default function Header() {
 						onClick={() => pindahPage("cta")}
 						className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700"
 					>
-						Buy Ticket  <ArrowIcon />
+						Contact Me  <ArrowIcon />
 					</button>
 				</div>
 
@@ -98,7 +98,7 @@ export default function Header() {
 								}}
 								className="inline-flex items-center gap-2 rounded-2xl bg-[#4351BC] px-4 py-2 text-sm font-semibold text-white shadow hover:bg-[#4351BC]"
 							>
-								Buy Ticket <ArrowIcon />
+								Contact Me  <ArrowIcon />
 							</button>
 						</div>
 					</nav>

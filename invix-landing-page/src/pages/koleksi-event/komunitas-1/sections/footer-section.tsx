@@ -11,10 +11,10 @@ export default function Footer() {
 		>
 			<div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 to-blue-900/95"></div>
 
-			<div className="relative z-10 py-24">
+			<div className="relative z-10 py-20">
 				<div className="container mx-auto px-4">
-					<div className="text-center max-w-4xl mx-auto">
-						<div className="mb-8">
+					<div className="text-center max-w-4xl mx-auto ">
+						<div className="mb-8 mt-24">
 							<a href="#home" className="text-4xl font-bold text-white">
 								Eventes
 							</a>
@@ -53,40 +53,6 @@ export default function Footer() {
 
 			<div className="relative z-10 border-t border-white/10 py-8">
 				<div className="container mx-auto px-4">
-					<div className="text-center">
-						<ul className="flex flex-wrap justify-center gap-6 text-white">
-							<li>
-								<a href="#about" className="hover:text-blue-400 transition">
-									About
-								</a>
-							</li>
-							<li>
-								<a href="#team" className="hover:text-blue-400 transition">
-									Eventime
-								</a>
-							</li>
-							<li>
-								<a href="#blog" className="hover:text-blue-400 transition">
-									Blog
-								</a>
-							</li>
-							<li>
-								<a href="#pricing" className="hover:text-blue-400 transition">
-									Contact
-								</a>
-							</li>
-							<li>
-								<a href="#pricing" className="hover:text-blue-400 transition">
-									Tickets
-								</a>
-							</li>
-							<li>
-								<a href="/" className="hover:text-blue-400 transition">
-									Venue
-								</a>
-							</li>
-						</ul>
-					</div>
 				</div>
 			</div>
 		</footer>
