@@ -65,7 +65,15 @@ export const PricingSection = () => {
 									className={`w-full mb-6 border-2 border-[#4351BC] text-[#273287] hover:bg-[#273287] hover:text-white`}
 									size="lg"
 								>
+									<a
+										href="https://wa.me/6285157609919?text=Halo%20Invix%2C%20saya%20ingin%20konsultasi%20undangan"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="flex items-center"
+									>
 									{plan.price === 0 ? "Start Free" : "Get Started"}
+									</a>
+									
 								</Button>
 
 								{/* Features */}

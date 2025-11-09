@@ -14,7 +14,7 @@ const AboutPage = lazy(() => import("./pages/about/page"));
 const ProductLayout = lazy(() => import("./pages/product/layout"));
 const ProductPage = lazy(() => import("./pages/product/page"));
 const NotFoundPage = lazy(() => import("./pages/not-found"));
-const Komunitas1 = lazy(
+const KomunitasOne = lazy(
 	() => import("./pages/koleksi-event/komunitas-1/index"),
 );
 const Birthday1 = lazy(() => import("./pages/koleksi-event/Birthday/index"));
@@ -133,6 +133,43 @@ export const router = createBrowserRouter([
 					</Loader>
 				),
 			},
+			{
+				path: "/login",
+				element: (
+					<Loader>
+						<LoginLayout />
+					</Loader>
+				),
+				children: [
+					{
+						index: true,
+						element: (
+							<Loader>
+								<LoginPage />
+							</Loader>
+						),
+					},
+				],
+			},
+
+			{
+				path: "/dashboard",
+				element: (
+					<Loader>
+						<DashboardLayout />
+					</Loader>
+				),
+				children: [
+					{
+						index: true,
+						element: (
+							<Loader>
+								<DashboardPage />
+							</Loader>
+						),
+					},
+				],
+			},
 
 			{
 				path: "*",
@@ -154,10 +191,10 @@ export const router = createBrowserRouter([
 		),
 		children: [
 			{
-				path: "komunitas1",
+				path: "komunitasOne",
 				element: (
 					<Loader>
-						<Komunitas1 />
+						<KomunitasOne/>
 					</Loader>
 				),
 			},

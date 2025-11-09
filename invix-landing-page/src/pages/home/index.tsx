@@ -9,7 +9,7 @@ import FeatureSection from "./sections/features-section";
 import FooterSection from "./sections/footer-section";
 import HeroSection from "./sections/hero-section";
 import PricingSection from "./sections/pricing-section";
-import TemplateSection from "./sections/template-section";
+// import TemplateSection from "./sections/template-section";
 
 export default function LandingPage() {
 	const location = useLocation();
@@ -60,14 +60,15 @@ export default function LandingPage() {
 					</Reveal>
 				</section>
 
-				<section
+				{/* di ilanin dlu */}
+				{/* <section
 					id={SECTION_IDS.template}
 					className="scroll-mt-12 mb-16" // Menambahkan margin bawah
 				>
 					<Reveal direction="right" once>
 						<TemplateSection />
 					</Reveal>
-				</section>
+				</section> */}
 
 				<section
 					id={SECTION_IDS.pricing}
