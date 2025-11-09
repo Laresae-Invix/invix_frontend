@@ -8,21 +8,32 @@ const handleAnimationComplete = () => {
 export default function HeroSection() {
 	return (
 		<section className="relative min-h-screen flex items-center justify-center mb-12">
-			{/* Radial Gradient Background from Bottom */}
-			<div
-				className="absolute inset-0 z-0"
-				style={{
-					background:
-						"radial-gradient(125% 125% at 50% 90%, #fff 30%, #6366f1 100%)",
-					filter: "blur(5px)",
-				}}
-			/>
-			{/* Konten pusat */}
+			{/* Background dengan Kotak Gradien Ungu yang Lebih Halus */}
+			<div className="absolute inset-x-0 bottom-0 z-0 flex justify-center items-end">
+				{/* Kotak Kiri ke Tengah (Besar ke Kecil) */}
+				<div className="hidden sm:block w-32 h-140 bg-gradient-to-t from-purple-600 to-transparent blur-lg opacity-35 sm:w-46 sm:h-200" />
+				<div className="hidden sm:block w-32 h-120 bg-gradient-to-t from-purple-600 to-transparent blur-lg opacity-35 sm:w-46 sm:h-160" />
+				<div className="hidden sm:block w-32 h-100 bg-gradient-to-t from-purple-600 to-transparent blur-lg opacity-35 sm:w-46 sm:h-120" />
+				<div className="w-32 h-80 bg-gradient-to-t from-purple-600 to-transparent blur-lg opacity-35 sm:w-46 sm:h-80" />
+				<div className="w-32 h-80 bg-gradient-to-t from-purple-600 to-transparent blur-lg opacity-35 sm:w-46 sm:h-60" />
+
+				{/* Kotak Tengah */}
+				<div className="w-32 h-40 bg-gradient-to-t from-purple-600 to-transparent blur-lg opacity-45 sm:w-46 sm:h-40" />
+
+				{/* Kotak Kanan ke Tengah (Kecil ke Besar) */}
+				<div className="w-32 h-140 bg-gradient-to-t from-purple-600 to-transparent blur-lg opacity-35 sm:w-46 sm:h-60" />
+				<div className="w-32  h-120 bg-gradient-to-t from-purple-600 to-transparent blur-lg opacity-35 sm:w-46 sm:h-80" />
+				<div className="hidden sm:block w-32 h-100 bg-gradient-to-t from-purple-600 to-transparent blur-lg opacity-35 sm:w-46 sm:h-120" />
+				<div className="hidden sm:block w-32 h-80 bg-gradient-to-t from-purple-600 to-transparent blur-lg opacity-35 sm:w-46 sm:h-160" />
+				<div className="hidden sm:block w-32 h-80 bg-gradient-to-t from-purple-600 to-transparent blur-lg opacity-35 sm:w-46 sm:h-200" />
+			</div>
+
+			{/* Konten */}
 			<div className="relative z-10 text-center px-6 sm:px-12">
 				<div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full mb-8 shadow-sm border border-gray-200">
 					<Sparkles className="h-4 w-4" style={{ color: "#4351BC" }} />
 					<span className="text-sm font-medium" style={{ color: "#4351BC" }}>
-						Create Beautiful Digital Invitations
+						Buat Undangan Digital yang Indah dengan INVIX!
 					</span>
 				</div>
 				<div className="max-w-6xl text-center mx-auto">
@@ -30,7 +41,7 @@ export default function HeroSection() {
 					<h1 className="text-[clamp(48px,8vw,80px)] font-extrabold text-[#4351BC] leading-tight">
 						<SplitText
 							text="Buat Undangan Digital Menakjubkan dengan INVIX"
-							className="text-[clamp(48px,8vw,80px)] text-[#4351BC]" // Menambahkan ukuran font lebih besar dan responsif
+							className="text-[clamp(48px,8vw,80px)] text-[#4351BC]"
 							delay={100}
 							duration={0.8}
 							ease="power3.out"

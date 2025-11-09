@@ -64,18 +64,18 @@ export default function TemplateSection() {
 	return (
 		<section
 			id="templates"
-			className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14"
+			className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16"
 		>
 			{/* Header */}
 
 			<div className="text-center">
-				<div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full mb-8 shadow-sm border border-gray-200">
-					<Sparkles className="h-4 w-4" style={{ color: "#4351BC" }} />
+				<div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full mb-6 shadow-sm border border-gray-200">
+					<Sparkles className="h-4 w-" style={{ color: "#4351BC" }} />
 					<span className="text-sm font-medium" style={{ color: "#4351BC" }}>
 						Template Invix Nih!
 					</span>
 				</div>
-				<h2 className="mt-3 mb-4 text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+				<h2 className="mt-2 mb-4 text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
 					Template Unggulan
 				</h2>
 				<p className="text-slate-600 text-lg  max-w-2xl mx-auto">

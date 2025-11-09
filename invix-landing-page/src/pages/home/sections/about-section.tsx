@@ -34,7 +34,7 @@ export const AboutSection = () => {
 			className=" min-h-[50vh] py-12 px-4 sm:px-6 lg:px-8 flex justify-center items-center bg-gray-50"
 		>
 			<div className="max-w-7xl mx-auto">
-				<div className="grid md:grid-cols-2 gap-12 items-center">
+				<div className="grid md:grid-cols-2 gap-52 items-center">
 					{/* Left Content */}
 					<div className="space-y-8">
 						<div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200">
@@ -53,7 +53,7 @@ export const AboutSection = () => {
 						{/* Key Benefits */}
 						<div className="space-y-6">
 							<div className="flex items-start space-x-3">
-								<div className="text-green-500 text-xl">✓</div>
+								<div className="text-[#4351BC] text-xl">✓</div>
 								<div>
 									<h4 className="font-semibold mb-1">Pengiriman Instan</h4>
 									<p className="text-gray-600 text-sm">

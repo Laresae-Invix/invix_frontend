@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ProductCard from "../../../../components/ProductkCard";
 
 export default function ProductEventSectionItemsEvent() {
@@ -6,23 +7,27 @@ export default function ProductEventSectionItemsEvent() {
 			id: 1,
 			title: "Event 1",
 			description: "Deskripsi singkat produk Event 1.",
+			link: "/koleksi-event/Event1",
+			// imageUrl: komunitas_satu,
 		},
 		{
-			id: 3,
-			title: "Event 3",
-			description: "Deskripsi singkat produk Event 3.",
+			id: 2,
+			title: "Event 2",
+			description: "Deskripsi singkat produk Event 2.",
+			link: "/koleksi-event/Event2",
 		},
 	];
 
 	return (
 		<div className="grid gap-20 sm:grid-cols-2 lg:grid-cols-3">
 			{products.map((p) => (
-				<ProductCard
-					key={p.id}
-					title={p.title}
-					description={p.description}
-					// imageUrl={p.imageUrl}
-				/>
+				<Link to={p.link ?? "/product"} key={p.id}>
+					<ProductCard
+						title={p.title}
+						description={p.description}
+						// imageUrl={p.imageUrl}
+					/>
+				</Link>
 			))}
 		</div>
 	);
