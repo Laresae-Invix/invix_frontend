@@ -45,15 +45,17 @@ type ButtonProps = React.HTMLAttributes<HTMLElement> & {
 		| "link";
 	size?: "default" | "sm" | "lg" | "icon";
 	asChild?: boolean;
+	href?: string; // Menambahkan prop href untuk mendukung penggunaan tautan
 };
 
 const Button = React.forwardRef<HTMLElement, ButtonProps>(
-	({ className, variant, size, asChild = false, ...props }, ref) => {
+	({ className, variant, size, asChild = false, href, ...props }, ref) => {
 		// Menentukan tag yang akan digunakan (button atau div)
-		const Comp: React.ElementType = asChild ? "div" : "button";
+		const Comp: React.ElementType = asChild ? "div" : href ? "a" : "button"; // Jika href ada, gunakan <a>
 
 		return (
 			<Comp
+				href={href} // Mengarahkan link jika href diberikan
 				className={cn(buttonVariants({ variant, size, className }))}
 				ref={ref as React.Ref<any>}
 				{...props} // Spread semua props agar bisa diterima oleh button atau div

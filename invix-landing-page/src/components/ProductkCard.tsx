@@ -73,8 +73,4 @@ export default function ProductCard({
 	);
 }
 
-
-
-
-
-// testing 
+// testing
