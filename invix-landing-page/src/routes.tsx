@@ -7,6 +7,10 @@ import Event1 from "./pages/koleksi-event/event-1";
 import TermsLayout from "./pages/terms/layout";
 import TermsPage from "./pages/terms/page";
 import Event2 from "./pages/koleksi-event/event-2";
+import LoginLayout from "./pages/login/layout";
+import LoginPage from "./pages/login/page";
+import DashboardLayout from "./pages/dashboard/layout";
+import DashboardPage from "./pages/dashboard/page";
 
 const HomePage = lazy(() => import("./pages/home/index"));
 const AboutLayout = lazy(() => import("./pages/about/layout"));

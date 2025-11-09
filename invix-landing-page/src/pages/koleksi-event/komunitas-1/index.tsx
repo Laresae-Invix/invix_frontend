@@ -9,7 +9,7 @@ import Pricing from "./sections/pricing-section";
 import Speakers from "./sections/speakers-section";
 import Sponsors from "./sections/sponsors-section";
 
-function Komunitas1() {
+function KomunitasOne() {
 	return (
 		<div className="min-h-screen">
 			<Header />
@@ -28,4 +28,4 @@ function Komunitas1() {
 	);
 }
 
-export default Komunitas1;
+export default KomunitasOne;
