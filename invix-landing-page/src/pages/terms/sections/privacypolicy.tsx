@@ -290,8 +290,7 @@ export default function PrivacyPolicy() {
 						<p>
 							Jika Anda memiliki pertanyaan atau kekhawatiran tentang kebijakan
 							privasi ini atau cara kami menangani data pribadi Anda, silakan
-							hubungi kami di [alamat email dukungan pelanggan] atau kunjungi
-							halaman Hubungi Kami di situs web kami.
+							hubungi kami di situs web kami.
 						</p>
 					</section>
 				</div>

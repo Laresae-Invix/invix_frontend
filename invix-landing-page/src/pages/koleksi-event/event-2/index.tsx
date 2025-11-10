@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 
 const styles = `
 :root {
@@ -490,165 +491,168 @@ body {
 }
 `;
 
-
 const SectionTitle: React.FC<{
-  eyebrow?: string;
-  title: string;
-  align?: "left" | "center";
+	eyebrow?: string;
+	title: string;
+	align?: "left" | "center";
 }> = ({ eyebrow, title, align = "left" }) => (
-  <div
-    className={
-      "section-title " +
-      (align === "center" ? "section-title-center" : "section-title-left")
-    }
-  >
-    {eyebrow && <div className="section-eyebrow">{eyebrow}</div>}
-    <h2 className="section-heading">{title}</h2>
-  </div>
+	<div
+		className={
+			"section-title " +
+			(align === "center" ? "section-title-center" : "section-title-left")
+		}
+	>
+		{eyebrow && <div className="section-eyebrow">{eyebrow}</div>}
+		<h2 className="section-heading">{title}</h2>
+	</div>
 );
 
 const Event2Header: React.FC = () => {
-  const [, setOpen] = useState(false);
+	const [, setOpen] = useState(false);
 
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    const top = el.getBoundingClientRect().top + window.scrollY - 80;
-    window.scrollTo({ top, behavior: "smooth" });
-    setOpen(false);
-  };
+	const scrollTo = (id: string) => {
+		const el = document.getElementById(id);
+		if (!el) return;
+		const top = el.getBoundingClientRect().top + window.scrollY - 80;
+		window.scrollTo({ top, behavior: "smooth" });
+		setOpen(false);
+	};
 
-  return (
-     <header className="fixed inset-x-0 top-0 z-40 border-b border-slate-800 bg-slate-950/80 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-xl bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-amber-300" />
-          <span className="text-lg font-semibold tracking-tight">
-            Invix
-          </span>
-        </div>
+	return (
+		<header className="fixed inset-x-0 top-0 z-40 border-b border-slate-800 bg-slate-950/80 backdrop-blur">
+			<div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+				<div className="flex items-center gap-2">
+					<div className="h-8 w-8 rounded-xl bg-gradient-to-tr from-pink-400 via-fuchsia-500 to-amber-300" />
+					<span className="text-lg font-semibold tracking-tight">Invix</span>
+				</div>
 
-        <div className="flex items-center gap-3">
-          <button type="button" className="hidden rounded-full border border-slate-700 px-4 py-2 text-xs font-medium hover:border-slate-500 md:inline-flex">
-            Add to Calendar
-          </button>
-          <button type="button" className="rounded-full bg-pink-500 px-4 py-2 text-xs font-semibold text-white shadow-lg shadow-pink-500/40 hover:bg-pink-400">
-            Open Invitation
-          </button>
-        </div>
-      </div>
-    </header>
-  );
+				<div className="flex items-center gap-3">
+					<button
+						type="button"
+						className="hidden rounded-full border border-slate-700 px-4 py-2 text-xs font-medium hover:border-slate-500 md:inline-flex"
+					>
+						Add to Calendar
+					</button>
+					<button
+						type="button"
+						className="rounded-full bg-pink-500 px-4 py-2 text-xs font-semibold text-white shadow-lg shadow-pink-500/40 hover:bg-pink-400"
+					>
+						Open Invitation
+					</button>
+				</div>
+			</div>
+		</header>
+	);
 };
 
 const Hero: React.FC = () => (
-  <section id="home" className="section">
-    <div className="hero">
-      <div className="hero-left">
-        <p className="hero-availability">Available for freelance</p>
-        <h1 className="hero-title">
-          Hello, I am Pablo Gavi
-          <span className="hero-gradient">
-            Front-end Developer and UI Designer
-          </span>
-        </h1>
-        <p className="hero-text">
-          I design and build clean, fast, and accessible digital products for
-          modern brands.
-        </p>
-        <div className="hero-stats">
-          <div className="hero-stat">
-            <div className="hero-stat-number">14</div>
-            <div className="hero-stat-label">Years of experience</div>
-          </div>
-          <div className="hero-stat">
-            <div className="hero-stat-number">6k</div>
-            <div className="hero-stat-label">Clients worldwide</div>
-          </div>
-        </div>
-        <div className="hero-actions">
-          <a href="#contact" className="btn-primary">
-            Hire Me
-          </a>
-          <a href="#portfolio" className="btn-ghost">
-            View Portfolio
-          </a>
-        </div>
-      </div>
-      <div className="hero-right">
-        <div className="hero-avatar" />
-        <div className="hero-badge">Front-end Developer</div>
-        <div className="hero-badge-alt">UI / UX Designer</div>
-      </div>
-    </div>
-  </section>
+	<section id="home" className="section">
+		<div className="hero">
+			<div className="hero-left">
+				<p className="hero-availability">Available for freelance</p>
+				<h1 className="hero-title">
+					Hello, I am Pablo Gavi
+					<span className="hero-gradient">
+						Front-end Developer and UI Designer
+					</span>
+				</h1>
+				<p className="hero-text">
+					I design and build clean, fast, and accessible digital products for
+					modern brands.
+				</p>
+				<div className="hero-stats">
+					<div className="hero-stat">
+						<div className="hero-stat-number">14</div>
+						<div className="hero-stat-label">Years of experience</div>
+					</div>
+					<div className="hero-stat">
+						<div className="hero-stat-number">6k</div>
+						<div className="hero-stat-label">Clients worldwide</div>
+					</div>
+				</div>
+				<div className="hero-actions">
+					<a href="#contact" className="btn-primary">
+						Hire Me
+					</a>
+					<a href="#portfolio" className="btn-ghost">
+						View Portfolio
+					</a>
+				</div>
+			</div>
+			<div className="hero-right">
+				<div className="hero-avatar" />
+				<div className="hero-badge">Front-end Developer</div>
+				<div className="hero-badge-alt">UI / UX Designer</div>
+			</div>
+		</div>
+	</section>
 );
 
 const Services: React.FC = () => {
-  const services = [
-    {
-      title: "UI / UX Design",
-      desc: "Product interfaces with clear hierarchy and consistent patterns.",
-    },
-    {
-      title: "Web Development",
-      desc: "Production-ready React apps with performance in mind.",
-    },
-    {
-      title: "SEO & Marketing",
-      desc: "Markup and content structure optimized for reach.",
-    },
-    {
-      title: "Product Strategy",
-      desc: "Translate business goals into usable product flows.",
-    },
-  ];
-  return (
-    <section id="services" className="section">
-      <SectionTitle
-        eyebrow="Our Services"
-        title="Turn information into usable digital experiences"
-        align="center"
-      />
-      <div className="grid-4">
-        {services.map((s) => (
-          <div key={s.title} className="card service-card">
-            <div className="service-dot" />
-            <h3 className="card-title">{s.title}</h3>
-            <p className="card-text">{s.desc}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
+	const services = [
+		{
+			title: "UI / UX Design",
+			desc: "Product interfaces with clear hierarchy and consistent patterns.",
+		},
+		{
+			title: "Web Development",
+			desc: "Production-ready React apps with performance in mind.",
+		},
+		{
+			title: "SEO & Marketing",
+			desc: "Markup and content structure optimized for reach.",
+		},
+		{
+			title: "Product Strategy",
+			desc: "Translate business goals into usable product flows.",
+		},
+	];
+	return (
+		<section id="services" className="section">
+			<SectionTitle
+				eyebrow="Our Services"
+				title="Turn information into usable digital experiences"
+				align="center"
+			/>
+			<div className="grid-4">
+				{services.map((s) => (
+					<div key={s.title} className="card service-card">
+						<div className="service-dot" />
+						<h3 className="card-title">{s.title}</h3>
+						<p className="card-text">{s.desc}</p>
+					</div>
+				))}
+			</div>
+		</section>
+	);
 };
 
 const Footer: React.FC = () => (
-  <footer className="footer">
-    <div>© 2025 Gavi. All rights reserved.</div>
-    <div className="footer-links">
-      <a href="#home">Home</a>
-      <a href="#portfolio">Works</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </footer>
+	<footer className="footer">
+		<div>© 2025 Gavi. All rights reserved.</div>
+		<div className="footer-links">
+			<a href="#home">Home</a>
+			<a href="#portfolio">Works</a>
+			<a href="#contact">Contact</a>
+		</div>
+	</footer>
 );
 
 const Event2: React.FC = () => {
-  return (
-    <>
-      <style>{styles}</style>
-      <div className="page-root">
-        <Event2Header />
-        <main className="page-main">
-          <Hero />
-          <Services />
-        
-          <Footer />
-        </main>
-      </div>
-    </>
-  );
+	return (
+		<>
+			<style>{styles}</style>
+			<div className="page-root">
+				<Event2Header />
+				<main className="page-main">
+					<Hero />
+					<Services />
+
+					<Footer />
+				</main>
+			</div>
+		</>
+	);
 };
 
 export default Event2;

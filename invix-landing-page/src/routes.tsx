@@ -3,14 +3,16 @@ import type React from "react";
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import DashboardLayout from "./pages/dashboard/layout";
+import DashboardPage from "./pages/dashboard/page";
 import Event1 from "./pages/koleksi-event/event-1";
-import TermsLayout from "./pages/terms/layout";
-import TermsPage from "./pages/terms/page";
 import Event2 from "./pages/koleksi-event/event-2";
 import LoginLayout from "./pages/login/layout";
 import LoginPage from "./pages/login/page";
-import DashboardLayout from "./pages/dashboard/layout";
-import DashboardPage from "./pages/dashboard/page";
+import RegisterLayout from "./pages/register/layout";
+import RegisterPage from "./pages/register/page";
+import TermsLayout from "./pages/terms/layout";
+import TermsPage from "./pages/terms/page";
 
 const HomePage = lazy(() => import("./pages/home/index"));
 const AboutLayout = lazy(() => import("./pages/about/layout"));
@@ -137,43 +139,6 @@ export const router = createBrowserRouter([
 					</Loader>
 				),
 			},
-			{
-				path: "/login",
-				element: (
-					<Loader>
-						<LoginLayout />
-					</Loader>
-				),
-				children: [
-					{
-						index: true,
-						element: (
-							<Loader>
-								<LoginPage />
-							</Loader>
-						),
-					},
-				],
-			},
-
-			{
-				path: "/dashboard",
-				element: (
-					<Loader>
-						<DashboardLayout />
-					</Loader>
-				),
-				children: [
-					{
-						index: true,
-						element: (
-							<Loader>
-								<DashboardPage />
-							</Loader>
-						),
-					},
-				],
-			},
 
 			{
 				path: "*",
@@ -185,6 +150,64 @@ export const router = createBrowserRouter([
 			},
 		],
 	},
+
+	{
+		path: "/dashboard",
+		element: (
+			<Loader>
+				<DashboardLayout />
+			</Loader>
+		),
+		children: [
+			{
+				index: true,
+				element: (
+					<Loader>
+						<DashboardPage />
+					</Loader>
+				),
+			},
+		],
+	},
+
+	{
+		path: "/login",
+		element: (
+			<Loader>
+				<LoginLayout />
+			</Loader>
+		),
+		children: [
+			{
+				index: true,
+				element: (
+					<Loader>
+						<LoginPage />
+					</Loader>
+				),
+			},
+		],
+	},
+
+	{
+		path: "/register",
+		element: (
+			<Loader>
+				<RegisterLayout />
+			</Loader>
+		),
+		children: [
+			{
+				index: true,
+				element: (
+					<Loader>
+						<RegisterPage />
+					</Loader>
+				),
+			},
+		],
+	},
+
 	{
 		// nested collection routes under /product/koleksi-event
 		path: "koleksi-event",
@@ -198,7 +221,7 @@ export const router = createBrowserRouter([
 				path: "komunitasOne",
 				element: (
 					<Loader>
-						<KomunitasOne/>
+						<KomunitasOne />
 					</Loader>
 				),
 			},
