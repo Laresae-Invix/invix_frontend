@@ -1,5 +1,6 @@
 name: Deploy FE (Build on Server)
 
+
 on:
   push:
     branches: [ "main" ]
@@ -7,6 +8,7 @@ on:
       - "invix-landing-page/**"        
       - ".github/workflows/deploy.yml"
   workflow_dispatch:
+
 
 jobs:
   deploy:
