@@ -150,17 +150,22 @@ export default function Navbar() {
 							Product
 						</button>
 
-						<div className="pt-2 flex items-center gap-2 ">
-							<button
-								type="button"
-								onClick={() => {
-									pindahPage("cta");
-									setOpen(false);
-								}}
-								className="inline-flex items-center gap-2 rounded-2xl bg-[#4351BC] px-4 py-2 text-sm font-semibold text-white shadow hover:bg-[#4351BC]"
+						<div className="pt-2  md:flex items-center gap-2">
+							<Button
+								asChild
+								className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group"
 							>
-								Login <ArrowIcon />
-							</button>
+								<a
+									href="/login"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex items-center"
+								>
+									Login
+								</a>
+
+								<ArrowIcon />
+							</Button>
 						</div>
 					</nav>
 				</div>
