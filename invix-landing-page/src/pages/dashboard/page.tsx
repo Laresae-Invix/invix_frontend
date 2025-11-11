@@ -4,9 +4,7 @@ import {
 	ChevronLeft,
 	ChevronRight,
 	Edit,
-	HelpCircle,
-	Home,
-	Mail,
+	ExternalLink,
 	Menu,
 	PlusCircle,
 	Trash2,
@@ -14,11 +12,15 @@ import {
 } from "lucide-react";
 import type React from "react";
 import { useEffect, useMemo, useState } from "react";
+import { FaEnvelopeOpenText, FaEye, FaWhatsapp } from "react-icons/fa";
+import { MdOutlineDashboard } from "react-icons/md";
+import { TbLogout2 } from "react-icons/tb";
+import Logo from "@/assets/Logo.webp";
 
 interface Invitation {
 	id: number;
 	title: string;
-	status: "draft" | "published";
+	status: "draft" | "Event";
 }
 
 const StatusBadge: React.FC<{ status: Invitation["status"] }> = ({
@@ -27,15 +29,15 @@ const StatusBadge: React.FC<{ status: Invitation["status"] }> = ({
 	<span
 		className={
 			"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium " +
-			(status === "published"
-				? "bg-emerald-100 text-emerald-700"
-				: "bg-amber-100 text-amber-700")
+			(status === "Event"
+				? "bg-blue-100 text-blue-700"
+				: "bg-purple-100 text-purple-700")
 		}
 	>
 		<span
 			className={
 				"mr-1 h-1.5 w-1.5 rounded-full " +
-				(status === "published" ? "bg-emerald-600" : "bg-amber-600")
+				(status === "Event" ? "bg-blue-600" : "bg-purple-600")
 			}
 		/>
 		{status.charAt(0).toUpperCase() + status.slice(1)}
@@ -80,58 +82,77 @@ const Sidebar: React.FC<{
 			{/* Sidebar – selalu dirender, cuma digeser di mobile */}
 			<aside
 				aria-label="Sidebar navigation"
-				className={`fixed inset-y-0 left-0 z-50 w-72 border-r border-white/40 bg-white/70 p-6 shadow-xl backdrop-blur-xl
-				transform transition-transform duration-300
-				lg:static lg:z-0 lg:flex lg:min-h-screen lg:w-64 lg:translate-x-0 lg:shadow-none
-				${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}
+				className={`fixed inset-y-0 left-0 z-50 w-72 border-r border-white bg-white p-6 shadow-xl backdrop-blur-xl
+  transform transition-transform duration-300
+  lg:static lg:z-0 lg:flex lg:min-h-screen lg:w-64 lg:translate-x-0 lg:shadow-none
+  ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}
 			>
-				<div className="flex w-full flex-col gap-8">
-					<div className="flex items-center justify-between">
-						<div className="flex items-center gap-3">
-							<div className="flex h-9 w-9 items-center justify-center rounded-full bg-violet-600 text-white shadow ">
-								<span className="text-sm font-bold">IV</span>
-							</div>
-							<h1 className="text-2xl font-extrabold tracking-tight text-violet-800">
-								Invix
-							</h1>
-						</div>
+				<div className="flex h-full w-full flex-col gap-8">
+					{/* Logo di tengah */}
+					<div className="relative flex items-center justify-center mt-4">
+						<img
+							src={Logo}
+							alt="Logo Invix"
+							className="h-14 w-auto object-contain"
+						/>
+
+						{/* Tombol close (mobile) */}
 						<button
 							type="button"
 							onClick={onClose}
-							className="inline-flex h-9 w-9 items-center justify-center rounded-full text-violet-700 hover:bg-violet-100/70 lg:hidden"
+							className="absolute right-0 inline-flex h-9 w-9 items-center justify-center rounded-full text-[#4351BC] hover:bg-blue-50 lg:hidden"
 							aria-label="Tutup sidebar"
 						>
 							<X className="h-5 w-5" />
 						</button>
 					</div>
 
-					<nav className="space-y-2">
-						<a
-							href="/dashboard"
-							className="flex items-center gap-3 rounded-lg px-3 py-2 text-violet-700 transition-all hover:bg-violet-100/60 hover:text-violet-900"
-						>
-							<Home className="h-5 w-5" />
-							<span className="font-medium">Homepage</span>
-						</a>
-						<a
-							href="/invitations"
-							className="flex items-center gap-3 rounded-lg px-3 py-2 text-violet-700 transition-all hover:bg-violet-100/60 hover:text-violet-900"
-						>
-							<Mail className="h-5 w-5" />
-							<span className="font-medium">Undanganmu</span>
-						</a>
-					</nav>
-
-					<div className="mt-auto rounded-xl border border-white/40 bg-gradient-to-br from-violet-50/60 to-fuchsia-50/60 p-4">
-						<p className="mb-3 text-sm text-violet-700">
-							Perlu bantuan? Tim kami siap bantu setiap saat.
+					{/* MAIN MENU TITLE + NAV */}
+					<div className="space-y-2">
+						<p className="px-3 text-xs font-semibold uppercase tracking-wide text-slate-400 mt-6">
+							Main Menu
 						</p>
+
+						<nav className="space-y-1 mt-4">
+							<a
+								href="/dashboard"
+								className="flex items-center gap-3 rounded-lg px-3 py-2 text-[#4351BC] transition-all hover:bg-blue-50 hover:text-[#2c357e]"
+							>
+								<MdOutlineDashboard className="h-5 w-5" />
+								<span className="font-medium">Dashboard</span>
+							</a>
+							<a
+								href="/invitations"
+								className="flex items-center gap-3 rounded-lg px-3 py-2 text-[#4351BC] transition-all hover:bg-blue-50 hover:text-[#2c357e] mt-4"
+							>
+								<FaEnvelopeOpenText className="h-5 w-5" />
+								<span className="font-medium">Undanganmu</span>
+							</a>
+						</nav>
+					</div>
+
+					<div className="mt-auto space-y-3">
+						{/* Logout */}
 						<a
-							href="#support"
-							className="inline-flex items-center gap-2 rounded-lg bg-violet-600 px-3 py-2 text-sm font-semibold text-white shadow hover:bg-violet-700"
+							href="/login"
+							className="flex items-center gap-3 rounded-lg px-3 py-2 text-[#4351BC] transition-all hover:bg-blue-50 hover:text-[#2c357e]"
 						>
-							<HelpCircle className="h-4 w-4" /> Contact Support
+							<TbLogout2 className="h-5 w-5" />
+							<span className="font-medium">Logout</span>
 						</a>
+
+						{/* Contact Support */}
+						<div className="rounded-xl border border-white/20 bg-gradient-to-br from-[#e2e5ff] to-[#f3f5ff] p-4">
+							<p className="mb-3 text-sm font-semibold text-[#4351BC]">
+								Perlu bantuan? Tim kami siap bantu setiap saat.
+							</p>
+							<a
+								href="#support"
+								className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#4351BC] to-[#6b7bff] px-3 py-2 font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
+							>
+								<FaWhatsapp className="h-5 w-5" /> Contact Support
+							</a>
+						</div>
 					</div>
 				</div>
 			</aside>
@@ -152,7 +173,7 @@ const Pagination: React.FC<{
 	const pages = Array.from({ length: total }, (_, idx) => idx + 1);
 
 	return (
-		<div className="inline-flex items-center gap-2 rounded-full bg-white/70 px-2 py-1 text-violet-700 shadow">
+		<div className="inline-flex items-center gap-2 rounded-full bg-white/70 px-2 py-1 text-[#4351BC] shadow">
 			<button
 				type="button"
 				className="inline-flex h-8 w-8 items-center justify-center rounded-full hover:bg-violet-100"
@@ -169,7 +190,7 @@ const Pagination: React.FC<{
 					className={
 						"min-w-[2rem] rounded-full px-2 py-1 text-sm font-medium " +
 						(current === page
-							? "bg-violet-600 text-white"
+							? "bg-gradient-to-r from-[#4351BC] to-[#6b7bff] text-white"
 							: "hover:bg-violet-100")
 					}
 					aria-current={current === page ? "page" : undefined}
@@ -243,15 +264,15 @@ const DashboardPage: React.FC = () => {
 		// Simulasi fetch data (loading state ditunjukkan SkeletonCard)
 		const timer = setTimeout(() => {
 			const data: Invitation[] = [
-				{ id: 1, title: "Undangan Pernikahan", status: "published" },
+				{ id: 1, title: "Undangan Pernikahan", status: "Event" },
 				{ id: 2, title: "Undangan Wisuda", status: "draft" },
-				{ id: 3, title: "Undangan Ulang Tahun", status: "published" },
+				{ id: 3, title: "Undangan Ulang Tahun", status: "Event" },
 				{ id: 4, title: "Undangan Acara Kantor", status: "draft" },
-				{ id: 5, title: "Undangan Seminar", status: "published" },
+				{ id: 5, title: "Undangan Seminar", status: "Event" },
 				{ id: 6, title: "Undangan Reuni Akbar", status: "draft" },
-				{ id: 7, title: "Undangan Tasyakuran", status: "published" },
+				{ id: 7, title: "Undangan Tasyakuran", status: "Event" },
 				{ id: 8, title: "Undangan Launching Produk", status: "draft" },
-				{ id: 9, title: "Undangan Khitanan", status: "published" },
+				{ id: 9, title: "Undangan Khitanan", status: "Event" },
 			];
 			setInvitations(data);
 		}, 600);
@@ -303,18 +324,19 @@ const DashboardPage: React.FC = () => {
 								<Menu className="h-5 w-5" />
 								<span className="text-sm font-semibold">Menu</span>
 							</button>
-							<a
+							{/* <a
 								href="#support"
 								className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-violet-700 hover:bg-violet-100"
 							>
 								<HelpCircle className="h-5 w-5" />
 								<span className="text-sm font-medium">Support</span>
-							</a>
+							</a> */}
 						</div>
 					</div>
 
 					{/* Header */}
-					<header className="mb-6 mt-6 flex flex-wrap items-center justify-end">
+
+					<header className="mb-6 mt-8 flex flex-wrap items-center justify-end">
 						<div className="flex flex-wrap">
 							{/* <a
 								href="#support"
@@ -324,12 +346,12 @@ const DashboardPage: React.FC = () => {
 							</a> */}
 						</div>
 					</header>
-					<div className="flex flex-wrap items-right justify-between gap-3 mb-6">
+					<div className="flex flex-wrap items-right justify-between gap-3 mb-2 p-4">
 						<div>
-							<h2 className="text-2xl font-extrabold tracking-tight text-violet-900 sm:text-3xl">
+							<h2 className="text-2xl font-extrabold tracking-tight text-[#4351BC] sm:text-3xl">
 								Undanganmu
 							</h2>
-							<p className="mt-1 text-sm text-violet-700/80">
+							<p className="mt-2 text-ml text-grey-200">
 								Kelola draf dan undangan yang sudah terbit.
 							</p>
 						</div>
@@ -344,41 +366,33 @@ const DashboardPage: React.FC = () => {
 					</div>
 
 					{/* Undanganmu Card */}
-					<section className="rounded-2xl border border-white/60 bg-white/20 p-4 shadow-lg ring-1 ring-black/5 sm:p-6 mt-6 mb-6">
-						<div className="grid items-start gap-4 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+					<section className="mt-4 mb-4 rounded-3xl bg-white/10 p-4 sm:p-6">
+						<div className="grid items-stretch gap-6 md:grid-cols-[minmax(0,4fr)_minmax(0,3fr)]">
 							{/* Preview besar (kiri) */}
-							<div className="flex h-48 items-center justify-center rounded-3xl border-2 border-rose-300 bg-white/70 sm:h-56 md:h-64">
-								<span className="text-sm text-rose-400">
-									Preview Undangan (coming soon)
-								</span>
+							<div className="flex h-48 items-center justify-center rounded-3xl border-2 border-[#4351BC]/80  sm:h-56 lg:h-64">
+								<span className="text-sm text-blue-400">xxxx</span>
 							</div>
 
 							{/* Judul + tombol (kanan) */}
-							<div className="flex flex-col gap-3">
-								<div className="flex items-center justify-center rounded-2xl border-2 border-slate-700 bg-white/80 px-4 py-3">
-									<span className="text-lg font-semibold text-slate-800">
-										Judul Undangan
+							<div className="flex h-auto flex-col justify-center gap-4">
+								<div className="flex items-center justify-center  px-12 py-10 text-center mb-auto">
+									<span className="line-clamp-2 text-base font-semibold text-slate-800 sm:text-lg">
+										Pernikahan Lorem Ipsum Dolor Alamet
 									</span>
 								</div>
+
 								<div className="flex flex-wrap items-center gap-3">
 									<button
 										type="button"
-										className="flex-1 rounded-2xl border-2 border-slate-700 bg-white px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50"
+										className="mx-auto inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#4351BC] to-[#6b7bff] px-5 py-3 font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
 									>
-										view
+										<FaEye className="h-5 w-5" /> Lihat Undangan
 									</button>
 									<button
 										type="button"
-										className="flex-1 rounded-2xl border-2 border-slate-700 bg-white px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50"
+										className="mx-auto inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#4351BC] to-[#6b7bff] px-5 py-3 font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
 									>
-										share link
-									</button>
-									<button
-										type="button"
-										className="inline-flex items-center justify-center rounded-2xl border-2 border-slate-700 bg-white px-3 py-2 hover:bg-slate-50"
-										aria-label="Lanjut"
-									>
-										<ArrowRight className="h-4 w-4" />
+										<ExternalLink className="h-5 w-5" /> Bagikan Undangan
 									</button>
 								</div>
 							</div>
@@ -386,12 +400,21 @@ const DashboardPage: React.FC = () => {
 					</section>
 
 					{/* Primary Card */}
-					<section className="rounded-2xl border border-white/60 bg-white/70 p-4 shadow-lg ring-1 ring-black/5 sm:p-6">
+					<section className="p-4">
 						<div className="mb-4 flex flex-col gap-3 sm:mb-6 sm:flex-row sm:items-center sm:justify-between">
 							<h3 className="text-xl font-semibold text-violet-900 sm:text-2xl">
-								Judul Undangan
+								Start Build Invitation
 							</h3>
-							<div className="flex flex-wrap gap-2">
+
+							<div className="mt-6 flex flex-col-reverse items-center justify-between gap-4 sm:flex-row">
+								<a
+									href="/all-invitations"
+									className="inline-flex items-center text-violet-700 hover:text-violet-900"
+								>
+									See all <ArrowRight className="ml-1 h-4 w-4" />
+								</a>
+							</div>
+							{/* <div className="flex flex-wrap gap-2">
 								<button
 									type="button"
 									className="inline-flex items-center rounded-lg bg-white px-4 py-2 text-sm font-medium text-violet-700 shadow hover:bg-violet-50"
@@ -400,20 +423,11 @@ const DashboardPage: React.FC = () => {
 								</button>
 								<button
 									type="button"
-									className="inline-flex items-center gap-2 rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-violet-700"
+									className="inline-flex items-center gap-2 rounded-lg bg-[#4351BC] px-4 py-2 text-sm font-semibold text-white shadow hover:bg-[#3642a0]"
 								>
 									Share Link <ArrowRight className="h-4 w-4" />
 								</button>
-							</div>
-						</div>
-
-						<div className="mb-6 text-center">
-							<button
-								type="button"
-								className="mx-auto inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-pink-500 to-violet-600 px-5 py-3 font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
-							>
-								<PlusCircle className="h-5 w-5" /> Start Build Invitation
-							</button>
+							</div> */}
 						</div>
 
 						{/* Grid */}
@@ -450,13 +464,7 @@ const DashboardPage: React.FC = () => {
 							</AnimatePresence>
 						)}
 
-						<div className="mt-6 flex flex-col-reverse items-center justify-between gap-4 sm:flex-row">
-							<a
-								href="/all-invitations"
-								className="inline-flex items-center text-violet-700 hover:text-violet-900"
-							>
-								See all <ArrowRight className="ml-1 h-4 w-4" />
-							</a>
+						<div className="mt-6 flex flex-col-reverse items-center justify-end gap-4 sm:flex-row">
 							<div className="text-sm text-violet-700/80">
 								Menampilkan {paginatedInvitations.length || 0} dari{" "}
 								{invitations?.length || 0} undangan
