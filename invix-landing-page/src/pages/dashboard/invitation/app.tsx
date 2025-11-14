@@ -16,15 +16,6 @@ import { FaEnvelopeOpenText, FaEye, FaWhatsapp } from "react-icons/fa";
 import { MdOutlineDashboard } from "react-icons/md";
 import { TbLogout2 } from "react-icons/tb";
 import Logo from "@/assets/Logo.webp";
-import birthday_satu from "@/assets/undangan_birthday_satu.webp";
-import komunitas_satu from "@/assets/undangan_komunitas_satu.webp";
-
-interface Invitation {
-	id: number;
-	title: string;
-	status: "draft" | "Event";
-	imageUrl: string;
-}
 
 interface Template {
 	id: number;
@@ -32,9 +23,7 @@ interface Template {
 	imageUrl: string;
 }
 
-const StatusBadge: React.FC<{ status: Invitation["status"] }> = ({
-	status,
-}) => (
+const StatusBadge: React.FC<{ status: "draft" | "Event" }> = ({ status }) => (
 	<span
 		className={
 			"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium " +
@@ -221,13 +210,10 @@ const Pagination: React.FC<{
 	);
 };
 
-const InvitationCard: React.FC<{
-	inv: Invitation | Template;
-	onEdit?: (id: number) => void;
-	onDelete?: (id: number) => void;
-	onStart?: (id: number) => void;
-	isTemplate?: boolean;
-}> = ({ inv, onEdit, onDelete, onStart, isTemplate = false }) => {
+const TemplateCard: React.FC<{
+	inv: Template;
+	onStart: (id: number) => void;
+}> = ({ inv, onStart }) => {
 	return (
 		<motion.div
 			layout
@@ -240,51 +226,24 @@ const InvitationCard: React.FC<{
 				<h4 className="line-clamp-1 text-lg font-semibold text-violet-900">
 					{inv.title}
 				</h4>
-				{!isTemplate && "status" in inv && <StatusBadge status={inv.status} />}
 			</div>
 			<p className="text-sm text-violet-700/80">ID: #{inv.id}</p>
 			<div className="mt-4 flex gap-2">
-				{isTemplate ? (
-					<button
-						type="button"
-						onClick={() => onStart?.(inv.id)}
-						className="inline-flex items-center justify-center rounded-full bg-violet-100 p-2 text-violet-700 transition hover:bg-violet-200"
-						aria-label={`Mulai ${inv.title}`}
-					>
-						<PlusCircle className="h-4 w-4" />
-					</button>
-				) : (
-					<>
-						<button
-							type="button"
-							onClick={() => onEdit?.(inv.id)}
-							className="inline-flex items-center justify-center rounded-full bg-violet-100 p-2 text-violet-700 transition hover:bg-violet-200"
-							aria-label={`Edit ${inv.title}`}
-						>
-							<Edit className="h-4 w-4" />
-						</button>
-						<button
-							type="button"
-							onClick={() => onDelete?.(inv.id)}
-							className="inline-flex items-center justify-center rounded-full bg-rose-100 p-2 text-rose-700 transition hover:bg-rose-200"
-							aria-label={`Hapus ${inv.title}`}
-						>
-							<Trash2 className="h-4 w-4" />
-						</button>
-					</>
-				)}
+				<button
+					type="button"
+					onClick={() => onStart(inv.id)}
+					className="inline-flex items-center justify-center rounded-full bg-violet-100 p-2 text-violet-700 transition hover:bg-violet-200"
+					aria-label={`Mulai ${inv.title}`}
+				>
+					<PlusCircle className="h-4 w-4" />
+				</button>
 			</div>
 		</motion.div>
 	);
 };
 
-const DashboardPage: React.FC = () => {
-	const [userInvitations, setUserInvitations] = useState<Invitation[] | null>(
-		null,
-	);
-	const [currentPage, setCurrentPage] = useState(1);
+const InvitationsPage: React.FC = () => {
 	const [isSidebarOpen, setSidebarOpen] = useState(false);
-	const itemsPerPage = 1; // Paginate user invitations one by one in the top section
 
 	// Static templates from the website
 	const websiteTemplates: Template[] = [
@@ -330,53 +289,6 @@ const DashboardPage: React.FC = () => {
 			imageUrl: "https://via.placeholder.com/400x300?text=Template+Khitanan",
 		},
 	];
-
-	useEffect(() => {
-		// Simulasi fetch data for user's invitations
-		const timer = setTimeout(() => {
-			const data: Invitation[] = [
-				{
-					id: 1,
-					title: "Undangan Wisuda Saya",
-					status: "draft",
-					imageUrl: komunitas_satu,
-				},
-				{
-					id: 2,
-					title: "Undangan Ulang Tahun Saya",
-					status: "Event",
-					imageUrl: birthday_satu,
-				},
-			];
-			setUserInvitations(data);
-		}, 600);
-		return () => clearTimeout(timer);
-	}, []);
-
-	const totalPages = useMemo(
-		() => Math.max(1, Math.ceil((userInvitations?.length ?? 0) / itemsPerPage)),
-		[userInvitations],
-	);
-
-	const paginatedUserInvitations = useMemo(() => {
-		if (!userInvitations) return [] as Invitation[];
-		const start = (currentPage - 1) * itemsPerPage;
-		return userInvitations.slice(start, start + itemsPerPage);
-	}, [currentPage, userInvitations]);
-
-	const handleDelete = (id: number) => {
-		if (!userInvitations) return;
-		const target = userInvitations.find((i) => i.id === id);
-		const ok = confirm(
-			`Hapus "${target?.title}"? Aksi ini tidak bisa dibatalkan.`,
-		);
-		if (ok) {
-			setUserInvitations((prev) => (prev ?? []).filter((i) => i.id !== id));
-			if (paginatedUserInvitations.length === 1 && currentPage > 1) {
-				setCurrentPage((p) => p - 1);
-			}
-		}
-	};
 
 	const handleStartTemplate = (id: number) => {
 		alert(`Mulai membangun undangan dari template #${id}`);
@@ -428,111 +340,23 @@ const DashboardPage: React.FC = () => {
 					<div className="flex flex-wrap items-right justify-between gap-3 mb-2 p-4">
 						<div>
 							<h2 className="text-2xl font-extrabold tracking-tight text-[#4351BC] sm:text-3xl">
-								Undanganmu
+								Template Undangan
 							</h2>
 							<p className="mt-2 text-ml text-grey-200">
-								Kelola draf dan undangan yang sudah terbit.
+								Pilih template untuk membuat undangan baru.
 							</p>
 						</div>
-
-						<Pagination
-							current={currentPage}
-							total={totalPages}
-							onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
-							onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-							onJump={(page) => setCurrentPage(page)}
-						/>
 					</div>
 
-					{/* Undanganmu Card - User's created invitations (arsip) */}
-					<section className="mt-4 mb-4 rounded-3xl bg-white/10 p-4 sm:p-6">
-						{userInvitations === null ? (
-							<div className="grid items-stretch gap-6 md:grid-cols-[minmax(0,4fr)_minmax(0,3fr)] animate-pulse">
-								<div className="h-48 rounded-3xl bg-black/10 sm:h-56 lg:h-64" />
-								<div className="flex flex-col gap-4">
-									<div className="h-10 rounded bg-black/10" />
-									<div className="flex gap-3">
-										<div className="h-10 w-32 rounded bg-black/10" />
-										<div className="h-10 w-32 rounded bg-black/10" />
-									</div>
-								</div>
-							</div>
-						) : userInvitations.length === 0 ? (
-							<div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-violet-200 bg-violet-50/50 p-8 text-center">
-								<p className="mb-4 text-violet-700">
-									Belum ada undangan yang dibuat. Mulai buat dari template di
-									bawah.
-								</p>
-							</div>
-						) : (
-							paginatedUserInvitations.map((inv) => (
-								<div
-									key={inv.id}
-									className="grid items-stretch gap-6 md:grid-cols-[minmax(0,4fr)_minmax(0,3fr)]"
-								>
-									{/* Preview besar (kiri) */}
-									<div className="flex h-48 items-center justify-center sm:h-56 lg:h-64">
-										<img
-											src={inv.imageUrl}
-											alt={inv.title}
-											className="h-full w-full object-cover rounded-3xl"
-										/>
-									</div>
-
-									{/* Judul + tombol (kanan) */}
-									<div className="flex h-auto flex-col justify-center gap-4">
-										<div className="flex items-center justify-center  px-12 py-10 text-center mb-auto">
-											<span className="line-clamp-2 text-base font-semibold text-slate-800 sm:text-lg">
-												{inv.title}
-											</span>
-										</div>
-
-										<div className="flex flex-wrap items-center gap-3">
-											<button
-												type="button"
-												className="mx-auto inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#4351BC] to-[#6b7bff] px-5 py-3 font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
-											>
-												<FaEye className="h-5 w-5" /> Lihat Undangan
-											</button>
-											<button
-												type="button"
-												className="mx-auto inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#4351BC] to-[#6b7bff] px-5 py-3 font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
-											>
-												<ExternalLink className="h-5 w-5" /> Bagikan Undangan
-											</button>
-										</div>
-									</div>
-								</div>
-							))
-						)}
-					</section>
-
-					{/* Primary Card - Website's templates */}
+					{/* Grid for templates */}
 					<section className="p-4">
-						<div className="mb-4 flex flex-col gap-3 sm:mb-6 sm:flex-row sm:items-center sm:justify-between">
-							<h3 className="text-xl font-semibold text-violet-900 sm:text-2xl">
-								Start Build Invitation
-							</h3>
-
-							<div className="mt-6 flex flex-col-reverse items-center justify-between gap-4 sm:flex-row">
-								<a
-									href="/all-invitations"
-									className="inline-flex items-center text-violet-700 hover:text-violet-900"
-								>
-									See all <ArrowRight className="ml-1 h-4 w-4" />
-								</a>
-							</div>
-						</div>
-
-						{/* Grid for templates */}
 						<AnimatePresence mode="popLayout">
 							<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
 								{websiteTemplates.map((template) => (
-									<InvitationCard
+									<TemplateCard
 										key={template.id}
 										inv={template}
 										onStart={handleStartTemplate}
-										isTemplate={true}
 									/>
 								))}
 							</div>
@@ -544,4 +368,4 @@ const DashboardPage: React.FC = () => {
 	);
 };
 
-export default DashboardPage;
+export default InvitationsPage;

@@ -3,6 +3,8 @@ import type React from "react";
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import InvitationsPage from "./pages/dashboard/invitation/app";
+import InvitationsLayout from "./pages/dashboard/invitation/layout";
 import DashboardLayout from "./pages/dashboard/layout";
 import DashboardPage from "./pages/dashboard/page";
 import Event1 from "./pages/koleksi-event/event-1";
@@ -171,6 +173,25 @@ export const router = createBrowserRouter([
 	},
 
 	{
+		path: "/invitations",
+		element: (
+			<Loader>
+				<InvitationsLayout />
+			</Loader>
+		),
+		children: [
+			{
+				index: true,
+				element: (
+					<Loader>
+						<InvitationsPage />
+					</Loader>
+				),
+			},
+		],
+	},
+
+	{
 		path: "/login",
 		element: (
 			<Loader>
@@ -218,7 +239,7 @@ export const router = createBrowserRouter([
 		),
 		children: [
 			{
-				path: "komunitasOne",
+				path: "KomunitasOne",
 				element: (
 					<Loader>
 						<KomunitasOne />
