@@ -507,7 +507,7 @@ const SectionTitle: React.FC<{
 	</div>
 );
 
-const Event2Header: React.FC = () => {
+const EventTwoHeader: React.FC = () => {
 	const [, setOpen] = useState(false);
 
 	const scrollTo = (id: string) => {
@@ -629,21 +629,16 @@ const Services: React.FC = () => {
 
 const Footer: React.FC = () => (
 	<footer className="footer">
-		<div>© 2025 Gavi. All rights reserved.</div>
-		<div className="footer-links">
-			<a href="#home">Home</a>
-			<a href="#portfolio">Works</a>
-			<a href="#contact">Contact</a>
-		</div>
+		<div>© 2025 Invix. All rights reserved.</div>
 	</footer>
 );
 
-const Event2: React.FC = () => {
+const EventTwo: React.FC = () => {
 	return (
 		<>
 			<style>{styles}</style>
 			<div className="page-root">
-				<Event2Header />
+				<EventTwoHeader />
 				<main className="page-main">
 					<Hero />
 					<Services />
@@ -655,4 +650,4 @@ const Event2: React.FC = () => {
 	);
 };
 
-export default Event2;
+export default EventTwo;

@@ -9,6 +9,8 @@ import DashboardLayout from "./pages/dashboard/layout";
 import DashboardPage from "./pages/dashboard/page";
 import Event1 from "./pages/koleksi-event/event-1";
 import Event2 from "./pages/koleksi-event/event-2";
+import EventThree from "./pages/koleksi-event/event-3";
+import EventFour from "./pages/koleksi-event/event-4";
 import LoginLayout from "./pages/login/layout";
 import LoginPage from "./pages/login/page";
 import RegisterLayout from "./pages/register/layout";
@@ -248,7 +250,7 @@ export const router = createBrowserRouter([
 			},
 
 			{
-				path: "event1",
+				path: "eventOne",
 				element: (
 					<Loader>
 						<Event1 />
@@ -257,10 +259,28 @@ export const router = createBrowserRouter([
 			},
 
 			{
-				path: "event2",
+				path: "EventTwo",
 				element: (
 					<Loader>
 						<Event2 />
+					</Loader>
+				),
+			},
+
+			{
+				path: "EventThree",
+				element: (
+					<Loader>
+						<EventThree />
+					</Loader>
+				),
+			},
+
+			{
+				path: "EventFour",
+				element: (
+					<Loader>
+						<EventFour />
 					</Loader>
 				),
 			},

@@ -516,7 +516,7 @@ const DashboardPage: React.FC = () => {
 
 							<div className="mt-6 flex flex-col-reverse items-center justify-between gap-4 sm:flex-row">
 								<a
-									href="/all-invitations"
+									href="/invitations"
 									className="inline-flex items-center text-violet-700 hover:text-violet-900"
 								>
 									See all <ArrowRight className="ml-1 h-4 w-4" />
