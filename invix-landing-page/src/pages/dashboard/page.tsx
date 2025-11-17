@@ -52,21 +52,6 @@ const StatusBadge: React.FC<{ status: Invitation["status"] }> = ({
 		{status.charAt(0).toUpperCase() + status.slice(1)}
 	</span>
 );
-const SKELETON_KEYS = Array.from(
-	{ length: 8 },
-	(_, idx) => `skeleton-${idx + 1}`,
-);
-
-const SkeletonCard: React.FC = () => (
-	<div className="rounded-xl border border-white/40 bg-white/50 p-4 shadow animate-pulse">
-		<div className="mb-2 h-5 w-3/4 rounded bg-black/10" />
-		<div className="mb-4 h-4 w-1/2 rounded bg-black/10" />
-		<div className="flex gap-2">
-			<div className="h-9 w-9 rounded-full bg-black/10" />
-			<div className="h-9 w-9 rounded-full bg-black/10" />
-		</div>
-	</div>
-);
 
 const Sidebar: React.FC<{
 	isOpen: boolean;
@@ -363,20 +348,6 @@ const DashboardPage: React.FC = () => {
 		const start = (currentPage - 1) * itemsPerPage;
 		return userInvitations.slice(start, start + itemsPerPage);
 	}, [currentPage, userInvitations]);
-
-	const handleDelete = (id: number) => {
-		if (!userInvitations) return;
-		const target = userInvitations.find((i) => i.id === id);
-		const ok = confirm(
-			`Hapus "${target?.title}"? Aksi ini tidak bisa dibatalkan.`,
-		);
-		if (ok) {
-			setUserInvitations((prev) => (prev ?? []).filter((i) => i.id !== id));
-			if (paginatedUserInvitations.length === 1 && currentPage > 1) {
-				setCurrentPage((p) => p - 1);
-			}
-		}
-	};
 
 	const handleStartTemplate = (id: number) => {
 		alert(`Mulai membangun undangan dari template #${id}`);
