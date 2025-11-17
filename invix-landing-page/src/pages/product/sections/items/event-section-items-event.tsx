@@ -7,14 +7,26 @@ export default function ProductEventSectionItemsEvent() {
 			id: 1,
 			title: "Event 1",
 			description: "Deskripsi singkat produk Event 1.",
-			link: "/koleksi-event/Event1",
+			link: "/koleksi-event/EventOne",
 			// imageUrl: komunitas_satu,
 		},
 		{
 			id: 2,
 			title: "Event 2",
 			description: "Deskripsi singkat produk Event 2.",
-			link: "/koleksi-event/Event2",
+			link: "/koleksi-event/EventTwo",
+		},
+		{
+			id: 3,
+			title: "Event 3",
+			description: "Deskripsi singkat produk Event 3.",
+			link: "/koleksi-event/EventThree",
+		},
+		{
+			id: 4,
+			title: "Event 4",
+			description: "Deskripsi singkat produk Event 4.",
+			link: "/koleksi-event/EventFour",
 		},
 	];
 

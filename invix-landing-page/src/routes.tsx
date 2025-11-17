@@ -3,14 +3,20 @@ import type React from "react";
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Event1 from "./pages/koleksi-event/event-1";
-import TermsLayout from "./pages/terms/layout";
-import TermsPage from "./pages/terms/page";
-import Event2 from "./pages/koleksi-event/event-2";
-import LoginLayout from "./pages/login/layout";
-import LoginPage from "./pages/login/page";
+import InvitationsPage from "./pages/dashboard/invitation/app";
+import InvitationsLayout from "./pages/dashboard/invitation/layout";
 import DashboardLayout from "./pages/dashboard/layout";
 import DashboardPage from "./pages/dashboard/page";
+import Event1 from "./pages/koleksi-event/event-1";
+import Event2 from "./pages/koleksi-event/event-2";
+import EventThree from "./pages/koleksi-event/event-3";
+import EventFour from "./pages/koleksi-event/event-4";
+import LoginLayout from "./pages/login/layout";
+import LoginPage from "./pages/login/page";
+import RegisterLayout from "./pages/register/layout";
+import RegisterPage from "./pages/register/page";
+import TermsLayout from "./pages/terms/layout";
+import TermsPage from "./pages/terms/page";
 
 const HomePage = lazy(() => import("./pages/home/index"));
 const AboutLayout = lazy(() => import("./pages/about/layout"));
@@ -137,43 +143,6 @@ export const router = createBrowserRouter([
 					</Loader>
 				),
 			},
-			{
-				path: "/login",
-				element: (
-					<Loader>
-						<LoginLayout />
-					</Loader>
-				),
-				children: [
-					{
-						index: true,
-						element: (
-							<Loader>
-								<LoginPage />
-							</Loader>
-						),
-					},
-				],
-			},
-
-			{
-				path: "/dashboard",
-				element: (
-					<Loader>
-						<DashboardLayout />
-					</Loader>
-				),
-				children: [
-					{
-						index: true,
-						element: (
-							<Loader>
-								<DashboardPage />
-							</Loader>
-						),
-					},
-				],
-			},
 
 			{
 				path: "*",
@@ -185,6 +154,83 @@ export const router = createBrowserRouter([
 			},
 		],
 	},
+
+	{
+		path: "/dashboard",
+		element: (
+			<Loader>
+				<DashboardLayout />
+			</Loader>
+		),
+		children: [
+			{
+				index: true,
+				element: (
+					<Loader>
+						<DashboardPage />
+					</Loader>
+				),
+			},
+		],
+	},
+
+	{
+		path: "/invitations",
+		element: (
+			<Loader>
+				<InvitationsLayout />
+			</Loader>
+		),
+		children: [
+			{
+				index: true,
+				element: (
+					<Loader>
+						<InvitationsPage />
+					</Loader>
+				),
+			},
+		],
+	},
+
+	{
+		path: "/login",
+		element: (
+			<Loader>
+				<LoginLayout />
+			</Loader>
+		),
+		children: [
+			{
+				index: true,
+				element: (
+					<Loader>
+						<LoginPage />
+					</Loader>
+				),
+			},
+		],
+	},
+
+	{
+		path: "/register",
+		element: (
+			<Loader>
+				<RegisterLayout />
+			</Loader>
+		),
+		children: [
+			{
+				index: true,
+				element: (
+					<Loader>
+						<RegisterPage />
+					</Loader>
+				),
+			},
+		],
+	},
+
 	{
 		// nested collection routes under /product/koleksi-event
 		path: "koleksi-event",
@@ -195,16 +241,16 @@ export const router = createBrowserRouter([
 		),
 		children: [
 			{
-				path: "komunitasOne",
+				path: "KomunitasOne",
 				element: (
 					<Loader>
-						<KomunitasOne/>
+						<KomunitasOne />
 					</Loader>
 				),
 			},
 
 			{
-				path: "event1",
+				path: "eventOne",
 				element: (
 					<Loader>
 						<Event1 />
@@ -213,10 +259,28 @@ export const router = createBrowserRouter([
 			},
 
 			{
-				path: "event2",
+				path: "EventTwo",
 				element: (
 					<Loader>
 						<Event2 />
+					</Loader>
+				),
+			},
+
+			{
+				path: "EventThree",
+				element: (
+					<Loader>
+						<EventThree />
+					</Loader>
+				),
+			},
+
+			{
+				path: "EventFour",
+				element: (
+					<Loader>
+						<EventFour />
 					</Loader>
 				),
 			},
