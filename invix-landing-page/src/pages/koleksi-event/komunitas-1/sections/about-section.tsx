@@ -53,7 +53,10 @@ export default function AboutSection() {
 							}}
 						>
 							<div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-center justify-center">
-								<button className="w-20 h-20 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition shadow-lg group">
+								<button
+									type="button"
+									className="w-20 h-20 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition shadow-lg group"
+								>
 									<div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-blue-600 border-b-8 border-b-transparent ml-1"></div>
 								</button>
 							</div>
