@@ -10,7 +10,7 @@ export default function ProductEventSectionItemsKomunitas() {
 			description: "Deskripsi singkat produk Komunitas 1.",
 			imageUrl: komunitas_satu,
 			// use absolute path to avoid relative routing issues
-			link: "/koleksi-event/KomunitasOne",
+			link: "http://localhost:5174/category_komunitas/komunitas_one",
 		},
 		{
 			id: 2,
