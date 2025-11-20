@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
-	FaBars,
 	FaFacebook,
 	FaInstagram,
 	FaMapMarkerAlt,
-	FaTimes,
 	FaTwitter,
 } from "react-icons/fa";
-
 export default function HeroSection() {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -16,7 +13,6 @@ export default function HeroSection() {
 
 	return (
 		<section className="relative w-full min-h-screen bg-gradient-to-br from-indigo-900 via-indigo-800 to-black text-white overflow-hidden">
-
 			{/* Mobile Menu */}
 			<div
 				className={`absolute top-0 right-0 w-full h-screen bg-black bg-opacity-50 transition-all ${

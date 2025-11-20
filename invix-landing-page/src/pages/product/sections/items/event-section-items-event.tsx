@@ -1,32 +1,30 @@
 import { Link } from "react-router-dom";
+import event_dua from "@/assets/undangan_event_dua.webp";
+import event_satu from "@/assets/undangan_event_satu.webp";
+import event_tiga from "@/assets/undangan_event_tiga.webp";
 import ProductCard from "../../../../components/ProductkCard";
-
 export default function ProductEventSectionItemsEvent() {
 	const products = [
 		{
 			id: 1,
 			title: "Event 1",
 			description: "Deskripsi singkat produk Event 1.",
-			link: "/koleksi-event/EventOne",
-			// imageUrl: komunitas_satu,
+			link: "http://localhost:5174/category_wisuda/wisuda_one",
+			imageUrl: event_satu,
 		},
 		{
 			id: 2,
 			title: "Event 2",
 			description: "Deskripsi singkat produk Event 2.",
-			link: "/koleksi-event/EventTwo",
+			link: "http://localhost:5174/category_wisuda/wisuda_two",
+			imageUrl: event_dua,
 		},
 		{
 			id: 3,
 			title: "Event 3",
 			description: "Deskripsi singkat produk Event 3.",
-			link: "/koleksi-event/EventThree",
-		},
-		{
-			id: 4,
-			title: "Event 4",
-			description: "Deskripsi singkat produk Event 4.",
-			link: "/koleksi-event/EventFour",
+			link: "http://localhost:5174/category_wisuda/wisuda_three",
+			imageUrl: event_tiga,
 		},
 	];
 
@@ -37,7 +35,7 @@ export default function ProductEventSectionItemsEvent() {
 					<ProductCard
 						title={p.title}
 						description={p.description}
-						// imageUrl={p.imageUrl}
+						imageUrl={p.imageUrl}
 					/>
 				</Link>
 			))}
