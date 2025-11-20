@@ -1,9 +1,11 @@
 // src/pages/RegisterPage.tsx
+// src/pages/RegisterPage.tsx
 
-import { Eye, EyeOff, Lock, Mail, Sparkles, User } from "lucide-react";
+import { useRegister } from "@/hooks/api/use-register";
+import { Eye, EyeOff, Lock, Mail, User } from "lucide-react";
 import type React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Impor hook untuk navigasi
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage: React.FC = () => {
 	const [showPassword, setShowPassword] = useState(false);
@@ -13,23 +15,29 @@ const RegisterPage: React.FC = () => {
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [agreeTerms, setAgreeTerms] = useState(false);
-	const [isLoading, setIsLoading] = useState(false);
-	const navigate = useNavigate(); // Hook untuk redirect
+	const navigate = useNavigate();
 
+	// form validation
 	const passwordsMatch = password === confirmPassword && password.length > 0;
+	// useRegister hook
+	const { mutate: registerUser, isPending } = useRegister();
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		if (agreeTerms && passwordsMatch) {
-			setIsLoading(true);
-			// Simulasi panggilan API (ganti dengan fetch atau axios nyata)
-			setTimeout(() => {
-				console.log("Registrasi berhasil:", { fullName, email, password });
-				setIsLoading(false);
-				// Redirect ke halaman login setelah sukses
-				navigate("/login");
-			}, 2000); // Simulasi delay 2 detik
-		}
+		if (!agreeTerms || !passwordsMatch) return;
+
+		registerUser(
+			{
+				name: fullName,
+				email,
+				password,
+			},
+			{
+				onSuccess: () => {
+					navigate("/login");
+				},
+			}
+		);
 	};
 
 	return (
@@ -43,10 +51,7 @@ const RegisterPage: React.FC = () => {
 					<div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl shadow-2xl p-8 md:p-10 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-3xl">
 						<div className="text-center mb-8">
 							<div className="inline-flex items-center justify-center w-20 h-20 backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl shadow-2xl mb-4 transform rotate-12 hover:rotate-0 transition-transform duration-300">
-								<a
-									href="/"
-									className="w-full h-full flex items-center justify-center"
-								>
+								<a href="/" className="w-full h-full flex items-center justify-center">
 									<img
 										src="/src/assets/Logo.webp"
 										alt="Logo"
@@ -73,6 +78,7 @@ const RegisterPage: React.FC = () => {
 						</div>
 
 						<form className="space-y-6" onSubmit={handleSubmit}>
+							{/* Full Name */}
 							<div className="relative group">
 								<div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-violet-600 rounded-xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-300" />
 								<div className="relative">
@@ -91,6 +97,7 @@ const RegisterPage: React.FC = () => {
 								</div>
 							</div>
 
+							{/* Email */}
 							<div className="relative group">
 								<div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-violet-600 rounded-xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-300" />
 								<div className="relative">
@@ -109,6 +116,7 @@ const RegisterPage: React.FC = () => {
 								</div>
 							</div>
 
+							{/* Password */}
 							<div className="relative group">
 								<div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-violet-600 rounded-xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-300" />
 								<div className="relative">
@@ -128,22 +136,17 @@ const RegisterPage: React.FC = () => {
 											onClick={() => setShowPassword(!showPassword)}
 											className="pr-4 text-white/70 hover:text-white transition-colors"
 										>
-											{showPassword ? (
-												<EyeOff className="w-5 h-5" />
-											) : (
-												<Eye className="w-5 h-5" />
-											)}
+											{showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
 										</button>
 									</div>
 								</div>
 							</div>
 
+							{/* Confirm Password */}
 							<div className="relative group">
 								<div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-violet-600 rounded-xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-300" />
 								<div className="relative">
-									<div
-										className={`flex items-center bg-white/10 backdrop-blur-md border rounded-xl transition-all duration-300 ${passwordsMatch ? "border-green-500/50" : "border-white/30 focus-within:border-white/60"}`}
-									>
+									<div className={`flex items-center bg-white/10 backdrop-blur-md border rounded-xl transition-all duration-300 ${passwordsMatch ? "border-green-500/50" : "border-white/30"}`}>
 										<div className="pl-4">
 											<Lock className="w-5 h-5 text-white/70" />
 										</div>
@@ -156,18 +159,13 @@ const RegisterPage: React.FC = () => {
 										/>
 										<button
 											type="button"
-											onClick={() =>
-												setShowConfirmPassword(!showConfirmPassword)
-											}
+											onClick={() => setShowConfirmPassword(!showConfirmPassword)}
 											className="pr-4 text-white/70 hover:text-white transition-colors"
 										>
-											{showConfirmPassword ? (
-												<EyeOff className="w-5 h-5" />
-											) : (
-												<Eye className="w-5 h-5" />
-											)}
+											{showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
 										</button>
 									</div>
+
 									{!passwordsMatch && confirmPassword.length > 0 && (
 										<p className="text-red-400 text-xs mt-1">
 											Password tidak cocok
@@ -176,6 +174,7 @@ const RegisterPage: React.FC = () => {
 								</div>
 							</div>
 
+							{/* Terms */}
 							<div className="flex items-center text-sm">
 								<input
 									type="checkbox"
@@ -183,7 +182,7 @@ const RegisterPage: React.FC = () => {
 									onChange={(e) => setAgreeTerms(e.target.checked)}
 									className="w-4 h-4 rounded border-white/30 bg-white/10 text-violet-500 focus:ring-violet-500 focus:ring-2 cursor-pointer"
 								/>
-								<label htmlFor="agreeTerms" className="ml-2 text-white/70">
+								<label className="ml-2 text-white/70">
 									Saya setuju dengan{" "}
 									<a href="/terms" className="text-white hover:underline">
 										Syarat & Ketentuan
@@ -191,27 +190,18 @@ const RegisterPage: React.FC = () => {
 								</label>
 							</div>
 
+							{/* Submit button */}
 							<button
 								type="submit"
-								disabled={!agreeTerms || !passwordsMatch || isLoading}
-								className={`w-full py-4 px-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg transform transition-all duration-300 ${agreeTerms && passwordsMatch && !isLoading ? "hover:from-blue-700 hover:to-purple-700 hover:shadow-2xl hover:-translate-y-1" : "opacity-50 cursor-not-allowed"} relative overflow-hidden group`}
+								disabled={!agreeTerms || !passwordsMatch || isPending}
+								className={`w-full py-4 px-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg transform transition-all duration-300 ${
+									agreeTerms && passwordsMatch && !isPending
+										? "hover:from-blue-700 hover:to-purple-700 hover:shadow-2xl hover:-translate-y-1"
+										: "opacity-50 cursor-not-allowed"
+								} relative overflow-hidden group`}
 							>
 								<span className="relative z-10 flex items-center justify-center gap-2">
 									Daftar Sekarang
-									<svg
-										aria-hidden="true"
-										className="w-5 h-5 group-hover:translate-x-1 transition-transform"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M13 7l5 5m0 0l-5 5m5-5H6"
-										/>
-									</svg>
 								</span>
 								<div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
 							</button>
@@ -220,10 +210,7 @@ const RegisterPage: React.FC = () => {
 						<div className="text-center mt-8">
 							<p className="text-white/60 text-sm">
 								Sudah punya akun?{" "}
-								<a
-									href="/login"
-									className="text-white font-semibold hover:underline underline-offset-4"
-								>
+								<a href="/login" className="text-white font-semibold hover:underline underline-offset-4">
 									Masuk di sini
 								</a>
 							</p>
@@ -232,14 +219,12 @@ const RegisterPage: React.FC = () => {
 				</div>
 			</div>
 
-			{/* Animasi loading sebagai overlay */}
-			{isLoading && (
+			{/* Loading overlay */}
+			{isPending && (
 				<div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
 					<div className="flex flex-col items-center">
 						<div className="w-16 h-16 border-4 border-t-4 border-pink-500 border-t-violet-600 rounded-full animate-spin"></div>
-						<p className="mt-4 text-white text-lg font-semibold">
-							Membuat akun...
-						</p>
+						<p className="mt-4 text-white text-lg font-semibold">Membuat akun...</p>
 					</div>
 				</div>
 			)}
