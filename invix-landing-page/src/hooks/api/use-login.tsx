@@ -10,21 +10,17 @@ export const useLoginWithGoogle = () => {
 	});
 };
 
-type LoginVariables = {
-	email: string;
-	password: string;
-};
 
 export const useLoginManual = () => {
-	return useMutation<void, Error, LoginVariables>({
-		mutationFn: async ({ email, password }) => {
-			await loginManual(email, password);
-		},
-	});
+    return useMutation({
+        mutationFn: async ({ email, password }: { email: string; password: string }) => {
+            return await loginManual(email, password);
+        },
+    });
 };
 
 export const useCheckAuth = () => {
-	return useQuery({	
+	return useQuery({
 		queryKey: ["auth"],
 		queryFn: async () => await checkAuth(),
 		retry: false,
